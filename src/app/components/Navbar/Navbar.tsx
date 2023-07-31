@@ -108,7 +108,7 @@ const Navbar = () => {
               REBOAST
             </Link>
           </div>
-          <input type="text" />
+          <input type="text" className="search-input" />
           <div className="search-icon">
             <img src="/images/search.png" alt="돋보기" />
           </div>
@@ -136,9 +136,9 @@ const Navbar = () => {
             </>
           )}
 
-          <div className="tutor" onClick={() => alert('준비중입니다.')}>
-            GPTUS 선생님 되는 방법
-          </div>
+          {/* <div className="tutor" onClick={() => alert('준비중입니다.')}>
+            REBOAST 선생님 되는 방법
+          </div> */}
         </div>
       </div>
       <nav className="navbar navbar-expand navbar-white">
@@ -163,25 +163,25 @@ const Navbar = () => {
               >
                 강의
               </Link>
-              <Link
+              {/* <Link
                 to={'/consulting'}
                 className={`nav-link ${isConsultingPage && 'selected'}`}
               >
                 상담
-              </Link>
+              </Link> */}
               {/* <Link
                 to={'/mentor'}
                 className={`nav-link ${isMentorPage && 'selected'}`}
               >
                 강사
               </Link> */}
-              <Link
+              {/* <Link
                 to="#"
                 className="nav-link"
                 onClick={() => alert('준비중입니다.')}
               >
                 커뮤니티
-              </Link>
+              </Link> */}
 
               {isLoggedIn && (
                 <Link
@@ -194,12 +194,12 @@ const Navbar = () => {
             </div>
           </div>
           <div className="nav-container-right">
-            <div className="user-guide" onClick={() => alert('준비중입니다.')}>
+            {/* <div className="user-guide" onClick={() => alert('준비중입니다.')}>
               <span>
                 <img src="/images/guide.png" alt="이용자 가이드" />
                 이용자 가이드
               </span>
-            </div>
+            </div> */}
             <div className="schedule" onClick={() => alert('준비중입니다.')}>
               <span>
                 <img src="/images/star.png" alt="내강의 일정" />

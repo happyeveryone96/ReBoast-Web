@@ -130,7 +130,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="guide">
+      {/* <div className="guide">
         <div className="category-box">
           <div className="learning-order">내게 맞는 학습 순서</div>
           <div>
@@ -158,7 +158,7 @@ const Home = () => {
             <div className="category-text">학습</div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* <Tags /> */}
 
@@ -167,7 +167,7 @@ const Home = () => {
         <div className="new-lecture-text">신규 런칭 강의</div>
         <div className="new-lecture-box">
           <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div>
-          <div className="lecture-num">1/5</div>
+          {/* <div className="lecture-num">1/5</div> */}
         </div>
         <div className="card-deck">
           <DummyCard />
@@ -205,20 +205,20 @@ const Home = () => {
         {/* </Carousel> */}
       </div>
 
-      <div className="apply-tutor">
+      {/* <div className="apply-tutor">
         <div className="apply-tutor-text">
           선생님이 되면
           <br /> <b>다양한 혜택</b>들이 기다리고 있어요
         </div>
         <div className="apply">선생님 신청하기</div>
-      </div>
+      </div> */}
 
       <div className="hot-lecture">
         <div className="hot">Hot</div>
         <div className="hot-lecture-text">인기 급상승 강의</div>
         <div className="hot-lecture-box">
           <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div>
-          <div className="lecture-num">1/5</div>
+          {/* <div className="lecture-num">1/5</div> */}
         </div>
         <div className="card-deck">
           <DummyCard />
@@ -228,7 +228,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="mentoring-board">
+      {/* <div className="mentoring-board">
         <div className="hot">Hot</div>
         <div className="mentoring-text">멘토링 게시판</div>
         <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div>
@@ -238,7 +238,7 @@ const Home = () => {
           <DummyCard />
           <DummyCard />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

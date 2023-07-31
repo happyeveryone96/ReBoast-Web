@@ -58,8 +58,38 @@
 .selected::after {
   content: '';
   position: absolute;
-  top: 45px;
+  top: 46.5px;
   width: 80%;
   height: 4px;
   background-color: #ffa800;
+}
+
+@media (max-width: 1024px) {
+  .banner-box {
+    height: 200px;
+    font-size: 4vw;
+  }
+
+  .banner-box img {
+    width: 20vw;
+  }
+
+  .banner {
+    margin: 0;
+    height: 200px;
+  }
+
+  .container {
+    height: 300px;
+  }
+
+  .tab {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-box img {
+    width: 30vw;
+  }
 }
