@@ -266,3 +266,28 @@
 .modal .loginModal .modalContents .loginEnd .noUser {
   text-decoration: underline;
 }
+
+@media (max-width: 1024px) {
+  .modal .loginModal {
+    width: 100vw;
+  }
+  .login-container input {
+    width: 80vw;
+    margin: 30px 0;
+  }
+  .modal .loginModal .modalContents .loginBtn {
+    width: 80vw;
+  }
+
+  .modal .loginModal .modalContents .socialBox .kakao {
+    width: 80vw;
+    padding: 0 30px;
+  }
+  .modal .loginModal .modalContents .socialBox .google {
+    width: 80vw;
+    padding: 0 30px;
+  }
+  .find a {
+    font-size: 10px;
+  }
+}
