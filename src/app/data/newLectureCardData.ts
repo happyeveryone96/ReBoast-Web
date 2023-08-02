@@ -31,38 +31,6 @@ const LECTURE_CARD_DATA = [
     rate: 4.4,
     tags: ['langchain', 'plusX', 'Design'],
   },
-  {
-    id: 5,
-    image: '/images/lectureSampleImage.png',
-    title: 'Card 5',
-    content: 'This is the content of card 1.',
-    rate: 5.0,
-    tags: ['langchain', 'plusX'],
-  },
-  {
-    id: 6,
-    image: '/images/lectureSampleImage.png',
-    title: 'Card 6',
-    content: 'This is the content of card 2.',
-    rate: 4.1,
-    tags: ['langchain', 'plusX', 'Design', 'Brand'],
-  },
-  {
-    id: 7,
-    image: '/images/lectureSampleImage.png',
-    title: 'Card 7',
-    content: 'This is the content of card 3.',
-    rate: 3.8,
-    tags: ['langchain', 'plusX'],
-  },
-  {
-    id: 8,
-    image: '/images/lectureSampleImage.png',
-    title: 'Card 8',
-    content: 'This is the content of card 4.',
-    rate: 2.9,
-    tags: ['langchain', 'plusX', 'BX'],
-  },
 ];
 
 export default LECTURE_CARD_DATA;

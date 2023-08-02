@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserService from 'app/services/user.service';
 import { useSelector } from 'react-redux';
 import 'app/pages/Home/Home.css';
@@ -10,10 +10,12 @@ import Col from 'react-bootstrap/Col';
 import SlideBanner from 'app/components/SlideBanner/SlideBanner';
 // import { Link } from 'react-router-dom';
 import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
+import LectureCardData from 'app/data/lectureCardData.ts';
 
 const Home = () => {
   const accessToken = localStorage.getItem('accessToken');
   const userName = localStorage.getItem('username');
+  const [data, setData] = useState([]);
 
   const { isLoggedIn } = useSelector((state) => state.auth);
 
@@ -34,66 +36,70 @@ const Home = () => {
     }
   }, [userName, accessToken, isLoggedIn]);
 
-  const cardData = [
-    {
-      id: 1,
-      image: '/images/lectureSampleImage.png',
-      title: 'Card 1',
-      content: 'This is the content of card 1.',
-    },
-    {
-      id: 2,
-      image: '/images/lectureSampleImage.png',
-      title: 'Card 2',
-      content: 'This is the content of card 2.',
-    },
-    {
-      id: 3,
-      image: '/images/lectureSampleImage.png',
-      title: 'Card 3',
-      content: 'This is the content of card 3.',
-    },
-    {
-      id: 4,
-      image: '/images/lectureSampleImage.png',
-      title: 'Card 4',
-      content: 'This is the content of card 4.',
-    },
-    {
-      id: 5,
-      image: '/images/lectureSampleImage.png',
-      title: 'Card 5',
-      content: 'This is the content of card 1.',
-    },
-    {
-      id: 6,
-      image: '/images/lectureSampleImage.png',
-      title: 'Card 6',
-      content: 'This is the content of card 2.',
-    },
-    {
-      id: 7,
-      image: '/images/lectureSampleImage.png',
-      title: 'Card 7',
-      content: 'This is the content of card 3.',
-    },
-    {
-      id: 8,
-      image: '/images/lectureSampleImage.png',
-      title: 'Card 8',
-      content: 'This is the content of card 4.',
-    },
-  ];
+  // const cardData = [
+  //   {
+  //     id: 1,
+  //     image: '/images/lectureSampleImage.png',
+  //     title: 'Card 1',
+  //     content: 'This is the content of card 1.',
+  //   },
+  //   {
+  //     id: 2,
+  //     image: '/images/lectureSampleImage.png',
+  //     title: 'Card 2',
+  //     content: 'This is the content of card 2.',
+  //   },
+  //   {
+  //     id: 3,
+  //     image: '/images/lectureSampleImage.png',
+  //     title: 'Card 3',
+  //     content: 'This is the content of card 3.',
+  //   },
+  //   {
+  //     id: 4,
+  //     image: '/images/lectureSampleImage.png',
+  //     title: 'Card 4',
+  //     content: 'This is the content of card 4.',
+  //   },
+  //   {
+  //     id: 5,
+  //     image: '/images/lectureSampleImage.png',
+  //     title: 'Card 5',
+  //     content: 'This is the content of card 1.',
+  //   },
+  //   {
+  //     id: 6,
+  //     image: '/images/lectureSampleImage.png',
+  //     title: 'Card 6',
+  //     content: 'This is the content of card 2.',
+  //   },
+  //   {
+  //     id: 7,
+  //     image: '/images/lectureSampleImage.png',
+  //     title: 'Card 7',
+  //     content: 'This is the content of card 3.',
+  //   },
+  //   {
+  //     id: 8,
+  //     image: '/images/lectureSampleImage.png',
+  //     title: 'Card 8',
+  //     content: 'This is the content of card 4.',
+  //   },
+  // ];
 
-  const chunkArray = (arr, size) => {
-    const chunkedArr = [];
-    for (let i = 0; i < arr.length; i += size) {
-      chunkedArr.push(arr.slice(i, i + size));
-    }
-    return chunkedArr;
-  };
+  // const chunkArray = (arr, size) => {
+  //   const chunkedArr = [];
+  //   for (let i = 0; i < arr.length; i += size) {
+  //     chunkedArr.push(arr.slice(i, i + size));
+  //   }
+  //   return chunkedArr;
+  // };
 
-  const slides = chunkArray(cardData, 4);
+  // const slides = chunkArray(cardData, 4);
+
+  useEffect(() => {
+    setData(LectureCardData);
+  }, []);
 
   return (
     <div className="home">
