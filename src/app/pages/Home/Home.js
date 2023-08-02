@@ -15,7 +15,7 @@ import LectureCardData from 'app/data/lectureCardData.ts';
 const Home = () => {
   const accessToken = localStorage.getItem('accessToken');
   const userName = localStorage.getItem('username');
-  const [data, setData] = useState([]);
+  const [cardData, setCardData] = useState([]);
 
   const { isLoggedIn } = useSelector((state) => state.auth);
 
@@ -98,7 +98,7 @@ const Home = () => {
   // const slides = chunkArray(cardData, 4);
 
   useEffect(() => {
-    setData(LectureCardData);
+    setCardData(LectureCardData);
   }, []);
 
   return (
@@ -176,14 +176,17 @@ const Home = () => {
           {/* <div className="lecture-num">1/5</div> */}
         </div>
         <div className="card-deck">
+          {/* <DummyCard />
           <DummyCard />
           <DummyCard />
           <DummyCard />
           <DummyCard />
           <DummyCard />
           <DummyCard />
-          <DummyCard />
-          <DummyCard />
+          <DummyCard /> */}
+          {LectureCardData.map((card) => (
+            <DummyCard key={card.id} card={card} />
+          ))}
         </div>
 
         {/* <Carousel
@@ -231,10 +234,13 @@ const Home = () => {
           {/* <div className="lecture-num">1/5</div> */}
         </div>
         <div className="card-deck">
+          {LectureCardData.map((card) => (
+            <DummyCard key={card.id} card={card} />
+          ))}
+          {/* <DummyCard />
           <DummyCard />
           <DummyCard />
-          <DummyCard />
-          <DummyCard />
+          <DummyCard /> */}
         </div>
       </div>
 

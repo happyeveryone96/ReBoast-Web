@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import UserService from 'app/services/user.service';
 import Lecture from 'app/components/Lecture/Lecture';
-import LECTURE_DATA from 'app/data/lectureData';
+import LECTURE_CARD_DATA from 'app/data/lectureCardData';
 import { useSelector } from 'react-redux';
 import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
 import 'app/pages/LecturePage/LecturePage.css';
@@ -14,7 +14,7 @@ const LecturePage = () => {
 
   const [data, setData] = useState([]);
   useEffect(() => {
-    setData(LECTURE_DATA);
+    setData(LECTURE_CARD_DATA);
   }, []);
 
   useEffect(() => {
@@ -65,18 +65,9 @@ const LecturePage = () => {
       </div>
 
       <div className="card-deck">
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
-        <DummyCard />
+        {data.map((card) => (
+          <DummyCard key={card.id} card={card} />
+        ))}
       </div>
 
       {/* <Carousel
