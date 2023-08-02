@@ -317,3 +317,11 @@
     width: 85vw;
   }
 }
+
+@media (max-width: 320px) {
+  .new-lecture,
+  .hot-lecture,
+  .mentoring-board {
+    margin: 0 10px;
+  }
+}

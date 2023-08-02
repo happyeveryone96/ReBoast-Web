@@ -68,6 +68,7 @@
   .banner-box {
     height: 200px;
     font-size: 4vw;
+    letter-spacing: normal;
   }
 
   .banner-box img {
@@ -91,5 +92,19 @@
 @media (max-width: 768px) {
   .banner-box img {
     width: 30vw;
+  }
+}
+
+@media (max-width: 320px) {
+  .tab {
+    padding: 0 20px;
+  }
+  .selected::after {
+    content: '';
+    position: absolute;
+    top: 63.5px;
+    width: 80%;
+    height: 4px;
+    background-color: #ffa800;
   }
 }
