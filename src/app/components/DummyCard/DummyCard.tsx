@@ -23,6 +23,13 @@ const DummyCard = () => {
           </p>
         </div>
       </Link>
+      <div className="tags">
+        <div className="lecture-tag">langchain</div>
+        <div className="lecture-tag">pluxX</div>
+        <div className="lecture-tag">BX</div>
+        <div className="lecture-tag">Design</div>
+        <div className="lecture-tag">Brand</div>
+      </div>
     </div>
   );
 };
