@@ -12,34 +12,24 @@ const LectureDetail = () => {
 
   return (
     <div className="article-page">
-      <div className="banner">
-        <div className="container">
-          <h1>{title}</h1>
+      <div className={css.banner}>
+        <div className={css['lecture-container']}>
           <div className={css['profile-box']}>
-            <Link to={`/profile/${authorId}`}>
-              <img
-                className={css['author-profile-img']}
-                src={authorImage}
-                alt="강사 프로필 사진"
-              />
-            </Link>
+            <img
+              className={css['author-profile-img']}
+              src={authorImage}
+              alt="강사 프로필 사진"
+            />
             <div className={css['author-box']}>
-              <Link className="author" to={`/profile/${authorId}`}>
-                {authorName}
-              </Link>
-              <div className="date">{createdAt}</div>
+              <div className={css.author}>{authorName}</div>
+              <div className={css.date}>{createdAt}</div>
             </div>
           </div>
+          <div className={css.title}>{title}</div>
         </div>
       </div>
-      <div className="container page">
-        <div className="row article-content">
-          <div className="col-xs-12">
-            <div>{desc}</div>
-          </div>
-        </div>
-        <hr />
-      </div>
+      <div className={css.desc}>{desc}</div>
+      <hr />
     </div>
   );
 };

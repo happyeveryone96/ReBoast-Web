@@ -175,11 +175,11 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
                       >
                         <span>로그인하기</span>
                       </button>
-                      <p className="text-xs-center register">
+                      <div className="register">
                         <Link to="/register" onClick={close}>
                           회원가입하기
                         </Link>
-                      </p>
+                      </div>
                     </div>
 
                     <div className="socialBox">
