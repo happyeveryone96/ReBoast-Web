@@ -237,7 +237,6 @@ const Register = () => {
             <div className="register-container">
               <div className="col-md-6 offset-md-3 col-xs-12">
                 <h2 className="text-xs-left">회원정보 입력</h2>
-
                 <FormField
                   label="이메일"
                   placeholder="이메일을 입력해주세요."

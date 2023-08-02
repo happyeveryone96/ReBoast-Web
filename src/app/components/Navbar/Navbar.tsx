@@ -163,25 +163,29 @@ const Navbar = () => {
               >
                 강의
               </Link>
-              {/* <Link
-                to={'/consulting'}
-                className={`nav-link ${isConsultingPage && 'selected'}`}
+              <Link
+                to="#"
+                className={`nav-link`}
+                onClick={() => alert('준비중입니다.')}
               >
+                {/* ${isConsultingPage && 'selected'} */}
                 상담
-              </Link> */}
-              {/* <Link
-                to={'/mentor'}
-                className={`nav-link ${isMentorPage && 'selected'}`}
+              </Link>
+              <Link
+                to="#"
+                className={'nav-link'}
+                onClick={() => alert('준비중입니다.')}
+                // ${isMentorPage && 'selected'}
               >
-                강사
-              </Link> */}
-              {/* <Link
+                멘토
+              </Link>
+              <Link
                 to="#"
                 className="nav-link"
                 onClick={() => alert('준비중입니다.')}
               >
                 커뮤니티
-              </Link> */}
+              </Link>
 
               {isLoggedIn && (
                 <Link
