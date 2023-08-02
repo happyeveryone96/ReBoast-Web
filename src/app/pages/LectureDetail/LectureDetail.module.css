@@ -1,3 +1,14 @@
+.lecture-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 80vw;
+}
+
+.banner {
+  background-color: #41a24b;
+  padding: 50px;
+}
+
 .profile-box {
   display: flex;
   align-items: center;
@@ -13,4 +24,28 @@
 
 .author-box {
   margin-left: 10px;
+}
+
+.author,
+.date {
+  color: white;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+}
+
+.desc {
+  width: 80vw;
+  margin: 30px auto;
+  max-width: 1200px;
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 25px;
+    width: 50vw;
+  }
 }

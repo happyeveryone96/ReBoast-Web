@@ -174,6 +174,10 @@ const Home = () => {
           <DummyCard />
           <DummyCard />
           <DummyCard />
+          <DummyCard />
+          <DummyCard />
+          <DummyCard />
+          <DummyCard />
         </div>
 
         {/* <Carousel

@@ -1,0 +1,22 @@
+.filter {
+  display: flex;
+  margin: 30px auto 0;
+  max-width: 1200px;
+}
+
+.newest {
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.by-popularity {
+  cursor: pointer;
+}
+
+.card-deck {
+  margin: 0 auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 0.5rem;
+}

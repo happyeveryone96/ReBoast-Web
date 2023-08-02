@@ -141,7 +141,12 @@
 }
 
 .card-deck {
+  margin: 0 auto;
   max-width: 1200px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 0.5rem;
 }
 
 .apply-tutor {
@@ -272,6 +277,13 @@
   padding-right: 3px;
 }
 
+@media (max-width: 1200px) {
+  .card-deck {
+    margin: 0 auto;
+    width: 90vw;
+  }
+}
+
 @media (max-width: 1024px) {
   .statistics {
     display: block;
@@ -292,11 +304,16 @@
     display: flexbox;
     flex-wrap: wrap;
   }
-  .card-deck {
-    margin: 0 auto;
-  }
+
   .new-lecture,
   .hot-lecture {
     margin: 0 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .card-deck {
+    margin: 0 auto;
+    width: 85vw;
   }
 }
