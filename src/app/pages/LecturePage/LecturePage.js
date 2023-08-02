@@ -3,6 +3,8 @@ import UserService from 'app/services/user.service';
 import Lecture from 'app/components/Lecture/Lecture';
 import LECTURE_DATA from 'app/data/lectureData';
 import { useSelector } from 'react-redux';
+import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
+import 'app/pages/LecturePage/LecturePage.css';
 
 const LecturePage = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -32,11 +34,82 @@ const LecturePage = () => {
     }
   }, [userName, accessToken, isLoggedIn]);
 
+  const [filter, setFilter] = useState('newest');
+
+  const filterByNewest = () => {
+    setFilter('newest');
+  };
+
+  const filterByPopularity = () => {
+    setFilter('popularity');
+  };
+
+  const isNewest = filter === 'newest';
+  const isByPopularity = filter === 'popularity';
+
   return (
     <div className="home-page">
-      {data.map((lecture) => (
+      <div className="filter">
+        <div
+          className={`newest ${isNewest && 'selected'}`}
+          onClick={filterByNewest}
+        >
+          최신순
+        </div>
+        <div
+          className={`by-popularity ${isByPopularity && 'selected'}`}
+          onClick={filterByPopularity}
+        >
+          인기순
+        </div>
+      </div>
+
+      <div className="card-deck">
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+        <DummyCard />
+      </div>
+
+      {/* <Carousel
+          nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}
+          prevIcon={<img src="/images/chevronLeft.png" alt="이전 버튼" />}
+        > */}
+      {/* {slides.map((slide, index) => (
+          <Carousel.Item key={index} className="carousel-item">
+            <Row>
+              {slide.map((card) => (
+                <Col key={card.id} md={3} className="col">
+                  <Card className="carousel-card">
+                    <Card.Img
+                      className="card-img"
+                      variant="top"
+                      src={card.image}
+                      alt={card.title}
+                    />
+                    <Card.Body className="card-body">
+                      <Card.Title>{card.title}</Card.Title>
+                      <Card.Text>{card.content}</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          </Carousel.Item>
+        ))} */}
+      {/* </Carousel> */}
+
+      {/* {data.map((lecture) => (
         <Lecture key={lecture.id} lecture={lecture} />
-      ))}
+      ))} */}
     </div>
   );
 };

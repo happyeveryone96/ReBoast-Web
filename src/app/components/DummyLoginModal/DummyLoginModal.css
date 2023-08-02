@@ -142,8 +142,9 @@
   font-family: Noto Sans KR;
   font-size: 14px;
   letter-spacing: -0.333px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   background-color: green;
+  border: 0;
 }
 
 .loginRegisterBox {
@@ -153,7 +154,8 @@
 }
 
 .register {
-  margin: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .register a {
