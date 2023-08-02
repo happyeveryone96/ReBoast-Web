@@ -85,3 +85,11 @@
   display: flex;
   align-items: center;
 }
+
+.more-tag-btn {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  color: #898989;
+  cursor: pointer;
+}
