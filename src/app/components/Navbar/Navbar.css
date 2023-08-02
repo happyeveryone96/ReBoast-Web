@@ -243,7 +243,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 560px) {
   .nav-top {
     display: block;
   }
@@ -259,6 +259,9 @@
   }
   .nav-link {
     margin-top: 10px;
+    font-size: 12px;
+  }
+  .schedule {
     font-size: 12px;
   }
 }
