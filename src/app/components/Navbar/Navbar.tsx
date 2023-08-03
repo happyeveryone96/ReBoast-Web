@@ -117,13 +117,16 @@ const Navbar = () => {
           {/* {isLoggedIn ? ( */}
           {isDummyLoggedIn ? (
             // <Link to="" className="nav-link" onClick={logOut}>
-            <Link
-              to=""
-              className="nav-link"
-              onClick={() => setIsDummyLoggedIn(false)}
-            >
-              로그아웃
-            </Link>
+            <>
+              <div className="login">User1</div>
+              <Link
+                to=""
+                className="nav-link"
+                onClick={() => setIsDummyLoggedIn(false)}
+              >
+                로그아웃
+              </Link>
+            </>
           ) : (
             <>
               <div className="login" onClick={openModal}>
