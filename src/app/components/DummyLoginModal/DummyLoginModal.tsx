@@ -63,7 +63,9 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
   };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().required('이메일을 입력해주세요.'),
+    email: Yup.string()
+      .email('이메일 형식에 맞지 않습니다.')
+      .required('이메일을 입력해주세요.'),
     password: Yup.string()
       .required('비밀번호를 입력해주세요.')
       .min(8, '비밀번호는 최소 8자리 이상 입력해주세요.')
@@ -91,21 +93,18 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
     return Object.keys(obj).length === 0;
   };
 
-  function hasEmptyString(obj: any) {
-    for (const key in obj) {
-      if (obj.prototype?.hasOwnProperty.call(key) && obj[key] === '') {
-        return true;
-      }
-    }
-    return false;
-  }
+  const hasEmptyString = (obj: any) => {
+    return Object.values(obj).some((value) => {
+      return value === '';
+    });
+  };
 
   const handleLogin = (
     formValue: { email: string; password: string },
     errors: any,
   ) => {
     // const { email, password } = formValue;
-    if (!isObjectEmpty(errors) && !hasEmptyString(formValue)) {
+    if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
       setIsDummyLoggedIn(true);
       navigate('/');
       close();
