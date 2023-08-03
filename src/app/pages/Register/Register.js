@@ -222,7 +222,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className="register-container">
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -230,7 +230,7 @@ const Register = () => {
       >
         {({ values, errors, touched }) => (
           <Form values={values}>
-            <div className="register-container">
+            <div className="register-box">
               <div className="col-md-6 offset-md-3 col-xs-12">
                 <h2 className="text-xs-left">회원정보 입력</h2>
                 <FormField

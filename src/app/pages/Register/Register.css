@@ -1,3 +1,7 @@
+.register-container {
+  margin-bottom: 350px;
+}
+
 .form-group .alert {
   width: 48vw;
   margin: 0 auto;
@@ -5,24 +9,28 @@
   max-width: 580px;
 }
 
-.register-container {
+.register-box {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 500px;
 }
 
-.register-container h2 {
+.register-box h2 {
   font-size: 30px;
   border-top: 3px solid;
   margin-top: 30px;
   padding-top: 30px;
 }
 
-.register-container .text-xs-left a {
+.register-box .text-xs-left {
+  margin-bottom: 30px;
+}
+
+.register-box .text-xs-left a {
   color: #5cb85c;
   text-decoration: none;
 }
 
-.register-container .btn {
+.register-box .btn {
   background-color: #5cb85c;
   border-color: #5cb85c;
   color: white;
@@ -34,7 +42,7 @@
 }
 
 .gender-radio input {
-  margin: 10px 10px 0;
+  margin: 10px;
 }
 
 .address {
@@ -48,7 +56,7 @@
 }
 
 @media (max-width: 768px) {
-  .register-container {
+  .register-box {
     margin: 0 20px;
   }
 }

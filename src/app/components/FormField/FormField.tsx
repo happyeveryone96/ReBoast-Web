@@ -37,7 +37,9 @@ const FormField = (props: FormFieldType) => {
 
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} className="label">
+        {label}
+      </label>
       {hasValue === undefined ? (
         <Field
           placeholder={placeholder}

@@ -190,7 +190,7 @@ const Home = () => {
           <DummyCard />
           <DummyCard />
           <DummyCard /> */}
-          {LectureCardData.map((card) => (
+          {LectureCardData.slice(0, 4).map((card) => (
             <DummyCard key={card.id} card={card} />
           ))}
         </div>
@@ -248,7 +248,7 @@ const Home = () => {
           {/* <div className="lecture-num">1/5</div> */}
         </div>
         <div className="card-deck">
-          {LectureCardData.map((card) => (
+          {LectureCardData.slice(0, 4).map((card) => (
             <DummyCard key={card.id} card={card} />
           ))}
           {/* <DummyCard />

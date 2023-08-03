@@ -1,5 +1,6 @@
 .home {
   overflow: hidden;
+  margin-bottom: 250px;
 }
 
 .banner {
@@ -143,7 +144,6 @@
 .card-deck {
   margin: 0 auto;
   max-width: 1200px;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 0.5rem;
