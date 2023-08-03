@@ -13,10 +13,6 @@
   border-color: #5cb85c;
 }
 
-.login-container input {
-  margin: 30px 0;
-}
-
 .find {
   margin-right: 30px;
   display: flex;
@@ -32,9 +28,13 @@
 }
 
 .middleLine {
+  position: relative;
+  bottom: 2px;
   margin: 0;
+  display: flex;
+  align-items: center;
   color: #8c8c8c;
-  height: 28px;
+  height: 10px;
 }
 
 .login-container h1 {
@@ -122,8 +122,7 @@
 
 .modal .loginModal .modalContents .loginMid {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 
 .modal .loginModal .modalContents .loginMid .saveId {
@@ -304,7 +303,6 @@
   }
   .login-container input {
     width: 80vw;
-    margin: 30px 0;
   }
   .modal .loginModal .modalContents .loginBtn {
     width: 80vw;
@@ -354,9 +352,6 @@
   }
   .login-container h1 {
     margin: 0;
-  }
-  .login-container input {
-    margin: 20px 0;
   }
   .register a {
     margin-bottom: 10px;

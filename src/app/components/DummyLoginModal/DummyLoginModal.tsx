@@ -118,6 +118,10 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
     }
   };
 
+  const readyAlert = () => {
+    alert('준비중입니다.');
+  };
+
   return (
     <>
       {isOpen ? (
@@ -153,9 +157,9 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
                     </div>
 
                     <div className="loginMid">
-                      <label className="saveId" htmlFor="hint">
+                      {/* <label className="saveId" htmlFor="hint">
                         <input type="checkbox" id="saveId" /> 아이디 저장
-                      </label>
+                      </label> */}
                       <div className="text-xs-center find">
                         <Link to="/findId" onClick={close}>
                           아이디 찾기
@@ -187,7 +191,7 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
                         <div className="socialText">간편 SNS 로그인하기</div>
                         <div className="line"></div>
                       </div>
-                      <div className="kakao">
+                      <div className="kakao" onClick={readyAlert}>
                         <img
                           className="kakaoLogo"
                           src="/images/kakao.png"
@@ -195,7 +199,7 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
                         />
                         <div className="kakaoText">카카오로 시작하기</div>
                       </div>
-                      <div className="google">
+                      <div className="google" onClick={readyAlert}>
                         <img
                           className="googleLogo"
                           src="/images/google.png"
