@@ -104,19 +104,19 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
     formValue: { email: string; password: string },
     errors: any,
   ) => {
-    setIsDummyLoggedIn(true);
-    navigate('/');
-    close();
     // const { email, password } = formValue;
-    // if (!isObjectEmpty(errors) && !hasEmptyString(formValue)) {
-    //   dispatch(login({ email, password }))
-    //     .unwrap()
-    //     .then(() => {
-    //       navigate('/');
-    //       close();
-    //     })
-    //     .catch((err: any) => console.log(err));
-    // }
+    if (!isObjectEmpty(errors) && !hasEmptyString(formValue)) {
+      setIsDummyLoggedIn(true);
+      navigate('/');
+      close();
+      // dispatch(login({ email, password }))
+      //   .unwrap()
+      //   .then(() => {
+      //     navigate('/');
+      //     close();
+      //   })
+      //   .catch((err: any) => console.log(err));
+    }
   };
 
   return (
