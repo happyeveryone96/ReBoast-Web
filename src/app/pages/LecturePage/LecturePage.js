@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
 import 'app/pages/LecturePage/LecturePage.css';
 import CategoryMenuBar from 'app/components/CategoryMenuBar/CategoryMenuBar.tsx';
+import CategorySideBar from 'app/components/CategorySideBar/CategorySideBar.tsx';
 
 const LecturePage = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -57,6 +58,7 @@ const LecturePage = () => {
 
   return (
     <div className="home-page">
+      <CategorySideBar />
       <CategoryMenuBar />
       <div className="filter">
         <div
@@ -79,7 +81,6 @@ const LecturePage = () => {
           조회순
         </div>
       </div>
-
       <div className="card-deck">
         {isByPopularity &&
           [...data]
@@ -94,7 +95,6 @@ const LecturePage = () => {
             .sort((a, b) => b.viewCount - a.viewCount)
             .map((card) => <DummyCard key={card.id} card={card} />)}
       </div>
-
       {/* <Carousel
           nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}
           prevIcon={<img src="/images/chevronLeft.png" alt="이전 버튼" />}
@@ -122,7 +122,6 @@ const LecturePage = () => {
           </Carousel.Item>
         ))} */}
       {/* </Carousel> */}
-
       {/* {data.map((lecture) => (
         <Lecture key={lecture.id} lecture={lecture} />
       ))} */}

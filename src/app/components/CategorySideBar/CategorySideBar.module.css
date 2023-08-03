@@ -1,0 +1,50 @@
+.container {
+  position: absolute;
+  left: 40px;
+}
+
+.all {
+  display: flex;
+  padding: 14.59px 117.07px 14.6px 30.09px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e4e4e4;
+  background: #fafafa;
+}
+
+.founded,
+.employment,
+.hobby,
+.learning {
+  display: flex;
+  padding: 13.6px 13.15px 14.18px 30.09px;
+  align-items: center;
+  justify-content: space-between;
+  border-right: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  border-left: 1px solid #e4e4e4;
+  background: #fafafa;
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+.all-category {
+  display: flex;
+  padding: 7px 149.66px 9.19px 17px;
+  align-items: center;
+  border-right: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  border-left: 1px solid #e4e4e4;
+  background: #efefef;
+}
+.sub-category {
+  display: flex;
+  padding: 7px 131.66px 9.19px 17px;
+  align-items: center;
+  border-right: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  border-left: 1px solid #e4e4e4;
+  background: #fff;
+}
