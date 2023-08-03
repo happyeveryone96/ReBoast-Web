@@ -34,7 +34,7 @@ const LecturePage = () => {
     }
   }, [userName, accessToken, isLoggedIn]);
 
-  const [filter, setFilter] = useState('newest');
+  const [filter, setFilter] = useState('popularity');
 
   const filterByNewest = () => {
     setFilter('newest');
@@ -44,30 +44,53 @@ const LecturePage = () => {
     setFilter('popularity');
   };
 
+  const filterByView = () => {
+    setFilter('view');
+  };
+
   const isNewest = filter === 'newest';
   const isByPopularity = filter === 'popularity';
+  const isByView = filter === 'view';
+
+  const convertToDate = (dateString) => new Date(dateString);
 
   return (
     <div className="home-page">
       <div className="filter">
-        <div
-          className={`newest ${isNewest && 'selected'}`}
-          onClick={filterByNewest}
-        >
-          최신순
-        </div>
         <div
           className={`by-popularity ${isByPopularity && 'selected'}`}
           onClick={filterByPopularity}
         >
           인기순
         </div>
+        <div
+          className={`newest ${isNewest && 'selected'}`}
+          onClick={filterByNewest}
+        >
+          최신순
+        </div>
+
+        <div
+          className={`by-view ${isByView && 'selected'}`}
+          onClick={filterByView}
+        >
+          조회순
+        </div>
       </div>
 
       <div className="card-deck">
-        {data.map((card) => (
-          <DummyCard key={card.id} card={card} />
-        ))}
+        {isByPopularity &&
+          [...data]
+            .sort((a, b) => b.rate - a.rate)
+            .map((card) => <DummyCard key={card.id} card={card} />)}
+        {isNewest &&
+          [...data]
+            .sort((a, b) => convertToDate(b.date) - convertToDate(a.date))
+            .map((card) => <DummyCard key={card.id} card={card} />)}
+        {isByView &&
+          [...data]
+            .sort((a, b) => b.viewCount - a.viewCount)
+            .map((card) => <DummyCard key={card.id} card={card} />)}
       </div>
 
       {/* <Carousel

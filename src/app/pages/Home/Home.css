@@ -210,8 +210,16 @@
 
 .new-lecture-box,
 .hot-lecture-box {
+  position: relative;
   display: flex;
   justify-content: space-between;
+}
+
+.arrow-right {
+  position: absolute;
+  left: 220px;
+  bottom: 30px;
+  cursor: pointer;
 }
 
 .last-week-best {
