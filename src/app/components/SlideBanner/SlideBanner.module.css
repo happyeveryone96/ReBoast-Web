@@ -48,6 +48,7 @@
   font-weight: 500;
   line-height: 34px;
   letter-spacing: -0.96px;
+  cursor: pointer;
 }
 
 .selected {

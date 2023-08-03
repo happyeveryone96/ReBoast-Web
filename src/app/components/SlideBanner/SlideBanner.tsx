@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -6,6 +6,14 @@ import css from 'app/components/SlideBanner/SlideBanner.module.css';
 
 const SlideBanner: React.FC = () => {
   const [activeSlide, setActiveSlide] = useState(0);
+
+  const sliderRef = useRef<Slider>(null);
+
+  const goToSlide = (slideIndex: number) => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(slideIndex);
+    }
+  };
 
   const settings = {
     autoplay: true,
@@ -26,7 +34,7 @@ const SlideBanner: React.FC = () => {
 
   return (
     <div className={css['slider-container']}>
-      <Slider {...settings}>
+      <Slider {...settings} ref={sliderRef}>
         <div className={css['banner']}>
           <div className={css['container']}>
             <div className={css['banner-box']}>
@@ -62,13 +70,22 @@ const SlideBanner: React.FC = () => {
         </div>
       </Slider>
       <div className={css['sub-nav']}>
-        <div className={`${css['tab']} ${firstTab && css['selected']}`}>
+        <div
+          className={`${css['tab']} ${firstTab && css['selected']}`}
+          onClick={() => goToSlide(0)}
+        >
           생애주기 별 맞춤형 교육과정
         </div>
-        <div className={`${css['tab']} ${secondTab && css['selected']}`}>
+        <div
+          className={`${css['tab']} ${secondTab && css['selected']}`}
+          onClick={() => goToSlide(1)}
+        >
           친구들과 함께 즐기는 놀이터
         </div>
-        <div className={`${css['tab']} ${thirdTab && css['selected']}`}>
+        <div
+          className={`${css['tab']} ${thirdTab && css['selected']}`}
+          onClick={() => goToSlide(2)}
+        >
           전문가의 트레이닝 및 코칭
         </div>
       </div>
