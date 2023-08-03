@@ -5,6 +5,7 @@ import LECTURE_CARD_DATA from 'app/data/lectureCardData';
 import { useSelector } from 'react-redux';
 import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
 import 'app/pages/LecturePage/LecturePage.css';
+import CategoryMenuBar from 'app/components/CategoryMenuBar/CategoryMenuBar.tsx';
 
 const LecturePage = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -56,6 +57,7 @@ const LecturePage = () => {
 
   return (
     <div className="home-page">
+      <CategoryMenuBar />
       <div className="filter">
         <div
           className={`by-popularity ${isByPopularity && 'selected'}`}
