@@ -270,8 +270,37 @@
 }
 
 @media (max-width: 1024px) {
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    height: 60px;
+    margin: 0;
+  }
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    display: none;
+  }
+  .modal .loginModal {
+    height: 100vh;
+  }
+  .login-container h1 {
+    margin: 0;
+  }
+  .invalid-feedback {
+    height: 0px;
+    margin: 0;
+  }
+  .loginRegisterBox {
+    margin-top: 0px;
+  }
+  .register a {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
   .modal .loginModal {
     width: 100vw;
+    height: 100vh;
+  }
+  .login-container {
+    width: 80vw;
   }
   .login-container input {
     width: 80vw;
@@ -291,5 +320,61 @@
   }
   .find a {
     font-size: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .invalid-feedback {
+    height: 0px;
+    margin: 0;
+  }
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    height: 60px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .invalid-feedback {
+    height: 0px;
+    margin: 0;
+  }
+  .loginRegisterBox {
+    margin-top: 0px;
+  }
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    height: 60px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    display: none;
+  }
+  .login-container h1 {
+    margin: 0;
+  }
+  .login-container input {
+    margin: 20px 0;
+  }
+  .register a {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 280px) {
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    display: none;
+  }
+  .register a {
+    margin-bottom: 30px;
+  }
+  .loginMid {
+    display: flex;
+    flex-direction: column;
+  }
+  .saveId {
+    height: 20px;
   }
 }
