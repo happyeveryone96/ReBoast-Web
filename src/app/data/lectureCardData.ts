@@ -6,6 +6,8 @@ const LECTURE_CARD_DATA = [
     content: 'This is the content of card 1.',
     rate: 4.0,
     tags: ['langchain', 'plusX', 'BX', 'Design', 'Brand'],
+    viewCount: 1200,
+    date: '2023-08-03',
   },
   {
     id: 2,
@@ -14,6 +16,8 @@ const LECTURE_CARD_DATA = [
     content: 'This is the content of card 2.',
     rate: 3.0,
     tags: ['langchain', 'plusX', 'BX'],
+    viewCount: 1100,
+    date: '2023-08-02',
   },
   {
     id: 3,
@@ -22,6 +26,8 @@ const LECTURE_CARD_DATA = [
     content: 'This is the content of card 3.',
     rate: 3.2,
     tags: ['langchain', 'plusX'],
+    viewCount: 2000,
+    date: '2023-08-03',
   },
   {
     id: 4,
@@ -30,6 +36,8 @@ const LECTURE_CARD_DATA = [
     content: 'This is the content of card 4.',
     rate: 4.4,
     tags: ['langchain', 'plusX', 'Design'],
+    viewCount: 3000,
+    date: '2023-08-01',
   },
   {
     id: 5,
@@ -38,6 +46,8 @@ const LECTURE_CARD_DATA = [
     content: 'This is the content of card 1.',
     rate: 5.0,
     tags: ['langchain', 'plusX'],
+    viewCount: 1000,
+    date: '2023-07-14',
   },
   {
     id: 6,
@@ -46,6 +56,8 @@ const LECTURE_CARD_DATA = [
     content: 'This is the content of card 2.',
     rate: 4.1,
     tags: ['langchain', 'plusX', 'Design', 'Brand'],
+    viewCount: 1400,
+    date: '2023-07-11',
   },
   {
     id: 7,
@@ -54,6 +66,8 @@ const LECTURE_CARD_DATA = [
     content: 'This is the content of card 3.',
     rate: 3.8,
     tags: ['langchain', 'plusX'],
+    viewCount: 3400,
+    date: '2023-07-12',
   },
   {
     id: 8,
@@ -62,6 +76,8 @@ const LECTURE_CARD_DATA = [
     content: 'This is the content of card 4.',
     rate: 2.9,
     tags: ['langchain', 'plusX', 'BX'],
+    viewCount: 500,
+    date: '2023-07-01',
   },
 ];
 
