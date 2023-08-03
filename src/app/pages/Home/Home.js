@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SlideBanner from 'app/components/SlideBanner/SlideBanner';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
 import LectureCardData from 'app/data/lectureCardData.ts';
 
@@ -173,7 +173,13 @@ const Home = () => {
         <div className="new-lecture-text">신규 런칭 강의</div>
         <div className="new-lecture-box">
           <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div>
-          {/* <div className="lecture-num">1/5</div> */}
+          <Link to="/lecture">
+            <img
+              className="arrow-right"
+              src="/images/arrowRight.png"
+              alt="강의 리스트 페이지로 이동하는 버튼"
+            />
+          </Link>
         </div>
         <div className="card-deck">
           {/* <DummyCard />
@@ -231,6 +237,14 @@ const Home = () => {
         <div className="hot-lecture-text">인기 급상승 강의</div>
         <div className="hot-lecture-box">
           <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div>
+          <Link to="/lecture">
+            <img
+              className="arrow-right"
+              src="/images/arrowRight.png"
+              alt="강의 리스트 페이지로 이동하는 버튼"
+            />
+          </Link>
+
           {/* <div className="lecture-num">1/5</div> */}
         </div>
         <div className="card-deck">
