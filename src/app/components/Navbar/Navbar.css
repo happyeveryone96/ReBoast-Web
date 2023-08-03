@@ -43,6 +43,11 @@
   cursor: pointer;
 }
 
+.star {
+  display: flex;
+  align-items: center;
+}
+
 .user-guide img {
   margin: 7px;
 }
