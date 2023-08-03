@@ -208,7 +208,7 @@ const Navbar = () => {
               </span>
             </div> */}
             <div className="schedule" onClick={() => alert('준비중입니다.')}>
-              <span>
+              <span className="star">
                 <img src="/images/star.png" alt="내강의 일정" />
                 내강의 일정
               </span>
