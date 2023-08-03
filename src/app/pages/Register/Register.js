@@ -185,38 +185,30 @@ const Register = () => {
   });
 
   const isObjectEmpty = (obj) => {
+    delete obj.address;
     return Object.keys(obj).length === 0;
   };
 
-  function hasEmptyString(obj) {
-    for (let key in obj) {
-      if (
-        key !== 'address' &&
-        obj.prototype?.hasOwnProperty.call(key) &&
-        obj[key] === ''
-      ) {
-        return true;
-      }
-    }
-    return false;
-  }
+  const hasEmptyString = (obj) => {
+    if (address === '') return true;
+    delete obj.address;
+    return Object.values(obj).some((value) => {
+      return value === '';
+    });
+  };
 
   const handleRegister = (values, errors) => {
-    alert('회원가입이 완료되었습니다.');
-    navigate('/');
-    window.scrollTo(0, 0);
-    // const { nickname, email, password } = values;
-
-    // if (!isObjectEmpty(errors) && !hasEmptyString(values)) {
-    //   alert('회원가입이 완료되었습니다.');
-    //   navigate('/');
-    // dispatch(register({ nickname, email, password }))
-    //   .unwrap()
-    //   .then(() => {
-    //     navigate('/');
-    //   })
-    //   .catch((err) => console.log(err));
-    // }
+    if (isObjectEmpty(errors) && !hasEmptyString(values)) {
+      alert('회원가입이 완료되었습니다.');
+      navigate('/');
+      window.scrollTo(0, 0);
+      // dispatch(register({ nickname, email, password }))
+      //   .unwrap()
+      //   .then(() => {
+      //     navigate('/');
+      //   })
+      //   .catch((err) => console.log(err));
+    }
   };
 
   const handleButtonClick = () => {
@@ -231,7 +223,11 @@ const Register = () => {
 
   return (
     <div>
-      <Formik initialValues={initialValues} validationSchema={validationSchema}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleRegister}
+      >
         {({ values, errors, touched }) => (
           <Form values={values}>
             <div className="register-container">
