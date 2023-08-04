@@ -59,7 +59,7 @@ const LecturePage = () => {
   return (
     <div className="home-page">
       <CategorySideBar />
-      <CategoryMenuBar />
+      {/* <CategoryMenuBar /> */}
       <div className="filter">
         <div
           className={`by-popularity ${isByPopularity && 'selected'}`}
