@@ -38,7 +38,7 @@ const LecturePage = () => {
   }, [userName, accessToken, isLoggedIn]);
 
   const { state } = useLocation();
-  const { filter: stateFilter } = state;
+  const stateFilter = state?.filter;
 
   const [filter, setFilter] = useState('popularity');
 
