@@ -42,6 +42,10 @@ const LectureDetail = () => {
     alert('현재 개발 중입니다');
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // const { authorId, authorImage, title, desc, authorName, createdAt } = data;
 
   return (
