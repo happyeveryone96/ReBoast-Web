@@ -17,6 +17,34 @@ const Footer = () => {
     setSite(e.target.value);
   };
 
+  const handleExternalLinkClick = () => {
+    // Update the URL without refreshing the page
+    alert(1);
+    window.history.pushState(
+      null,
+      'https://www.naver.com',
+      'https://www.naver.com',
+    );
+
+    // Trigger a navigation event
+    window.dispatchEvent(new Event('popstate'));
+  };
+
+  const navigateToExternalLink = (url: string) => {
+    window.location.href = url;
+  };
+
+  const handleClick = () => {
+    const newUrl = 'https://re-boast-web.vercel.app/';
+
+    // Use the History API to update the URL without refreshing the page
+    window.history.pushState(null, '', newUrl);
+
+    // Dispatch a new PopStateEvent to let React Router (if used) know about the change
+    const popStateEvent = new PopStateEvent('popstate');
+    window.dispatchEvent(popStateEvent);
+  };
+
   return (
     <footer className="footer">
       <div className="footerWrap">
@@ -44,27 +72,24 @@ const Footer = () => {
             </div>
           </div>
           <div className="footer_right">
-            <div className="site_list">
-              <select id="fruit" name="fruit" onChange={onChangeSite}>
-                <option value="https://re-boast-web.vercel.app/">
-                  관련사이트
-                </option>
-                <option value="http://www.dataus.co.kr/">DataUs</option>
-              </select>
-              <button type="button" onClick={() => goToSite(site)}>
-                이동
-              </button>
-            </div>
             <div className="logo_list">
-              <a href="http://www.dataus.co.kr/">
+              <Link
+                to="#"
+                onClick={() =>
+                  navigateToExternalLink('http://www.dataus.co.kr/')
+                }
+              >
                 <img
                   src="https://github.com/yoonhyochang/yoonhyochang/blob/main/%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%8A%A4.png?raw=true"
-                  alt=""
+                  alt="dataus"
                 />
-              </a>
-              <a href="https://re-boast-web.vercel.app/">
-                <img src="https://github.com/yoonhyochang/yoonhyochang/blob/main/%EB%A6%AC%EB%B6%80%EC%8A%A4%ED%8A%B8.png?raw=true" />
-              </a>
+              </Link>
+              <Link to="#" onClick={handleClick}>
+                <img
+                  src="https://github.com/yoonhyochang/yoonhyochang/blob/main/%EB%A6%AC%EB%B6%80%EC%8A%A4%ED%8A%B8.png?raw=true"
+                  alt="reboast"
+                />
+              </Link>
             </div>
           </div>
         </div>

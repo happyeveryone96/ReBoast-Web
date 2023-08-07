@@ -129,12 +129,19 @@ table {
   border-spacing: 0;
 }
 
+.footer {
+  background-color: white;
+  border-top: 2px solid #dedede;
+  margin-bottom: 30px;
+}
+
 .footerWrap {
   max-width: 1200px;
   width: 100%;
-  border-top: 2px solid #dedede;
+
   padding-top: 2rem;
   margin: 0 auto;
+  background-color: white;
 }
 .footerWrap .footer_inner {
   display: flex;
