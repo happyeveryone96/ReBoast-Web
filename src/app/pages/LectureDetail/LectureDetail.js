@@ -26,13 +26,13 @@ const LectureDetail = () => {
     try {
       if (navigator.clipboard !== undefined) {
         await navigator.clipboard.writeText(
-          `https://re-boast-web.vercel.app/${pathname}`,
+          `https://re-boast-web.vercel.app${pathname}`,
         );
         alert('클립보드에 링크가 복사되었어요.');
         return;
       }
-      document.body.execCommand(`https://re-boast-web.vercel.app/${pathname}`);
-      alert('주소가 복사되었습니다!');
+      document.body.execCommand(`https://re-boast-web.vercel.app${pathname}`);
+      alert('클립보드에 링크가 복사되었어요.');
     } catch (err) {
       console.log(err);
     }
