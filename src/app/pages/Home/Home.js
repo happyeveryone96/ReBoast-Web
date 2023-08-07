@@ -173,7 +173,7 @@ const Home = () => {
         <div className="new-lecture-text">신규 런칭 강의</div>
         <div className="new-lecture-box">
           <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div>
-          <Link to="/lecture">
+          <Link to={'/lecture'} state={{ filter: 'new' }}>
             <img
               className="arrow-right"
               src="/images/arrowRight.png"
@@ -237,7 +237,7 @@ const Home = () => {
         <div className="hot-lecture-text">인기 급상승 강의</div>
         <div className="hot-lecture-box">
           <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div>
-          <Link to="/lecture">
+          <Link to={'/lecture'} state={{ filter: 'hot' }}>
             <img
               className="arrow-right"
               src="/images/arrowRight.png"
