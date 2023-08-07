@@ -3,6 +3,7 @@ import UserService from 'app/services/user.service';
 import Lecture from 'app/components/Lecture/Lecture';
 import LECTURE_CARD_DATA from 'app/data/lectureCardData';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
 import 'app/pages/LecturePage/LecturePage.css';
 import CategoryMenuBar from 'app/components/CategoryMenuBar/CategoryMenuBar.tsx';
@@ -36,6 +37,9 @@ const LecturePage = () => {
     }
   }, [userName, accessToken, isLoggedIn]);
 
+  const { state } = useLocation();
+  const { filter: stateFilter } = state;
+
   const [filter, setFilter] = useState('popularity');
 
   const filterByNewest = () => {
@@ -55,6 +59,13 @@ const LecturePage = () => {
   const isByView = filter === 'view';
 
   const convertToDate = (dateString) => new Date(dateString);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (stateFilter === 'new') {
+      setFilter('newest');
+    }
+  }, []);
 
   return (
     <div className="home-page">
