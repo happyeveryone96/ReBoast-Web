@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LECTURE_DETAIL_DATA from 'app/data/lectureDetailData';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import 'app/pages/LectureDetail/LectureDetail.css';
 
 const LectureDetail = () => {
@@ -8,6 +8,40 @@ const LectureDetail = () => {
   useEffect(() => {
     setData(LECTURE_DETAIL_DATA);
   }, []);
+
+  const [likeNum, setLikeNum] = useState(0);
+  const isLike = likeNum === 1;
+
+  const toggleLike = () => {
+    if (likeNum === 0) {
+      setLikeNum(1);
+    } else {
+      setLikeNum(0);
+    }
+  };
+
+  const { pathname } = useLocation();
+
+  const handleCopyClipBoard = async () => {
+    try {
+      if (navigator.clipboard !== undefined) {
+        await navigator.clipboard.writeText(
+          `https://re-boast-web.vercel.app/${pathname}`,
+        );
+        alert('클립보드에 링크가 복사되었어요.');
+        return;
+      }
+      document.body.execCommand(`https://re-boast-web.vercel.app/${pathname}`);
+      alert('주소가 복사되었습니다!');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const readyAlert = () => {
+    alert('현재 개발 중입니다');
+  };
+
   // const { authorId, authorImage, title, desc, authorName, createdAt } = data;
 
   return (
@@ -35,15 +69,17 @@ const LectureDetail = () => {
     <div className="edu_box">
       <div className="edu_wrap">
         <div className="quick_box">
-          <button className="btn_r--sd text_icon">
+          <button className="btn_r--sd text_icon" onClick={readyAlert}>
             <span className="material-icons icon_g"></span>
             일정 등록하기
           </button>
-          <button className="btn_r--sd mono_icon">
+          <button className="btn_r--sd mono_icon" onClick={handleCopyClipBoard}>
             <span className="material-icons">share</span>
           </button>
-          <button className="btn_r--sd mono_icon">
-            <span className="material-icons q_active">grade</span>
+          <button className={`like-btn mono_icon`} onClick={toggleLike}>
+            <span className={`material-icons ${isLike ? 'q_active' : null}`}>
+              grade
+            </span>
           </button>
         </div>
         <div className="tittle">
@@ -51,7 +87,7 @@ const LectureDetail = () => {
           <div className="text_box">
             <div className="tit_top">
               <p className="made_name"> 백기선</p>
-              <p className="user_visitor"> 맘에 들어요👍 + 9,999 </p>
+              <p className="user_visitor"> 맘에 들어요👍 + {likeNum} </p>
             </div>
             <div className="tit_middle">
               <h1>
