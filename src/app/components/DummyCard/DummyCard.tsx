@@ -20,7 +20,7 @@ const DummyCard = (props: CardType) => {
   const moreTagsNum = tags.length - 2;
 
   return (
-    <div className="card">
+    <div className="card" title={title}>
       <Link to={`/lecture/${id}`} className="preview-link">
         <img src={image} className="card-img-top" alt="강의 샘플 이미지" />
         <div className="card-body">
