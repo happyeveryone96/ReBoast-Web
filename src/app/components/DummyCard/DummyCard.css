@@ -93,3 +93,9 @@
   color: #898989;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .preview-link {
+    width: 80vw;
+  }
+}
