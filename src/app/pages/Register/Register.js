@@ -198,6 +198,32 @@ const Register = () => {
   };
 
   const handleRegister = (values, errors) => {
+    if (hasEmptyString(values)) {
+      alert('모든 회원 정보를 입력해주세요.');
+      return;
+    }
+    if (!isObjectEmpty(errors)) {
+      const errList = Object.keys(errors).map((err) => {
+        if (err === 'email') {
+          return '이메일';
+        } else if (err === 'nickname') {
+          return '닉네임';
+        } else if (err === 'password') {
+          return '패스워드';
+        } else if (err === 'passwordCheck') {
+          return '비밀번호 확인';
+        } else if (err === 'phoneNumber') {
+          return '휴대폰 번호';
+        } else if (err === 'birthDate') {
+          return '생년월일';
+        } else if (err === 'gender') {
+          return '성별';
+        } else if (err === 'address') {
+          return '주소';
+        }
+      });
+      alert('입력된 회원 정보를 확인해주세요.\n' + errList);
+    }
     if (isObjectEmpty(errors) && !hasEmptyString(values)) {
       alert('회원가입이 완료되었습니다.');
       navigate('/');
