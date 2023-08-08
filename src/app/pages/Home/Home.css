@@ -285,6 +285,16 @@
   padding-right: 3px;
 }
 
+/* (1025px - 1234px) */
+/* @media (min-width: 30em) and (orientation: landscape) { */
+@media (max-width: 1234px) and (min-width: 1025px) {
+  .statistics,
+  .new-lecture,
+  .hot-lecture {
+    margin: 0 30px;
+  }
+}
+
 @media (max-width: 1200px) {
   .card-deck {
     margin: 0 auto;
