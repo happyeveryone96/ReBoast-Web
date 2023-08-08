@@ -205,3 +205,22 @@ table {
   width: 100px;
   height: 100px;
 }
+
+@media (max-width: 1300px) {
+  .footerWrap .footer_inner {
+    margin: 0 100px;
+  }
+}
+
+@media (max-width: 800px) {
+  .footerWrap .footer_inner {
+    display: block;
+    text-align: center;
+    margin: 0 30px;
+  }
+  .logo_list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 30px;
+  }
+}
