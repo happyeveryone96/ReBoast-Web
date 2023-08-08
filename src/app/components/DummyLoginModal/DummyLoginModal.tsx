@@ -109,7 +109,6 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
     if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
       setEmail(email);
       setIsDummyLoggedIn(true);
-      navigate('/');
       close();
       // dispatch(login({ email, password }))
       //   .unwrap()
