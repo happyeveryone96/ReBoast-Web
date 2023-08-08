@@ -122,17 +122,23 @@
 
 .modal .loginModal .modalContents .loginMid {
   display: flex;
-  justify-content: center;
+
+  justify-content: space-between;
 }
 
 .modal .loginModal .modalContents .loginMid .saveId {
   font-size: 14px;
   position: relative;
-  left: 25px;
+  left: 30px;
   color: #8d8d8d;
   line-height: 3;
   font-family: Noto Sans KR;
   font-weight: 500;
+}
+
+.modal .loginModal .modalContents .loginMid #saveId {
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .modal .loginModal .modalContents .loginBtn {
@@ -276,9 +282,6 @@
   .modal .loginModal .modalContents .socialBox .socialHeader {
     display: none;
   }
-  .modal .loginModal {
-    /* height: 100vh; */
-  }
   .login-container h1 {
     margin: 0;
   }
@@ -296,7 +299,6 @@
 @media (max-width: 767px) {
   .modal .loginModal {
     width: 100vw;
-    /* height: 100vh; */
   }
   .login-container {
     width: 80vw;

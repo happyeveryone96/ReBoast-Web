@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Field, ErrorMessage } from 'formik';
 import 'app/components/FormField/FormField.css';
+
+type SetFieldValue = (
+  field: string,
+  value: any,
+  shouldValidate?: boolean,
+) => void;
 
 interface FormFieldType {
   label?: string;
@@ -12,6 +18,8 @@ interface FormFieldType {
   disabled?: boolean;
   as?: string;
   value?: string;
+  savedEmail?: string;
+  setFieldValue?: SetFieldValue;
 }
 
 const FormField = (props: FormFieldType) => {
@@ -25,6 +33,8 @@ const FormField = (props: FormFieldType) => {
     disabled,
     as,
     value,
+    savedEmail,
+    setFieldValue,
   } = props;
   const isInvalid = errors[name] && touched[name];
   const hasValue = value && value.trim().length > 0;
@@ -34,6 +44,14 @@ const FormField = (props: FormFieldType) => {
       event.preventDefault();
     }
   };
+
+  const savedId = localStorage.getItem('savedEmail');
+
+  useEffect(() => {
+    if (setFieldValue && savedId) {
+      setFieldValue('email', savedId);
+    }
+  }, []);
 
   return (
     <div>
