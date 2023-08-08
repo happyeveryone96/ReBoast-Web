@@ -13,6 +13,7 @@ import { AppDispatch } from 'app/store';
 interface LoginModalProps {
   isOpen: boolean;
   setIsDummyLoggedIn: Dispatch<SetStateAction<boolean>>;
+  setEmail: Dispatch<SetStateAction<string>>;
   close: () => void;
 }
 
@@ -26,6 +27,7 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
   isOpen,
   close,
   setIsDummyLoggedIn,
+  setEmail,
 }) => {
   const navigate = useNavigate();
 
@@ -103,8 +105,9 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
     formValue: { email: string; password: string },
     errors: any,
   ) => {
-    // const { email, password } = formValue;
+    const { email, password } = formValue;
     if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
+      setEmail(email);
       setIsDummyLoggedIn(true);
       navigate('/');
       close();
