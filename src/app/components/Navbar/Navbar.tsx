@@ -31,6 +31,7 @@ const Navbar = () => {
 
   const [isDummyLoggedIn, setIsDummyLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
+  const [savedEmail, setSavedEmail] = useState('');
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -102,6 +103,7 @@ const Navbar = () => {
         close={closeModal}
         setIsDummyLoggedIn={setIsDummyLoggedIn}
         setEmail={setEmail}
+        setSavedEmail={setSavedEmail}
       />
       <div className="nav-top">
         <div className="nav-top-left">
