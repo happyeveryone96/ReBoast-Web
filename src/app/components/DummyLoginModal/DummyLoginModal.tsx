@@ -1,4 +1,10 @@
-import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  ChangeEvent,
+  useState,
+} from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './DummyLoginModal.css';
 import { clearMessage } from 'app/slices/message';
@@ -14,6 +20,7 @@ interface LoginModalProps {
   isOpen: boolean;
   setIsDummyLoggedIn: Dispatch<SetStateAction<boolean>>;
   setEmail: Dispatch<SetStateAction<string>>;
+  setSavedEmail: Dispatch<SetStateAction<string>>;
   close: () => void;
 }
 
@@ -28,6 +35,7 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
   close,
   setIsDummyLoggedIn,
   setEmail,
+  setSavedEmail,
 }) => {
   const navigate = useNavigate();
 
@@ -107,11 +115,16 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
     });
   };
 
+  const [saveId, setSaveId] = useState(false);
+
   const handleLogin = (
     formValue: { email: string; password: string },
     errors: any,
   ) => {
     const { email, password } = formValue;
+    console.log(email);
+    if (saveId === true) localStorage.setItem('savedEmail', email);
+
     if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
       setEmail(email);
       setIsDummyLoggedIn(true);
@@ -130,6 +143,12 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
     alert('준비중입니다.');
   };
 
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSaveId(event.target.checked);
+  };
+
+  const savedEmail = localStorage.getItem('savedEmail') || '';
+
   return (
     <>
       {isOpen ? (
@@ -144,7 +163,7 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
                 validationSchema={validationSchema}
                 onSubmit={handleLogin}
               >
-                {({ values, errors, touched }) => (
+                {({ values, errors, touched, setFieldValue }) => (
                   <Form>
                     <div className="login-container">
                       <h1>로그인하기</h1>
@@ -154,6 +173,8 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
                         type="text"
                         errors={errors}
                         touched={touched}
+                        savedEmail={savedEmail}
+                        setFieldValue={setFieldValue}
                       />
                       <FormField
                         placeholder="비밀번호"
@@ -165,9 +186,14 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
                     </div>
 
                     <div className="loginMid">
-                      {/* <label className="saveId" htmlFor="hint">
-                        <input type="checkbox" id="saveId" /> 아이디 저장
-                      </label> */}
+                      <label className="saveId" htmlFor="hint">
+                        <input
+                          type="checkbox"
+                          id="saveId"
+                          onChange={handleChange}
+                        />
+                        아이디 저장
+                      </label>
                       <div className="text-xs-center find">
                         <Link to="/findId" onClick={close}>
                           아이디 찾기
