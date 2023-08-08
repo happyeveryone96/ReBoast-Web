@@ -301,7 +301,7 @@ const Register = () => {
                   />
                   <FormField
                     label="휴대폰 번호"
-                    placeholder="휴대폰 번호을 입력해주세요."
+                    placeholder="‘-’ 없이 입력해주세요"
                     name="phoneNumber"
                     type="text"
                     errors={errors}
