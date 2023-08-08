@@ -17,6 +17,11 @@
   margin-left: 43px;
 }
 
+.search-input {
+  width: 300px;
+  margin: 0;
+}
+
 .nav-container-right {
   display: flex;
   align-items: center;
@@ -99,13 +104,12 @@
   align-items: center;
 }
 
-.nav-top-left input {
+.search-input {
   height: 36px;
   border-radius: 40px;
   border: 1px solid #d9d9d9;
   outline: none;
   padding-left: 12px;
-  margin-left: 104px;
 }
 
 .navbar {
@@ -243,12 +247,12 @@
     padding: 0 30px;
   }
 
-  .search-input {
+  /* .search-input {
     width: 10vw;
-  }
+  } */
 }
 
-@media (max-width: 560px) {
+@media (max-width: 700px) {
   .nav-top {
     display: block;
   }
