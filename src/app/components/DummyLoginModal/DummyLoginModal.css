@@ -277,7 +277,7 @@
     display: none;
   }
   .modal .loginModal {
-    height: 100vh;
+    /* height: 100vh; */
   }
   .login-container h1 {
     margin: 0;
@@ -296,7 +296,7 @@
 @media (max-width: 767px) {
   .modal .loginModal {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
   }
   .login-container {
     width: 80vw;
