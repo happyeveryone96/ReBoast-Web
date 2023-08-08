@@ -67,6 +67,12 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email('이메일 형식에 맞지 않습니다.')
+      .test('includes-dot', '이메일 형식에 맞지 않습니다.', function (value) {
+        if (value) {
+          return value.includes('.');
+        }
+        return false;
+      })
       .required('이메일을 입력해주세요.'),
     password: Yup.string()
       .required('비밀번호를 입력해주세요.')
