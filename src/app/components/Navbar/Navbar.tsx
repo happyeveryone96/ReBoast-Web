@@ -30,6 +30,7 @@ const Navbar = () => {
   const { isLoggedIn } = useSelector((state: AuthState) => state.auth);
 
   const [isDummyLoggedIn, setIsDummyLoggedIn] = useState(false);
+  const [email, setEmail] = useState('');
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -100,6 +101,7 @@ const Navbar = () => {
         isOpen={isModalOpen}
         close={closeModal}
         setIsDummyLoggedIn={setIsDummyLoggedIn}
+        setEmail={setEmail}
       />
       <div className="nav-top">
         <div className="nav-top-left">
@@ -118,7 +120,7 @@ const Navbar = () => {
           {isDummyLoggedIn ? (
             // <Link to="" className="nav-link" onClick={logOut}>
             <>
-              <div className="login">User1</div>
+              <div>{email}</div>
               <Link
                 to=""
                 className="nav-link"
