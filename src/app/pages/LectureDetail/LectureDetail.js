@@ -94,7 +94,7 @@ const LectureDetail = () => {
               <p className="user_visitor"> 맘에 들어요👍 + {likeNum} </p>
             </div>
             <div className="tit_middle">
-              <h1>
+              <h1 className="lecture-title">
                 마이크로소프트 개발자가 알려주는 자바 스프링(Spring) 완전 정복
               </h1>
               <p>
