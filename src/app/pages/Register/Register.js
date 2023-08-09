@@ -212,6 +212,14 @@ const Register = () => {
       alert('모든 회원 정보를 입력해주세요.');
       return;
     }
+    if (isAvailableEmail === false) {
+      alert('이메일 중복 확인이 필요합니다.');
+      return;
+    }
+    if (isAvailableNickname === false) {
+      alert('닉네임 중복 확인이 필요합니다.');
+      return;
+    }
     if (!isObjectEmpty(errors)) {
       const errList = Object.keys(errors).map((err) => {
         if (err === 'email') {
@@ -236,7 +244,12 @@ const Register = () => {
       });
       alert('입력된 회원 정보를 확인해주세요.\n' + errList);
     }
-    if (isObjectEmpty(errors) && !hasEmptyString(values)) {
+    if (
+      isAvailableEmail &&
+      isAvailableEmail &&
+      isObjectEmpty(errors) &&
+      !hasEmptyString(values)
+    ) {
       alert('회원가입이 완료되었습니다.');
       navigate('/');
       window.scrollTo(0, 0);
@@ -259,6 +272,46 @@ const Register = () => {
     }
   };
 
+  const [isAvailableEmail, setIsAvailableEmail] = useState(false);
+  const checkEmail = (email, errors, values) => {
+    if (values.email === '') {
+      alert('이메일을 입력해주세요.');
+      return;
+    }
+    if (Object.keys(errors).includes('email')) {
+      alert('이메일 형식에 맞지 않습니다.');
+      return;
+    }
+    if (!Object.keys(errors).includes('email') && values.email !== '')
+      if (email === 'dataus@dataus.co.kr') {
+        setIsAvailableEmail(false);
+        alert('중복된 이메일입니다.');
+      } else {
+        setIsAvailableEmail(true);
+        alert('사용 가능한 이메일입니다.');
+      }
+  };
+
+  const [isAvailableNickname, setIsAvailableNickname] = useState(false);
+  const checkNickName = (nickname, errors, values) => {
+    if (values.nickname === '') {
+      alert('닉네임을 입력해주세요.');
+      return;
+    }
+    if (Object.keys(errors).includes('nickname')) {
+      alert('닉네임은 2자 ~ 20자 이내로 입력 하셔야 합니다.');
+      return;
+    }
+    if (!Object.keys(errors).includes('nickname') && values.nickname !== '')
+      if (nickname === 'dataus') {
+        setIsAvailableNickname(false);
+        alert('중복된 닉네임입니다.');
+      } else {
+        setIsAvailableNickname(true);
+        alert('사용 가능한 닉네임입니다.');
+      }
+  };
+
   return (
     <div className="register-container">
       <Formik
@@ -279,6 +332,12 @@ const Register = () => {
                   errors={errors}
                   touched={touched}
                 />
+                <button
+                  className={`btn ${!isAvailableEmail && 'invalid'}`}
+                  onClick={() => checkEmail(values.email, errors, values)}
+                >
+                  중복확인
+                </button>
                 <FormField
                   label="비밀번호"
                   placeholder="문자, 숫자, 특수문자를 모두 포함시켜주세요."
@@ -306,6 +365,14 @@ const Register = () => {
                     errors={errors}
                     touched={touched}
                   />
+                  <button
+                    className={`btn ${!isAvailableNickname && 'invalid'}`}
+                    onClick={() =>
+                      checkNickName(values.nickname, errors, values)
+                    }
+                  >
+                    중복확인
+                  </button>
                   <FormField
                     label="휴대폰 번호"
                     placeholder="‘-’ 없이 입력해주세요"
@@ -354,7 +421,7 @@ const Register = () => {
                   <ErrorMessage
                     name="gender"
                     component="div"
-                    className="invalid"
+                    className="invalid-gender"
                   />
                   <FormField
                     label="주소"
@@ -397,7 +464,7 @@ const Register = () => {
                     onClick={() => handleRegister(values, errors)}
                     className="btn btn-lg btn-primary pull-xs-right"
                   >
-                    <span>Sign up</span>
+                    <span>회원가입</span>
                   </button>
                 </div>
               </div>
