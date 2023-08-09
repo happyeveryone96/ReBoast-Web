@@ -11,6 +11,7 @@ import SlideBanner from 'app/components/SlideBanner/SlideBanner';
 import { Link } from 'react-router-dom';
 import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
 import LectureCardData from 'app/data/lectureCardData.ts';
+import SignUpAgreeModal from 'app/components/SignUpAgreeModal/SignUpAgreeModal';
 
 const Home = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -104,6 +105,7 @@ const Home = () => {
   return (
     <div className="home">
       <SlideBanner />
+      <SignUpAgreeModal />
       <div className="statistics">
         <div className="left-box">
           <div className="learning-guide">학습 가이드</div>
