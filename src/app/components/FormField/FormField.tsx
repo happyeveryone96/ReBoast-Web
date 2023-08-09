@@ -20,6 +20,8 @@ interface FormFieldType {
   value?: string;
   savedEmail?: string;
   setFieldValue?: SetFieldValue;
+  values?: any;
+  place?: string;
 }
 
 const FormField = (props: FormFieldType) => {
@@ -33,8 +35,9 @@ const FormField = (props: FormFieldType) => {
     disabled,
     as,
     value,
-    savedEmail,
     setFieldValue,
+    values,
+    place,
   } = props;
   const isInvalid = errors[name] && touched[name];
   const hasValue = value && value.trim().length > 0;
@@ -53,48 +56,88 @@ const FormField = (props: FormFieldType) => {
     }
   }, []);
 
-  return (
-    <div>
-      <label htmlFor={name} className="label">
-        {label}
-      </label>
-      {hasValue === undefined ? (
-        <Field
-          placeholder={placeholder}
-          name={name}
-          type={type}
-          disabled={disabled}
-          as={as}
-          onKeyPress={handleKeyUp}
-          className={
-            'form-group form-control form-control-lg' +
-            (isInvalid ? ' is-invalid' : '')
-          }
-        />
-      ) : (
-        <Field
-          placeholder={placeholder}
-          name={name}
-          type={type}
-          disabled={disabled}
-          as={as}
-          onKeyPress={handleKeyUp}
-          value={value}
-          className={
-            'form-group form-control form-control-lg' +
-            (!hasValue && isInvalid ? ' is-invalid' : '')
-          }
-        />
-      )}
+  const checkPasswordConditions = (password: string) => {
+    const conditions = [
+      /[A-Za-z\u3131-\uD79D]/.test(password),
+      /\d/.test(password),
+      /[@$!%*?&]/.test(password),
+    ];
 
-      {!hasValue && (
-        <ErrorMessage
-          name={name}
-          component="div"
-          className="invalid-feedback"
-        />
+    return conditions;
+  };
+
+  const conditionResults = checkPasswordConditions(values?.password);
+
+  return (
+    <>
+      <div>
+        <label htmlFor={name} className="label">
+          {label}
+        </label>
+        {hasValue === undefined ? (
+          <Field
+            placeholder={placeholder}
+            name={name}
+            type={type}
+            disabled={disabled}
+            as={as}
+            onKeyPress={handleKeyUp}
+            className={
+              'form-group form-control form-control-lg' +
+              (isInvalid ? ' is-invalid' : '')
+            }
+          />
+        ) : (
+          <Field
+            placeholder={placeholder}
+            name={name}
+            type={type}
+            disabled={disabled}
+            as={as}
+            onKeyPress={handleKeyUp}
+            value={value}
+            className={
+              'form-group form-control form-control-lg' +
+              (!hasValue && isInvalid ? ' is-invalid' : '')
+            }
+          />
+        )}
+
+        {!hasValue && (
+          <ErrorMessage
+            name={name}
+            component="div"
+            className="invalid-feedback"
+          />
+        )}
+      </div>
+      {name === 'password' && place !== 'login' && (
+        <ul className="password-check">
+          <li
+            className={
+              conditionResults[0] ? 'condition-met' : 'condition-not-met'
+            }
+          >
+            문자 포함
+          </li>
+
+          <li
+            className={
+              conditionResults[1] ? 'condition-met' : 'condition-not-met'
+            }
+          >
+            숫자 포함
+          </li>
+          <li
+            className={
+              conditionResults[2] ? 'condition-met' : 'condition-not-met'
+            }
+          >
+            특수 문자 포함
+          </li>
+        </ul>
       )}
-    </div>
+    </>
   );
 };
 

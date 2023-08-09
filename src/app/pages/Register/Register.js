@@ -191,6 +191,7 @@ const Register = () => {
       }),
     gender: Yup.string().required('성별을 선택해주세요.'),
     address: Yup.string().required('주소를 입력해주세요.'),
+    detailAddress: Yup.string().required('상세 주소를 입력해주세요.'),
   });
 
   const isObjectEmpty = (obj) => {
@@ -229,6 +230,8 @@ const Register = () => {
           return '성별';
         } else if (err === 'address') {
           return '주소';
+        } else if (err === 'detailAddress') {
+          return '상세 주소';
         }
       });
       alert('입력된 회원 정보를 확인해주세요.\n' + errList);
@@ -283,6 +286,7 @@ const Register = () => {
                   type="password"
                   errors={errors}
                   touched={touched}
+                  values={values}
                 />
                 <FormField
                   label="비밀번호 확인"
@@ -361,6 +365,14 @@ const Register = () => {
                     touched={touched}
                     value={address}
                     disabled
+                  />
+                  <FormField
+                    label={null}
+                    placeholder="상세 주소를 입력해주세요."
+                    name="detailAddress"
+                    type="text"
+                    errors={errors}
+                    touched={touched}
                   />
                   {visible ? (
                     <div>
