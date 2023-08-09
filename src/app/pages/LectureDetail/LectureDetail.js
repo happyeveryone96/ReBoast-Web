@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import LECTURE_DETAIL_DATA from 'app/data/lectureDetailData';
-import { Link, useLocation } from 'react-router-dom';
+import LECTURE_CARD_DATA from 'app/data/lectureCardData';
 import 'app/pages/LectureDetail/LectureDetail.css';
 
 const LectureDetail = () => {
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    setData(LECTURE_DETAIL_DATA);
+    setData(LECTURE_CARD_DATA);
   }, []);
 
   const [likeNum, setLikeNum] = useState(0);
@@ -21,6 +23,11 @@ const LectureDetail = () => {
   };
 
   const { pathname } = useLocation();
+  const id = Number(pathname?.split('lecture/')[1]);
+  const lectureDetailInfo = [data.filter((lecture) => lecture.id === id)][0][0];
+  const title = lectureDetailInfo?.title;
+  const lessonContents = lectureDetailInfo?.lessonContents;
+  const mainImage = lectureDetailInfo?.image;
 
   const handleCopyClipBoard = async () => {
     try {
@@ -87,16 +94,17 @@ const LectureDetail = () => {
           </button>
         </div>
         <div className="tittle">
-          <div className="img_area"></div>
+          <div
+            className="img_area"
+            style={{ backgroundImage: `url(${mainImage})` }}
+          ></div>
           <div className="text_box">
             <div className="tit_top">
               <p className="made_name"> 백기선</p>
               <p className="user_visitor"> 맘에 들어요👍 + {likeNum} </p>
             </div>
             <div className="tit_middle">
-              <h1 className="lecture-title">
-                마이크로소프트 개발자가 알려주는 자바 스프링(Spring) 완전 정복
-              </h1>
+              <h1 className="lecture-title">{title}</h1>
               <p>
                 마이크로소프트 개발자가 알려주는 자바스프링(Spring) 완전 정복을
                 위해서 작성하는 웹페이지 디자인 최대한 몇글자
@@ -113,6 +121,10 @@ const LectureDetail = () => {
         </div>
 
         <div className="contents">
+          {lessonContents?.map((content) => (
+            <img src={content} alt="강의 컨텐츠" key={content} />
+          ))}
+
           <img src="/images/dumidumi.jpg" />
         </div>
       </div>
