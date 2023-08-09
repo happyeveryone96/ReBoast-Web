@@ -181,11 +181,40 @@
   width: 100%;
 }
 
+.lecture-title {
+  width: 50vw;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  font-family: 'KoddiUDOnGothic-Regular';
+  border-collapse: collapse;
+}
+
 /* 미디어 쿼리 */
+
+@media (max-width: 1000px) {
+  .lecture-title {
+    width: 65vw;
+  }
+}
 
 @media (max-width: 800px) {
   .tittle {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .tit_middle .lecture-title {
+    font-size: 0.1rem;
+    width: 100vw;
+  }
+  .tittle > .text_box {
+    padding: 40px 0px;
   }
 }
 
