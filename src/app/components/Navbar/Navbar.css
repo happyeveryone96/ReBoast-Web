@@ -146,7 +146,8 @@
   align-items: center;
 }
 
-.login {
+.login,
+.registerBtn {
   color: #9f9f9f;
   font-family: NanumGothic;
   font-size: 14px;
