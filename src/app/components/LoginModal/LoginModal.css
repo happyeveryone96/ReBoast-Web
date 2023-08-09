@@ -13,10 +13,6 @@
   border-color: #5cb85c;
 }
 
-.login-container input {
-  margin: 30px 0;
-}
-
 .find {
   margin-right: 30px;
   display: flex;
@@ -32,9 +28,13 @@
 }
 
 .middleLine {
+  position: relative;
+  bottom: 2px;
   margin: 0;
+  display: flex;
+  align-items: center;
   color: #8c8c8c;
-  height: 28px;
+  height: 10px;
 }
 
 .login-container h1 {
@@ -122,18 +122,23 @@
 
 .modal .loginModal .modalContents .loginMid {
   display: flex;
+
   justify-content: space-between;
-  align-items: center;
 }
 
 .modal .loginModal .modalContents .loginMid .saveId {
   font-size: 14px;
   position: relative;
-  left: 25px;
+  left: 30px;
   color: #8d8d8d;
   line-height: 3;
   font-family: Noto Sans KR;
   font-weight: 500;
+}
+
+.modal .loginModal .modalContents .loginMid #saveId {
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .modal .loginModal .modalContents .loginBtn {
@@ -142,8 +147,9 @@
   font-family: Noto Sans KR;
   font-size: 14px;
   letter-spacing: -0.333px;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   background-color: green;
+  border: 0;
 }
 
 .loginRegisterBox {
@@ -153,7 +159,8 @@
 }
 
 .register {
-  margin: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .register a {
@@ -265,4 +272,106 @@
 
 .modal .loginModal .modalContents .loginEnd .noUser {
   text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    height: 60px;
+    margin: 0;
+  }
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    display: none;
+  }
+  .login-container h1 {
+    margin: 0;
+  }
+  .invalid-feedback {
+    height: 0px;
+    margin: 0;
+  }
+  .loginRegisterBox {
+    margin-top: 0px;
+  }
+  .register a {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .modal .loginModal {
+    width: 100vw;
+  }
+  .login-container {
+    width: 80vw;
+  }
+  .login-container input {
+    width: 80vw;
+  }
+  .modal .loginModal .modalContents .loginBtn {
+    width: 80vw;
+  }
+
+  .modal .loginModal .modalContents .socialBox .kakao {
+    width: 80vw;
+    padding: 0 30px;
+  }
+  .modal .loginModal .modalContents .socialBox .google {
+    width: 80vw;
+    padding: 0 30px;
+  }
+  .find a {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .invalid-feedback {
+    height: 0px;
+    margin: 0;
+  }
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    height: 60px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 375px) {
+  .invalid-feedback {
+    height: 0px;
+    margin: 0;
+  }
+  .loginRegisterBox {
+    margin-top: 0px;
+  }
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    height: 60px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    display: none;
+  }
+  .login-container h1 {
+    margin: 0;
+  }
+  .register a {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 280px) {
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    display: none;
+  }
+  .register a {
+    margin-bottom: 30px;
+  }
+  .loginMid {
+    display: flex;
+    flex-direction: column;
+  }
+  .saveId {
+    height: 20px;
+  }
 }

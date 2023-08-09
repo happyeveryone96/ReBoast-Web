@@ -116,11 +116,7 @@ const SignUpAgreeModal: React.FC<SignUpModalProps> = ({ isOpen, close }) => {
                   E-mail 및 SMS 광고성 정보 수신동의(선택)
                 </div>
                 <div className="btn-box">
-                  <button
-                    className="register-btn"
-                    type="submit"
-                    // disabled={!isChecked || selectedOptions.length === 0}
-                  >
+                  <button className="register-btn" type="submit">
                     회원가입하기
                   </button>
                   <button className="cancel" onClick={close}>
