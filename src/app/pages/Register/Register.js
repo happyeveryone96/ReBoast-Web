@@ -251,14 +251,17 @@ const Register = () => {
       isObjectEmpty(errors) &&
       !hasEmptyString(values)
     ) {
-      dispatch(register({ nickname, email, password }))
-        .unwrap()
-        .then(() => {
-          alert('회원가입이 완료되었습니다.');
-          navigate('/');
-          window.scrollTo(0, 0);
-        })
-        .catch((err) => alert(err.response.data.message));
+      alert('회원가입이 완료되었습니다.');
+      navigate('/');
+      window.scrollTo(0, 0);
+      // dispatch(register({ nickname, email, password }))
+      //   .unwrap()
+      //   .then(() => {
+      //     alert('회원가입이 완료되었습니다.');
+      //     navigate('/');
+      //     window.scrollTo(0, 0);
+      //   })
+      //   .catch((err) => alert(err.response.data.message));
     }
   };
 

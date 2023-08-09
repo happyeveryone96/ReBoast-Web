@@ -107,7 +107,7 @@ const FormField = (props: FormFieldType) => {
           <ErrorMessage
             name={name}
             component="div"
-            className="invalid-feedback"
+            className="invalid-feedback danger"
           />
         )}
       </div>

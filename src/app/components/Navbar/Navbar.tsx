@@ -52,7 +52,7 @@ const Navbar = () => {
     setIsMouseOver(true);
   };
 
-  const username = localStorage.getItem('username');
+  const nickname = localStorage.getItem('email')?.split('@')[0];
 
   const leaveLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const navContainerCenter = document.querySelector('.nav-container-center');
@@ -130,16 +130,16 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-top-right">
-          {isLoggedIn ? (
-            // {isDummyLoggedIn ? (
+          {/* {isLoggedIn ? ( */}
+          {isDummyLoggedIn ? (
             // <Link to="" className="nav-link" onClick={logOut}>
             <>
-              <div>{username}</div>
+              <div>{nickname}</div>
               <Link
                 to=""
                 className="nav-link"
-                // onClick={() => setIsDummyLoggedIn(false)}
-                onClick={logOut}
+                onClick={() => setIsDummyLoggedIn(false)}
+                // onClick={logOut}
               >
                 로그아웃
               </Link>

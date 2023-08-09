@@ -25,7 +25,12 @@ interface LoginModalProps {
   close: () => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({ isOpen, close }) => {
+const LoginModal: React.FC<LoginModalProps> = ({
+  isOpen,
+  close,
+  setIsDummyLoggedIn,
+  setEmail,
+}) => {
   const navigate = useNavigate();
 
   const searchParams = useLocation().search;
@@ -104,6 +109,9 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, close }) => {
 
   const [saveId, setSaveId] = useState(false);
 
+  // const [email, setEmail] = useState('');
+  // const [isDummyLoggedIn, setIsDummyLoggedIn] = useState(false);
+
   const handleLogin = (
     formValue: { email: string; password: string },
     errors: any,
@@ -113,15 +121,16 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, close }) => {
     else localStorage.removeItem('savedEmail');
 
     if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
-      // setEmail(email);
-      // setIsDummyLoggedIn(true);
-      dispatch(login({ email, password }))
-        .unwrap()
-        .then(() => {
-          navigate('/');
-          close();
-        })
-        .catch((err: any) => alert(err.response.data.message));
+      setEmail(email);
+      setIsDummyLoggedIn(true);
+      close();
+      // dispatch(login({ email, password }))
+      //   .unwrap()
+      //   .then(() => {
+      //     navigate('/');
+      //     close();
+      //   })
+      //   .catch((err: any) => alert(err.response.data.message));
     }
   };
 
