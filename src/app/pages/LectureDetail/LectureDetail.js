@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import LECTURE_DETAIL_DATA from 'app/data/lectureDetailData';
 import LECTURE_CARD_DATA from 'app/data/lectureCardData';
-import { Link } from 'react-router-dom';
 import 'app/pages/LectureDetail/LectureDetail.css';
 
 const LectureDetail = () => {
