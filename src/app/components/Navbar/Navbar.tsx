@@ -8,6 +8,7 @@ import LoginModal from 'app/components/LoginModal/LoginModal';
 import DummyLoginModal from 'app/components/DummyLoginModal/DummyLoginModal';
 import 'app/components/Navbar/Navbar.css';
 import { AppDispatch } from 'app/store';
+import SignUpAgreeModal from 'app/components/SignUpAgreeModal/SignUpAgreeModal';
 
 interface AuthState {
   auth: {
@@ -95,6 +96,16 @@ const Navbar = () => {
     setIsModalOpen(false);
   };
 
+  const [isAgreeModalOpen, setIsAgreeModalOpen] = useState(false);
+
+  const openAgreeModal = () => {
+    setIsAgreeModalOpen(true);
+  };
+
+  const closeAgreeModal = () => {
+    setIsAgreeModalOpen(false);
+  };
+
   return (
     <>
       {/* <LoginModal isOpen={isModalOpen} close={closeModal} /> */}
@@ -105,6 +116,7 @@ const Navbar = () => {
         setEmail={setEmail}
         setSavedEmail={setSavedEmail}
       />
+      <SignUpAgreeModal isOpen={isAgreeModalOpen} close={closeAgreeModal} />
       <div className="nav-top">
         <div className="nav-top-left">
           <div>
@@ -137,9 +149,11 @@ const Navbar = () => {
                 로그인
               </div>
               <div className="divider">|</div>
-              <Link to="/register" className="register">
+              {/* <Link to="/register" className="register"> */}
+              <div className="registerBtn" onClick={openAgreeModal}>
                 회원가입
-              </Link>
+              </div>
+              {/* </Link> */}
             </>
           )}
 
