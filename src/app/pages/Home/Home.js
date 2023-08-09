@@ -102,6 +102,8 @@ const Home = () => {
     setCardData(LectureCardData);
   }, []);
 
+  const convertToDate = (dateString) => new Date(dateString);
+
   return (
     <div className="home">
       <SlideBanner />
@@ -192,9 +194,13 @@ const Home = () => {
           <DummyCard />
           <DummyCard />
           <DummyCard /> */}
-          {LectureCardData.slice(0, 4).map((card) => (
-            <DummyCard key={card.id} card={card} />
-          ))}
+
+          {[...LectureCardData]
+            .sort((a, b) => convertToDate(b.date) - convertToDate(a.date))
+            .slice(0, 4)
+            .map((card) => (
+              <DummyCard key={card.id} card={card} />
+            ))}
         </div>
 
         {/* <Carousel
@@ -250,9 +256,12 @@ const Home = () => {
           {/* <div className="lecture-num">1/5</div> */}
         </div>
         <div className="card-deck">
-          {LectureCardData.slice(0, 4).map((card) => (
-            <DummyCard key={card.id} card={card} />
-          ))}
+          {[...LectureCardData]
+            .sort((a, b) => b.rate - a.rate)
+            .slice(0, 4)
+            .map((card) => (
+              <DummyCard key={card.id} card={card} />
+            ))}
           {/* <DummyCard />
           <DummyCard />
           <DummyCard />
