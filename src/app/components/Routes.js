@@ -12,6 +12,7 @@ import MentorDetail from 'app/pages/MentorDetail/MentorDetail';
 import FindId from 'app/pages/FindId/FindId';
 import FindPassword from 'app/pages/FindPassword/FindPassword';
 import LecturePage from 'app/pages/LecturePage/LecturePage';
+import Sitemap from 'app/pages/Sitemap/Sitemap.tsx';
 
 const MainRouter = () => {
   return (
@@ -27,6 +28,7 @@ const MainRouter = () => {
       <Route path="/lecture/:id" element={<LectureDetail />} />
       <Route path="/findId" element={<FindId />} />
       <Route path="/findPw" element={<FindPassword />} />
+      <Route path="/sitemap" element={<Sitemap />} />
     </Routes>
   );
 };

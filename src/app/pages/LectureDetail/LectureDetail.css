@@ -207,7 +207,7 @@
 @media (max-width: 767px) {
   .tit_middle .lecture-title {
     font-size: 0.1rem;
-    width: 100vw;
+    width: 70vw;
   }
   .tittle > .text_box {
     padding: 40px 0px;

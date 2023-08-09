@@ -1,8 +1,10 @@
 import React, { ChangeEvent, useState } from 'react';
 import 'app/components/Footer/Footer.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   const showAlert = () => {
     alert('준비중 입니다.');
   };
@@ -54,9 +56,7 @@ const Footer = () => {
               <Link to="" className="txt_blue" onClick={showAlert}>
                 개인정보처리방침
               </Link>
-              <Link to="" onClick={showAlert}>
-                사이트맵
-              </Link>
+              <Link to="/sitemap">사이트맵</Link>
               <Link to="" onClick={showAlert}>
                 웹접근성정책
               </Link>
