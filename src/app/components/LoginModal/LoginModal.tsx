@@ -1,4 +1,10 @@
-import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  ChangeEvent,
+  useState,
+} from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './LoginModal.css';
 import { clearMessage } from 'app/slices/message';
@@ -6,27 +12,20 @@ import FormField from '../FormField/FormField';
 import { Form, Formik } from 'formik';
 import { login, socialLogin } from 'app/slices/auth';
 import * as Yup from 'yup';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import qs from 'qs';
 import { AppDispatch } from 'app/store';
+import SignUpAgreeModal from 'app/components/SignUpAgreeModal/SignUpAgreeModal';
 
 interface LoginModalProps {
   isOpen: boolean;
-  close: () => void;
   setIsDummyLoggedIn: Dispatch<SetStateAction<boolean>>;
+  setEmail: Dispatch<SetStateAction<string>>;
+  setSavedEmail: Dispatch<SetStateAction<string>>;
+  close: () => void;
 }
 
-interface MessageType {
-  message: {
-    message: string;
-  };
-}
-
-const LoginModal: React.FC<LoginModalProps> = ({
-  isOpen,
-  close,
-  setIsDummyLoggedIn,
-}) => {
+const LoginModal: React.FC<LoginModalProps> = ({ isOpen, close }) => {
   const navigate = useNavigate();
 
   const searchParams = useLocation().search;
@@ -35,8 +34,6 @@ const LoginModal: React.FC<LoginModalProps> = ({
     accessToken: accessTokenFromSocialLogin,
     refreshToken: refreshTokenFromSocialLogin,
   } = query;
-
-  const { message } = useSelector((state: MessageType) => state.message);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -65,6 +62,12 @@ const LoginModal: React.FC<LoginModalProps> = ({
   const validationSchema = Yup.object().shape({
     email: Yup.string()
       .email('이메일 형식에 맞지 않습니다.')
+      .test('includes-dot', '이메일 형식에 맞지 않습니다.', function (value) {
+        if (value) {
+          return value.includes('.');
+        }
+        return false;
+      })
       .required('이메일을 입력해주세요.'),
     password: Yup.string()
       .required('비밀번호를 입력해주세요.')
@@ -99,25 +102,53 @@ const LoginModal: React.FC<LoginModalProps> = ({
     });
   };
 
+  const [saveId, setSaveId] = useState(false);
+
   const handleLogin = (
     formValue: { email: string; password: string },
     errors: any,
   ) => {
     const { email, password } = formValue;
-    if (!isObjectEmpty(errors) && !hasEmptyString(formValue)) {
-      setIsDummyLoggedIn(true);
-      // dispatch(login({ email, password }))
-      //   .unwrap()
-      //   .then(() => {
-      //     navigate('/');
-      //     close();
-      //   })
-      //   .catch((err: any) => console.log(err));
+    if (saveId === true) localStorage.setItem('savedEmail', email);
+    else localStorage.removeItem('savedEmail');
+
+    if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
+      // setEmail(email);
+      // setIsDummyLoggedIn(true);
+      dispatch(login({ email, password }))
+        .unwrap()
+        .then(() => {
+          navigate('/');
+          close();
+        })
+        .catch((err: any) => alert(err.response.data.message));
     }
+  };
+
+  const readyAlert = () => {
+    alert('준비중입니다.');
+  };
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSaveId(event.target.checked);
+  };
+
+  const savedEmail = localStorage.getItem('savedEmail') || '';
+
+  const [isAgreeModalOpen, setIsAgreeModalOpen] = useState(false);
+
+  const openAgreeModal = () => {
+    close();
+    setIsAgreeModalOpen(true);
+  };
+
+  const closeAgreeModal = () => {
+    setIsAgreeModalOpen(false);
   };
 
   return (
     <>
+      <SignUpAgreeModal isOpen={isAgreeModalOpen} close={closeAgreeModal} />
       {isOpen ? (
         <div className="modal">
           <div className="loginModal">
@@ -130,7 +161,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                 validationSchema={validationSchema}
                 onSubmit={handleLogin}
               >
-                {({ values, errors, touched }) => (
+                {({ values, errors, touched, setFieldValue }) => (
                   <Form>
                     <div className="login-container">
                       <h1>로그인하기</h1>
@@ -140,6 +171,8 @@ const LoginModal: React.FC<LoginModalProps> = ({
                         type="text"
                         errors={errors}
                         touched={touched}
+                        savedEmail={savedEmail}
+                        setFieldValue={setFieldValue}
                       />
                       <FormField
                         placeholder="비밀번호"
@@ -147,12 +180,18 @@ const LoginModal: React.FC<LoginModalProps> = ({
                         type="password"
                         errors={errors}
                         touched={touched}
+                        place="login"
                       />
                     </div>
 
                     <div className="loginMid">
                       <label className="saveId" htmlFor="hint">
-                        <input type="checkbox" id="saveId" /> 아이디 저장
+                        <input
+                          type="checkbox"
+                          id="saveId"
+                          onChange={handleChange}
+                        />
+                        아이디 저장
                       </label>
                       <div className="text-xs-center find">
                         <Link to="/findId" onClick={close}>
@@ -172,11 +211,11 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       >
                         <span>로그인하기</span>
                       </button>
-                      <p className="text-xs-center register">
-                        <Link to="/register" onClick={close}>
+                      <div className="register">
+                        <Link to="" onClick={openAgreeModal}>
                           회원가입하기
                         </Link>
-                      </p>
+                      </div>
                     </div>
 
                     <div className="socialBox">
@@ -185,7 +224,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                         <div className="socialText">간편 SNS 로그인하기</div>
                         <div className="line"></div>
                       </div>
-                      <div className="kakao">
+                      <div className="kakao" onClick={readyAlert}>
                         <img
                           className="kakaoLogo"
                           src="/images/kakao.png"
@@ -193,7 +232,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                         />
                         <div className="kakaoText">카카오로 시작하기</div>
                       </div>
-                      <div className="google">
+                      <div className="google" onClick={readyAlert}>
                         <img
                           className="googleLogo"
                           src="/images/google.png"
@@ -205,14 +244,6 @@ const LoginModal: React.FC<LoginModalProps> = ({
                   </Form>
                 )}
               </Formik>
-
-              {message && (
-                <div className="form-group">
-                  <div className="alert alert-danger" role="alert">
-                    {message}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
