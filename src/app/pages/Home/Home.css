@@ -308,9 +308,9 @@
 
 @media (max-width: 1200px) {
   .card-deck {
-    /* margin: 0; */
+    margin: 0;
     margin-right: 60px;
-    width: 100vw;
+    width: 80vw;
     right: 0;
   }
 }
@@ -342,7 +342,7 @@
   }
 }
 
-@media (max-width: 665px) {
+@media (max-width: 705px) {
   .card-deck {
     margin: 0 auto;
     width: 85vw;
