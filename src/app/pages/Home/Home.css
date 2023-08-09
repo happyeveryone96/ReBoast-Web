@@ -286,10 +286,12 @@
 }
 
 @media (max-width: 1234px) and (min-width: 1025px) {
-  .statistics,
   .new-lecture,
   .hot-lecture {
     margin: 0 30px;
+  }
+  .statistics {
+    margin: 30px;
   }
 }
 

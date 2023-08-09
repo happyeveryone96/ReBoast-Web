@@ -208,6 +208,7 @@ const Register = () => {
   };
 
   const handleRegister = (values, errors) => {
+    const { nickname, email, password } = values;
     if (hasEmptyString(values)) {
       alert('모든 회원 정보를 입력해주세요.');
       return;
@@ -250,15 +251,14 @@ const Register = () => {
       isObjectEmpty(errors) &&
       !hasEmptyString(values)
     ) {
-      alert('회원가입이 완료되었습니다.');
-      navigate('/');
-      window.scrollTo(0, 0);
-      // dispatch(register({ nickname, email, password }))
-      //   .unwrap()
-      //   .then(() => {
-      //     navigate('/');
-      //   })
-      //   .catch((err) => console.log(err));
+      dispatch(register({ nickname, email, password }))
+        .unwrap()
+        .then(() => {
+          alert('회원가입이 완료되었습니다.');
+          navigate('/');
+          window.scrollTo(0, 0);
+        })
+        .catch((err) => alert(err.response.data.message));
     }
   };
 
@@ -472,14 +472,6 @@ const Register = () => {
           </Form>
         )}
       </Formik>
-
-      {message && (
-        <div className="form-group">
-          <div className="alert alert-danger" role="alert">
-            {message}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

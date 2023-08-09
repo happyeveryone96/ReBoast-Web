@@ -5,7 +5,6 @@ import { reset } from 'app/slices/auth';
 import { logout } from 'app/slices/auth';
 import { useLocation } from 'react-router-dom';
 import LoginModal from 'app/components/LoginModal/LoginModal';
-import DummyLoginModal from 'app/components/DummyLoginModal/DummyLoginModal';
 import 'app/components/Navbar/Navbar.css';
 import { AppDispatch } from 'app/store';
 import SignUpAgreeModal from 'app/components/SignUpAgreeModal/SignUpAgreeModal';
@@ -52,6 +51,8 @@ const Navbar = () => {
   const enterLink = () => {
     setIsMouseOver(true);
   };
+
+  const username = localStorage.getItem('username');
 
   const leaveLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const navContainerCenter = document.querySelector('.nav-container-center');
@@ -108,8 +109,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/* <LoginModal isOpen={isModalOpen} close={closeModal} /> */}
-      <DummyLoginModal
+      <LoginModal
         isOpen={isModalOpen}
         close={closeModal}
         setIsDummyLoggedIn={setIsDummyLoggedIn}
@@ -130,15 +130,16 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-top-right">
-          {/* {isLoggedIn ? ( */}
-          {isDummyLoggedIn ? (
+          {isLoggedIn ? (
+            // {isDummyLoggedIn ? (
             // <Link to="" className="nav-link" onClick={logOut}>
             <>
-              <div>{email}</div>
+              <div>{username}</div>
               <Link
                 to=""
                 className="nav-link"
-                onClick={() => setIsDummyLoggedIn(false)}
+                // onClick={() => setIsDummyLoggedIn(false)}
+                onClick={logOut}
               >
                 로그아웃
               </Link>
@@ -207,7 +208,7 @@ const Navbar = () => {
               >
                 커뮤니티
               </Link>
-
+              {/* 
               {isLoggedIn && (
                 <Link
                   to={'/settings'}
@@ -215,7 +216,7 @@ const Navbar = () => {
                 >
                   내정보
                 </Link>
-              )}
+              )} */}
             </div>
           </div>
           <div className="nav-container-right">
