@@ -182,6 +182,7 @@ const DummyLoginModal: React.FC<LoginModalProps> = ({
                         type="password"
                         errors={errors}
                         touched={touched}
+                        place="login"
                       />
                     </div>
 
