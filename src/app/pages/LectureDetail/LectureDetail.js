@@ -124,8 +124,6 @@ const LectureDetail = () => {
           {lessonContents?.map((content) => (
             <img src={content} alt="강의 컨텐츠" key={content} />
           ))}
-
-          <img src="/images/dumidumi.jpg" />
         </div>
       </div>
     </div>
