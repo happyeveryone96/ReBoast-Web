@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
             <div className="footer_botTxt">
               <p className="address">
-                14786 경기 부천시 양지로 229 골든IT타워 826호 데이터스
+                14786 경기 부천시 양지로 229 골든IT타워 332호 데이터스
               </p>
               <p className="copyright">copyright @ </p>
             </div>
