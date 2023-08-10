@@ -161,10 +161,10 @@ const LoginModal: React.FC<LoginModalProps> = ({
       {isOpen ? (
         <div className="modal">
           <div className="loginModal">
-            <span className="close" onClick={close}>
-              &times;
-            </span>
             <div className="modalContents">
+              <div className="close" onClick={close}>
+                &times;
+              </div>
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}

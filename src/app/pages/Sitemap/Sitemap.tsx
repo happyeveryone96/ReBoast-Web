@@ -3,6 +3,9 @@ import 'app/pages/Sitemap/Sitemap.css';
 import { useNavigate } from 'react-router-dom';
 
 const Sitemap = () => {
+  const readyAlert = () => {
+    alert('준비중입니다.');
+  };
   const navigate = useNavigate();
   return (
     <div className="sitemap-container">
@@ -10,13 +13,13 @@ const Sitemap = () => {
       <div className="page" onClick={() => navigate('/lecture')}>
         강의
       </div>
-      <div className="page" onClick={() => navigate('/consulting')}>
+      <div className="page" onClick={readyAlert}>
         상담
       </div>
-      <div className="page" onClick={() => navigate('/mentor')}>
+      <div className="page" onClick={readyAlert}>
         멘토
       </div>
-      <div className="page" onClick={() => navigate('/settings')}>
+      <div className="page" onClick={readyAlert}>
         내정보
       </div>
       <div className="page" onClick={() => navigate('/findId')}>
