@@ -46,6 +46,7 @@
   line-height: normal;
   letter-spacing: -0.333px;
   margin-bottom: 40px;
+  margin-top: 40px;
 }
 
 .modal {
@@ -62,12 +63,12 @@
 
 .modal .loginModal {
   width: 522px;
-  height: 817px;
+  height: 90vh;
   background-color: white;
   position: relative;
   box-sizing: border-box;
   margin: 50px auto;
-  padding: 20px;
+  padding: 30px;
   background: #fff;
   border-radius: 6px;
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
@@ -76,6 +77,10 @@
 .modal .loginModal .close {
   float: right;
   font-size: 25px;
+  top: 0px;
+  position: absolute;
+  z-index: 10;
+  right: 50px;
 }
 
 .modal .loginModal .modalContents {
@@ -324,6 +329,18 @@
 }
 
 @media (max-width: 540px) {
+  .modal .loginModal {
+    height: 90vh;
+  }
+  .modal .loginModal .modalContents {
+    height: 70vh;
+  }
+  .close {
+    top: 40px;
+    position: absolute;
+    z-index: 10;
+    right: 30px;
+  }
   .invalid-feedback {
     height: 0px;
     margin: 0;
@@ -335,6 +352,13 @@
 }
 
 @media (max-width: 375px) {
+  .close {
+    position: absolute;
+    z-index: 10;
+  }
+  .modal .loginModal .modalContents {
+    height: 90vh;
+  }
   .invalid-feedback {
     height: 0px;
     margin: 0;
@@ -345,6 +369,17 @@
   .modal .loginModal .modalContents .socialBox .socialHeader {
     height: 60px;
     margin: 0;
+  }
+  .loginMid {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .saveId {
+    margin: 0 auto;
+  }
+  .find {
+    margin: 0 auto;
   }
 }
 
