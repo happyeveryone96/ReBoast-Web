@@ -399,27 +399,35 @@ const Register = () => {
                   >
                     성별
                     <br />
-                    <Field
-                      type="radio"
-                      name="gender"
-                      value="male"
-                      onKeyPress={handleKeyUp}
-                    />
-                    남성
-                    <Field
-                      type="radio"
-                      name="gender"
-                      value="female"
-                      onKeyPress={handleKeyUp}
-                    />
-                    여성
-                    <Field
-                      type="radio"
-                      name="gender"
-                      value="none"
-                      onKeyPress={handleKeyUp}
-                    />
-                    선택하지 않음
+                    <div className="gender-box">
+                      <div className="gender-select">
+                        <Field
+                          type="radio"
+                          name="gender"
+                          value="male"
+                          onKeyPress={handleKeyUp}
+                        />
+                        남성
+                      </div>
+                      <div className="gender-select">
+                        <Field
+                          type="radio"
+                          name="gender"
+                          value="female"
+                          onKeyPress={handleKeyUp}
+                        />
+                        여성
+                      </div>
+                      <div className="gender-select">
+                        <Field
+                          type="radio"
+                          name="gender"
+                          value="none"
+                          onKeyPress={handleKeyUp}
+                        />
+                        논바이너리
+                      </div>
+                    </div>
                   </div>
                   <ErrorMessage
                     name="gender"
