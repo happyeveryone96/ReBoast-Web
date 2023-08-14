@@ -1,5 +1,5 @@
 .register-container {
-  margin-bottom: 350px;
+  margin-bottom: 400px;
 }
 
 .form-group .alert {
@@ -62,12 +62,24 @@
   color: #dc3545;
   font-size: 14px;
   margin-bottom: 10px;
+  margin-top: 10px;
+}
+.btn {
+  margin: 10px 0;
 }
 
 .invalid-gender {
   color: #dc3545;
   font-size: 14px;
   margin-bottom: 10px;
+}
+
+.gender-box {
+  display: flex;
+}
+
+.gender-select {
+  margin: 0 10px;
 }
 
 @media (max-width: 768px) {

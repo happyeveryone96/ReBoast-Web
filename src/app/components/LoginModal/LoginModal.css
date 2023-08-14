@@ -13,6 +13,41 @@
   border-color: #5cb85c;
 }
 
+.login-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image-checkbox {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.agree-box img {
+  display: none;
+}
+
+.checkbox-image {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.none {
+  display: none;
+}
+
+input[type='checkbox']:checked + .checked {
+  display: inline-block;
+}
+
+.close-btn {
+  width: 18.686px;
+  height: 21.201px;
+  cursor: pointer;
+}
+
 .find {
   margin-right: 30px;
   display: flex;
@@ -87,7 +122,6 @@
   margin: 0 auto;
   width: 100%;
   position: relative;
-  padding: 0 20px 32px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -126,9 +160,16 @@
 }
 
 .modal .loginModal .modalContents .loginMid {
+  padding: 0 16px;
   display: flex;
-
   justify-content: space-between;
+  color: #8c8c8c;
+  font-size: 14px;
+  letter-spacing: -0.333px;
+}
+
+.modal .loginModal .modalContents .loginMid a:hover {
+  text-decoration: none;
 }
 
 .modal .loginModal .modalContents .loginMid .saveId {
@@ -141,8 +182,10 @@
   font-weight: 500;
 }
 
-.modal .loginModal .modalContents .loginMid #saveId {
-  margin-right: 10px;
+.modal .loginModal .modalContents .loginMid .checkbox-image {
+  position: relative;
+  top: 5px;
+  right: 11px;
   cursor: pointer;
 }
 
@@ -160,7 +203,6 @@
 .loginRegisterBox {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
 }
 
 .register {
@@ -184,7 +226,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 60px;
 }
 
 .socialHeader .line {
@@ -287,6 +328,7 @@
   .modal .loginModal .modalContents .socialBox .socialHeader {
     display: none;
   }
+
   .login-container h1 {
     margin: 0;
   }
@@ -305,6 +347,9 @@
   .modal .loginModal {
     width: 100vw;
   }
+  .modal .loginModal .modalContents .loginMid {
+    padding: 0;
+  }
   .login-container {
     width: 80vw;
   }
@@ -322,9 +367,6 @@
   .modal .loginModal .modalContents .socialBox .google {
     width: 80vw;
     padding: 0 30px;
-  }
-  .find a {
-    font-size: 10px;
   }
 }
 
@@ -370,32 +412,19 @@
     height: 60px;
     margin: 0;
   }
-  .loginMid {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .saveId {
+  .loginMid .find {
+    padding-left: 50px;
     margin: 0 auto;
   }
-  .find {
-    margin: 0 auto;
+}
+
+@media (max-width: 360px) {
+  .loginMid .find {
+    padding-left: 30px;
   }
 }
 
 @media (max-width: 320px) {
-  .modal .loginModal .modalContents .socialBox .socialHeader {
-    display: none;
-  }
-  .login-container h1 {
-    margin: 0;
-  }
-  .register a {
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 280px) {
   .modal .loginModal .modalContents .socialBox .socialHeader {
     display: none;
   }
@@ -407,6 +436,19 @@
     flex-direction: column;
   }
   .saveId {
-    height: 20px;
+    height: 30px;
+  }
+  .modal .loginModal .modalContents .loginBtn {
+    height: 40px;
+  }
+
+  .modal .loginModal .modalContents .socialBox .kakao {
+    height: 40px;
+  }
+  .modal .loginModal .modalContents .socialBox .google {
+    height: 40px;
+  }
+  .login-container input {
+    height: 40px;
   }
 }
