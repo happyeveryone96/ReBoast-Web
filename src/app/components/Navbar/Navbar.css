@@ -12,9 +12,12 @@
   align-items: center;
 }
 
+.lecture-link {
+  padding: 8px 16px 8px 0;
+}
+
 .nav-container-center {
   display: flex;
-  margin-left: 43px;
 }
 
 .search-input {
@@ -47,7 +50,6 @@
   letter-spacing: -0.96px;
   cursor: pointer;
   position: relative;
-  right: 90px;
 }
 
 .star {
@@ -241,10 +243,18 @@
   cursor: pointer;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1300px) {
   .nav-container {
-    width: 80vw;
+    width: 100vw;
   }
+}
+
+@media (max-width: 1300px) {
+  .nav-container {
+    width: 100vw;
+    padding: 0 30px;
+  }
+
   .nav-top {
     margin: 36px auto 28px;
     padding: 0 30px;
@@ -257,16 +267,15 @@
   }
   .nav-top-left {
     justify-content: center;
-    margin: 20px auto;
+    margin: 20px 0;
   }
   .nav-top-right {
     justify-content: center;
   }
   .nav-container {
-    display: block;
+    display: flex;
   }
   .nav-link {
-    margin-top: 10px;
     font-size: 12px;
   }
   .schedule {
@@ -283,11 +292,15 @@
     display: flex;
     flex-direction: column;
   }
-  .nav-container-left {
-    width: 100vw;
+  .navbar-brand {
+    position: relative;
+    left: 20px;
   }
+
   .nav-top-left {
-    display: block;
+    display: flex;
+    position: relative;
+    right: 10px;
   }
   .nav-top-left input {
     margin: 10px auto;
@@ -298,7 +311,22 @@
     width: 80vw;
   }
   .nav-link {
-    width: 20vw;
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .nav-top-left {
+    display: block;
+  }
+  .search-icon {
+    display: inline;
+  }
+  .search-input {
+    display: inline-block;
+    width: 70vw;
+  }
+  .nav-top-left {
+    width: 94vw;
   }
 }

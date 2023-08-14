@@ -331,9 +331,8 @@
     width: 50vw;
   }
   .right-box {
-    width: 80vw;
-    display: flexbox;
-    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
   }
 
   .new-lecture,
@@ -346,6 +345,17 @@
   .card-deck {
     margin: 0 auto;
     width: 85vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .right-box {
+    width: 100vw;
+    display: flexbox;
+    flex-wrap: wrap;
+  }
+  .statistics {
+    width: 100vw;
   }
 }
 

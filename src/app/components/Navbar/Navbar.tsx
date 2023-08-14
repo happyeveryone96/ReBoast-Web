@@ -119,11 +119,9 @@ const Navbar = () => {
       <SignUpAgreeModal isOpen={isAgreeModalOpen} close={closeAgreeModal} />
       <div className="nav-top">
         <div className="nav-top-left">
-          <div>
-            <Link to={'/'} className="navbar-brand">
-              REBOAST
-            </Link>
-          </div>
+          <Link to={'/'} className="navbar-brand">
+            REBOAST
+          </Link>
           <input type="text" className="search-input" />
           <div className="search-icon">
             <img src="/images/search.png" alt="돋보기" />

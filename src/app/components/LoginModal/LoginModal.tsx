@@ -138,8 +138,8 @@ const LoginModal: React.FC<LoginModalProps> = ({
     alert('준비중입니다.');
   };
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSaveId(event.target.checked);
+  const handleSaveId = () => {
+    setSaveId(!saveId);
   };
 
   const savedEmail = localStorage.getItem('savedEmail') || '';
@@ -162,9 +162,6 @@ const LoginModal: React.FC<LoginModalProps> = ({
         <div className="modal">
           <div className="loginModal">
             <div className="modalContents">
-              <div className="close" onClick={close}>
-                &times;
-              </div>
               <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
@@ -173,7 +170,15 @@ const LoginModal: React.FC<LoginModalProps> = ({
                 {({ values, errors, touched, setFieldValue }) => (
                   <Form>
                     <div className="login-container">
-                      <h1>로그인하기</h1>
+                      <div className="login-header">
+                        <h1>로그인하기</h1>
+                        <img
+                          className="close-btn"
+                          src="/images/close.png"
+                          alt="닫기 버튼"
+                          onClick={close}
+                        />
+                      </div>
                       <FormField
                         placeholder="아이디"
                         name="email"
@@ -195,10 +200,21 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
                     <div className="loginMid">
                       <label className="saveId" htmlFor="hint">
-                        <input
-                          type="checkbox"
-                          id="saveId"
-                          onChange={handleChange}
+                        <img
+                          src="/images/unchecked.png"
+                          alt="Unchecked"
+                          className={`checkbox-image ${
+                            saveId === true && 'none'
+                          }`}
+                          onClick={handleSaveId}
+                        />
+                        <img
+                          src="/images/checked.png"
+                          alt="Checked"
+                          className={`checkbox-image ${
+                            saveId === false && 'none'
+                          }`}
+                          onClick={handleSaveId}
                         />
                         아이디 저장
                       </label>
