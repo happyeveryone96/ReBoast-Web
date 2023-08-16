@@ -44,6 +44,25 @@ ul {
   margin: 10px 0;
 }
 
+.form-container {
+  position: relative;
+}
+
+.show-pw {
+  position: absolute;
+  top: 58px;
+  right: 40px;
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .form-container {
+    height: 120px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 @media (max-width: 414px) {
   .invalid-feedback {
     margin: 0;
