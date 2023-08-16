@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import css from 'app/components/CategorySideBar/CategorySideBar.module.css';
 import CategoryToggle from 'app/components/CategoryToggle/CategoryToggle';
+import useWindowSize from 'app/hooks/useWindowSize';
 
 const CategorySideBar = () => {
+  const { width } = useWindowSize();
+  const isTabletMobile = width < 1024;
+
   return (
-    <div className={css.container}>
+    <div className={isTabletMobile ? css.container : css['desktop-container']}>
       <div className={css.all}>전체 강의</div>
       <CategoryToggle category={'창업'} subCategory={['코파운더', '파운더']} />
       <CategoryToggle category={'취업'} subCategory={['서비스업', '금융업']} />
