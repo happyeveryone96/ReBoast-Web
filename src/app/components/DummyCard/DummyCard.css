@@ -9,7 +9,7 @@
 
 .card-body {
   width: 249px;
-  margin: 30px 0;
+  margin: 20px 0 14px;
   padding: 0;
 }
 
@@ -31,11 +31,41 @@
 .rate-text {
   color: #41a24b;
   font-family: Noto Sans KR;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 26px;
   letter-spacing: -0.3333333432674408px;
   text-align: center;
+}
+
+.rate-count {
+  position: relative;
+  left: 4px;
+  bottom: 1.2px;
+  color: #8c8c8c;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: -0.333px;
+}
+
+.middle-line {
+  height: 13px;
+  position: relative;
+  left: 12px;
+  top: 5px;
+  align-items: center;
+}
+
+.author-name {
+  position: relative;
+  top: 1px;
+  margin-left: 22px;
+  color: #494949;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: -0.333px;
 }
 
 .card-title {
@@ -52,6 +82,15 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.category {
+  color: #41a24b;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22.5px; /* 125% */
+  letter-spacing: -1.333px;
+  margin-right: 6px;
 }
 
 .card-text {
@@ -77,25 +116,36 @@
 }
 
 .lecture-tag {
-  color: #848484;
-  background-color: #f2f2f2;
-  width: fit-content;
-  margin: 0 4px;
-  height: 30px;
-  padding: 10px 10px 14px 10px;
-  border-radius: 3px;
-  gap: 10px;
-  margin: 0 10px 10px;
   display: flex;
+  height: 24px;
+  padding: 14px 10px 14px 10px;
+  justify-content: center;
   align-items: center;
+  border-radius: 56px;
+  border: 1px solid #aeaeae;
+  color: #848484;
+  font-size: 12px;
+  letter-spacing: -0.18px;
+  margin-right: 7px;
+}
+
+.more-tag-container {
+  width: 60px;
 }
 
 .more-tag-btn {
+  color: #aeaeae;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  padding: 0 10px;
+  right: 20px;
+  width: 40px;
   display: flex;
   height: 30px;
   align-items: center;
-  color: #898989;
   cursor: pointer;
+  backdrop-filter: blur(3px);
 }
 
 @media (max-width: 705px) {
