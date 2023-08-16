@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Field, ErrorMessage } from 'formik';
 import 'app/components/FormField/FormField.css';
 
@@ -66,41 +66,78 @@ const FormField = (props: FormFieldType) => {
     return conditions;
   };
 
+  const [isShowPassword, setIsShowPassowrd] = useState(false);
+  const [isShowPasswordCheck, setIsShowPassowrdCheck] = useState(false);
+
   const conditionResults = checkPasswordConditions(values?.password);
+
+  const toggleShowPW = () => {
+    if (name === 'password') {
+      setIsShowPassowrd(!isShowPassword);
+    } else if (name === 'passwordCheck') {
+      setIsShowPassowrdCheck(!isShowPasswordCheck);
+    }
+  };
 
   return (
     <>
-      <div>
+      <div className="form-container">
         <label htmlFor={name} className="label">
           {label}
         </label>
         {hasValue === undefined ? (
-          <Field
-            placeholder={placeholder}
-            name={name}
-            type={type}
-            disabled={disabled}
-            as={as}
-            onKeyPress={handleKeyUp}
-            className={
-              'form-group form-control form-control-lg' +
-              (isInvalid ? ' is-invalid' : '')
-            }
-          />
+          <>
+            <Field
+              placeholder={placeholder}
+              name={name}
+              type={isShowPassword || isShowPasswordCheck ? 'text' : type}
+              disabled={disabled}
+              as={as}
+              onKeyPress={handleKeyUp}
+              className={
+                'form-group form-control form-control-lg' +
+                (isInvalid ? ' is-invalid' : '')
+              }
+            />
+            {name === 'password' && (
+              <img
+                src={
+                  isShowPassword ? '/images/green-eye.png' : '/images/eye.png'
+                }
+                alt="비밀번호 보기"
+                onClick={toggleShowPW}
+                className="show-pw"
+              />
+            )}
+            {name === 'passwordCheck' && (
+              <img
+                src={
+                  isShowPasswordCheck
+                    ? '/images/green-eye.png'
+                    : '/images/eye.png'
+                }
+                alt="비밀번호 보기"
+                onClick={toggleShowPW}
+                className="show-pw"
+              />
+            )}
+          </>
         ) : (
-          <Field
-            placeholder={placeholder}
-            name={name}
-            type={type}
-            disabled={disabled}
-            as={as}
-            onKeyPress={handleKeyUp}
-            value={value}
-            className={
-              'form-group form-control form-control-lg' +
-              (!hasValue && isInvalid ? ' is-invalid' : '')
-            }
-          />
+          <>
+            <Field
+              placeholder={placeholder}
+              name={name}
+              type={type}
+              disabled={disabled}
+              as={as}
+              onKeyPress={handleKeyUp}
+              value={value}
+              className={
+                'form-group form-control form-control-lg' +
+                (!hasValue && isInvalid ? ' is-invalid' : '')
+              }
+            />
+          </>
         )}
 
         {!hasValue && (
