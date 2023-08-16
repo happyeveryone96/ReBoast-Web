@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import css from 'app/components/CategoryMenuBar/CategoryMenuBar.module.css';
+import css from 'app/components/CategorySearchBar/CategorySearchBar.module.css';
 import CategoryTag from 'app/components/CategoryTag/CategoryTag';
 import CATEGORY_TAG_DATA from 'app/data/categoryTagData';
 
@@ -8,7 +8,7 @@ interface CategoryTagType {
   categoryTag: string;
 }
 
-const CategoryMenuBar = () => {
+const CategorySearchBar = () => {
   const [data, setData] = useState<CategoryTagType[]>([]);
 
   useEffect(() => {
@@ -16,8 +16,8 @@ const CategoryMenuBar = () => {
   }, []);
 
   return (
-    <div className={css.container}>
-      <div>
+    <div className={css['menubar-container']}>
+      <div className={css.header}>
         <span className={css.all}>전체 강의</span>
         <span className={css.divider}>/</span>
         <span className={css.category}>창업</span>
@@ -57,13 +57,13 @@ event-network"
       </div>
       <input className={css['search-input']} />
 
-      <div className={css['category-tags']}>
+      {/* <div className={css['category-tags']}>
         {data.map((tag) => (
           <CategoryTag key={tag.id} categoryTag={tag.categoryTag} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default CategoryMenuBar;
+export default CategorySearchBar;
