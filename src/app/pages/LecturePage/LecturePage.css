@@ -21,8 +21,34 @@
   cursor: pointer;
 }
 
+@media (max-width: 1800px) {
+  .lecture-home-page {
+    width: 70vw;
+    margin-left: 300px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .lecture-card-deck {
+    width: 800px;
+  }
+}
+
 @media (max-width: 1200px) {
   .filter {
     margin: 30px 30px 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .lecture-home-page {
+    width: auto;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .lecture-card-deck {
+    width: 80vw;
   }
 }

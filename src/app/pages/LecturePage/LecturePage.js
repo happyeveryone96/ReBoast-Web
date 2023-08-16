@@ -68,7 +68,7 @@ const LecturePage = () => {
   }, []);
 
   return (
-    <div className="home-page">
+    <div className="home-page lecture-home-page">
       <CategorySideBar />
       {/* <CategoryMenuBar /> */}
       <div className="filter">
@@ -92,7 +92,7 @@ const LecturePage = () => {
           조회순
         </div>
       </div>
-      <div className="card-deck">
+      <div className="card-deck lecture-card-deck">
         {isByPopularity &&
           [...data]
             .sort((a, b) => b.rate - a.rate)
