@@ -1,10 +1,10 @@
-.home-page {
+.lecture-home-page {
   margin-bottom: 250px;
 }
 
 .filter {
   display: flex;
-  margin: 30px auto 0;
+  margin-top: 30px;
   max-width: 1100px;
 }
 
@@ -19,6 +19,12 @@
 
 .by-view {
   cursor: pointer;
+}
+
+@media (min-width: 1800px) {
+  .filter {
+    margin: 30px auto 0;
+  }
 }
 
 @media (max-width: 1800px) {
