@@ -1,6 +1,11 @@
-.container {
+.menubar-container {
   max-width: 1200px;
-  margin: 61px auto 0;
+  width: 100vw;
+  margin: 69px auto 0;
+}
+
+.header {
+  margin-bottom: 25px;
 }
 
 .all {
@@ -44,12 +49,14 @@
 .step-select,
 .interests-select {
   display: flex;
-  width: 264px;
+  width: 30%;
   padding: 8px 14px;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
   outline: 0;
+  border-radius: 4px;
+  border: 1px solid #c5c5c5;
 }
 
 .search {
@@ -74,9 +81,26 @@
   max-width: 1200px;
   margin: 15px auto;
   height: 46px;
+  max-width: 1150px;
 }
 
 .category-tags {
   display: flex;
   flex-wrap: wrap;
+}
+
+@media (max-width: 1520px) {
+  .menubar-container {
+    width: 68vw;
+  }
+  .search-input {
+    width: 66vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .menubar-container {
+    width: 100vw;
+    padding: 0 20px;
+  }
 }

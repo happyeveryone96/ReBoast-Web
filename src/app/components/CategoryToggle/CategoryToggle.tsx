@@ -26,7 +26,7 @@ const CategoryToggle = (props: CategoryToggleType) => {
             {isToggleOpened ? (
               <img className={css.toggle} src="/images/down.png" alt="토글" />
             ) : (
-              <img className={css.toggle} src="/images/right.png" alt="토글" />
+              <img className={css.toggle} src="/images/down.png" alt="토글" />
             )}
           </div>
           {isToggleOpened && (
@@ -50,7 +50,7 @@ const CategoryToggle = (props: CategoryToggleType) => {
             {isToggleOpened ? (
               <img className={css.toggle} src="/images/down.png" alt="토글" />
             ) : (
-              <img className={css.toggle} src="/images/down.png" alt="토글" />
+              <img className={css.toggle} src="/images/right.png" alt="토글" />
             )}
           </div>
           {isToggleOpened && (

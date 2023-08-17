@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
 import 'app/pages/LecturePage/LecturePage.css';
-import CategoryMenuBar from 'app/components/CategoryMenuBar/CategoryMenuBar.tsx';
+import CategorySearchBar from 'app/components/CategorySearchBar/CategorySearchBar.tsx';
 import CategorySideBar from 'app/components/CategorySideBar/CategorySideBar.tsx';
 
 const LecturePage = () => {
@@ -70,7 +70,7 @@ const LecturePage = () => {
   return (
     <div className="home-page lecture-home-page">
       <CategorySideBar />
-      {/* <CategoryMenuBar /> */}
+      <CategorySearchBar />
       <div className="filter">
         <div
           className={`by-popularity ${isByPopularity && 'selected'}`}
