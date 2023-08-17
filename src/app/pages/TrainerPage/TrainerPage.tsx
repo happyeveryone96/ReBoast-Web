@@ -1,4 +1,5 @@
 import React from 'react';
+import 'app/pages/TrainerPage/TrainerPage.css';
 
 const TrainerPage = () => {
   return (
@@ -101,8 +102,12 @@ const TrainerPage = () => {
 
         <section id="trainers" className="trainers">
           <div className="trainer-container" data-aos="fade-up">
-            <div className="row" data-aos="zoom-in" data-aos-delay="100">
-              <div className="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div
+              className="row row-box"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div className="col-lg-4 col-md-6 d-flex align-items-stretch trainer-box">
                 <div className="member">
                   <img
                     src="assets/img/trainers/trainer-1.jpg"
@@ -131,7 +136,7 @@ const TrainerPage = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div className="col-lg-4 col-md-6 d-flex align-items-stretch trainer-box">
                 <div className="member">
                   <img
                     src="assets/img/trainers/trainer-2.jpg"
@@ -160,7 +165,7 @@ const TrainerPage = () => {
                 </div>
               </div>
 
-              <div className="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div className="col-lg-4 col-md-6 d-flex align-items-stretch trainer-box">
                 <div className="member">
                   <img
                     src="assets/img/trainers/trainer-3.jpg"

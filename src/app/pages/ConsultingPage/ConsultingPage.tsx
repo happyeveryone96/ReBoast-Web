@@ -7,11 +7,13 @@ import ConsultingCard from 'app/components/ConsultingCard/ConsultingCard';
 interface ConsultingData {
   id: number;
   authorId: number;
-  authorName: string;
-  authorImage: string;
+  author: string;
+  profileImage: string;
   title: string;
-  body: string;
-  createdAt: string;
+  content: string;
+  date: string;
+  like: number;
+  tags: string[];
 }
 
 const ConsultingPage = () => {
@@ -28,7 +30,7 @@ const ConsultingPage = () => {
   return (
     // <div className="home-page">
     //   {data.map((consulting) => (
-    //     <Consulting key={consulting.id} consulting={consulting} />
+    //     <ConsultingCard key={consulting.id} consulting={consulting} />
     //   ))}
     // </div>
     <div className="home-page">
@@ -44,159 +46,11 @@ const ConsultingPage = () => {
                 </li>
               </ul>
             </div>
-
             <div>
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah Benešová"
-                date="December 9, 2022"
-                like={1632}
-                title="Try to transmit the HTTP card, maybe it will override the
-                multi-byte hard drive!"
-                content="Assumenda molestiae laboriosam enim ipsum quaerat enim
-                officia vel quo. Earum odit rem natus totam atque cumque.
-                Sint dolorem facere non."
-                tags={['voluptate', 'rerum', 'ducimus', 'hic']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah Benešová"
-                date="December 9, 2022"
-                like={1724}
-                title="If we quantify the alarm, we can get to the FTP pixel
-                through the online SSL interface!"
-                content="Omnis perspiciatis qui quia commodi sequi modi. Nostrum quam
-                aut cupiditate est facere omnis possimus. Tenetur similique
-                nemo illo soluta molestias facere quo. Ipsam totam facilis
-                delectus nihil quidem soluta vel est omnis."
-                tags={['rerum', 'omnis', 'quae']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah Benešová"
-                date="December 9, 2022"
-                like={459}
-                title="quantifying the microchip wont do anything, we need to index
-                the online SQL hard drive!"
-                content="Minima soluta sed sed et optio explicabo at distinctio
-                repudiandae. Magnam deleniti a ea. Non velit accusamus
-                veniam qui. Necessitatibus velit ad aut officiis in officiis
-                quasi. Sunt nulla dolores voluptatem esse magnam ut."
-                tags={['possimus', 'voluptatem', 'cupiditate']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah Benešová"
-                date="December 9, 2022"
-                like={284}
-                title="Try to generate the TCP bus, maybe it will override the
-                neural bandwidth!"
-                content="Pariatur ut dolor repellendus dolores ut debitis. Est iusto
-                neque dicta voluptatibus quia nulla consequatur. Omnis aut
-                sed dolores qui laborum a amet."
-                tags={['dicta', 'rerum', 'omnis', 'blanditils']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah Benešová"
-                date="December 9, 2022"
-                like={278}
-                title="Try to bypass the SAS card, maybe it will transmit the solid
-                state system!"
-                content="Est iste totam accusamus dolorem est. Quis non sit impedit
-                similique incidunt odio aspernatur aut rem. Architecto est
-                eum."
-                tags={['dolores', 'aut', 'consectetur', 'ullam']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah Benešová"
-                date="December 9, 2022"
-                like={278}
-                title="Try to bypass the SAS card, maybe it will transmit the solid
-                state system!"
-                content="Est iste totam accusamus dolorem est. Quis non sit impedit
-                similique incidunt odio aspernatur aut rem. Architecto est
-                eum."
-                tags={[
-                  'welcome',
-                  'implementations',
-                  'introduction',
-                  'codebaseShow',
-                ]}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah"
-                date="December 9, 2022"
-                like={278}
-                title="Try to bypass the SAS card, maybe it will transmit the solid
-                state system!"
-                content="Est iste totam accusamus dolorem est. Quis non sit impedit
-                similique incidunt odio aspernatur aut rem. Architecto est
-                eum."
-                tags={['qui', 'et', 'cupiditate', 'quia']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah"
-                date="December 9, 2022"
-                like={278}
-                title="Try to bypass the SAS card, maybe it will transmit the solid
-                state system!"
-                content="Est iste totam accusamus dolorem est. Quis non sit impedit
-                similique incidunt odio aspernatur aut rem. Architecto est
-                eum."
-                tags={['qui', 'quia', 'deserunt']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah Benešová"
-                date="December 9, 2022"
-                like={278}
-                title="Try to bypass the SAS card, maybe it will transmit the solid
-                state system!"
-                content="Est iste totam accusamus dolorem est. Quis non sit impedit
-                similique incidunt odio aspernatur aut rem. Architecto est
-                eum."
-                tags={['qui', 'quia', 'deserunt', 'ipsum']}
-              />{' '}
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah"
-                date="December 2, 2022"
-                like={123}
-                title="Try to bypass the SAS card, maybe it will transmit the solid
-              state system!"
-                content="Est iste totam accusamus dolorem est. Quis non sit impedit
-              similique incidunt odio aspernatur aut rem. Architecto est
-              eum."
-                tags={['qui', 'quia', 'deserunt', 'ipsum', 'welcome']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah"
-                date="December 1, 2022"
-                like={123}
-                title="Try to bypass the SAS card, maybe it will transmit the solid
-              state system!"
-                content="Est iste totam accusamus dolorem est. Quis non sit impedit
-              similique incidunt odio aspernatur aut rem. Architecto est
-              eum."
-                tags={['qui', 'quia', 'deserunt', 'ipsum', 'introduction']}
-              />
-              <ConsultingCard
-                profileImage="https://api.realworld.io/images/demo-avatar.png"
-                author="Anah"
-                date="December 3, 2022"
-                like={123}
-                title="Try to bypass the SAS card, maybe it will transmit the solid
-              state system!"
-                content="Est iste totam accusamus dolorem est. Quis non sit impedit
-              similique incidunt odio aspernatur aut rem. Architecto est
-              eum."
-                tags={['qui', 'quia', 'deserunt', 'ipsum', 'welcome']}
-              />
+              {data.map((consulting) => (
+                <ConsultingCard key={consulting.id} consulting={consulting} />
+              ))}
+
               <nav>
                 <ul className="pagination">
                   <li className="page-item active">

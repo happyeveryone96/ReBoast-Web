@@ -10,6 +10,7 @@
     "@types/react": "^18.2.15",
     "axios": "^1.4.0",
     "bootstrap": "^4.6.2",
+    "bootstrap-icons": "^1.10.5",
     "formik": "^2.4.2",
     "moment": "^2.29.4",
     "query-string": "^8.1.0",
