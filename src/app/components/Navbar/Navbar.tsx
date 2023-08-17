@@ -199,13 +199,13 @@ const Navbar = () => {
               >
                 선생님 소개
               </Link>
-              <Link
+              {/* <Link
                 to="#"
                 className="nav-link"
                 onClick={() => alert('준비중입니다.')}
               >
                 커뮤니티
-              </Link>
+              </Link> */}
               <Link to="/pricing" className="nav-link">
                 구독
               </Link>
