@@ -192,12 +192,12 @@ const Navbar = () => {
                 상담
               </Link>
               <Link
-                to="#"
+                to="/trainer"
                 className={'nav-link'}
-                onClick={() => alert('준비중입니다.')}
+                // onClick={() => alert('준비중입니다.')}
                 // ${isMentorPage && 'selected'}
               >
-                멘토
+                선생님 소개
               </Link>
               <Link
                 to="#"
@@ -205,6 +205,12 @@ const Navbar = () => {
                 onClick={() => alert('준비중입니다.')}
               >
                 커뮤니티
+              </Link>
+              <Link to="/pricing" className="nav-link">
+                구독
+              </Link>
+              <Link to="/event" className="nav-link">
+                이벤트
               </Link>
               {/* 
               {isLoggedIn && (
