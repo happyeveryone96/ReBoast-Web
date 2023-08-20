@@ -70,38 +70,16 @@ const ConsultingDetail = () => {
                 <p className="content">{content}</p>
               </div>
               <ul className="tag-list">
-                <li>
-                  <a
-                    className="tag-default tag-pill tag-outline"
-                    href="#/tag/voluptate"
-                  >
-                    voluptate
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="tag-default tag-pill tag-outline"
-                    href="#/tag/rerum"
-                  >
-                    rerum
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="tag-default tag-pill tag-outline"
-                    href="#/tag/ducimus"
-                  >
-                    ducimus
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="tag-default tag-pill tag-outline"
-                    href="#/tag/hic"
-                  >
-                    hic
-                  </a>
-                </li>
+                {tags.map((tag) => (
+                  <li>
+                    <a
+                      className="tag-default tag-pill tag-outline"
+                      href={`/consulting#/tag/${tag}`}
+                    >
+                      {tag}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
