@@ -133,6 +133,7 @@ table {
   background-color: white;
   border-top: 2px solid #dedede;
   margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 
 .footerWrap {
@@ -165,7 +166,7 @@ table {
   color: #666;
   font-size: 1rem;
 }
-.footerWrap .footer_left .footer_botTxt > p.address {
+.footerWrap .footer_left .footer_botTxt > p.footer-address {
   padding-bottom: 0.75rem;
 }
 

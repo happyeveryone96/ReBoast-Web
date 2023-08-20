@@ -1,15 +1,100 @@
-.invalid-feedback {
+.login-form-container {
+  height: 110px;
+}
+
+.register-form-container {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  border-bottom: 1px solid #e2e2e2;
+  margin: 24px 0 40px;
+  min-width: 400px;
+  padding-bottom: 10px;
+}
+
+.password-check {
+  border: 0;
+}
+
+.address {
+  flex-wrap: wrap;
+  border: 0;
+  height: 200px;
+}
+
+.email,
+.nickname,
+.phone-number {
+  margin: 0 0 10px;
+  border: 0;
+  display: flex;
+  align-items: center;
+}
+
+.login-invalid-feedback {
   position: relative;
   bottom: 10px;
   margin-bottom: 10px;
   padding: 10px 0;
+  color: #f44040;
+  font-size: 14px;
+  letter-spacing: -0.333px;
+}
+
+.register-invalid-feedback {
+  position: absolute;
+  left: 190px;
+  top: 58px;
+  padding: 10px 0;
+  color: #f44040;
+  font-size: 14px;
+  letter-spacing: -0.333px;
+}
+
+.country {
+  margin-right: 30px;
+  width: 255px;
+  height: 48px !important;
+}
+
+.address .register-invalid-feedback {
+  position: relative;
+  top: 0;
+  left: 240px;
+}
+
+.zip-code {
+  width: 300px;
+}
+
+.email-input,
+.nickname-input,
+.phone-number-input {
+  width: 50vw;
+  position: relative;
+  right: 35px;
+}
+
+.address-input,
+.detail-address-input {
+  margin-left: 240px;
+}
+
+.form-control {
+  border-radius: 0;
 }
 
 .label {
   padding-bottom: 20px;
   padding-top: 20px;
   text-align: left;
-  width: 140px;
+  width: 240px;
+}
+
+.essential {
+  color: #41a24b;
+  font-weight: 500;
+  letter-spacing: -0.333px;
 }
 
 .gender-radio {
@@ -50,16 +135,33 @@ ul {
 
 .show-pw {
   position: absolute;
-  top: 58px;
+  top: 16px;
   right: 40px;
   cursor: pointer;
 }
 
-@media (max-width: 1024px) {
-  .form-container {
-    height: 120px;
-    margin: 0;
-    padding: 0;
+@media (max-width: 1284px) {
+  .login-form-container {
+    margin-top: 40px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .address {
+    height: 300px;
+  }
+
+  .address .register-invalid-feedback {
+    position: absolute;
+    left: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .login-form-container {
+    margin-top: 40px;
+    height: 70px;
   }
 }
 
@@ -67,5 +169,22 @@ ul {
   .invalid-feedback {
     margin: 0;
     padding: 0;
+  }
+
+  .login-form-container {
+    height: 80px;
+  }
+}
+
+@media (max-width: 375px) {
+  .login-form-container {
+    height: 90px;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  .login-form-container {
+    height: 70px;
   }
 }

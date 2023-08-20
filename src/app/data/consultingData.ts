@@ -11,6 +11,7 @@ const CONSULTING_DATA = [
     date: 'December 3, 2022',
     like: 1632,
     tags: ['voluptate', 'rerum', 'ducimus', 'hic'],
+    solved: true,
   },
   {
     id: 2,
@@ -24,6 +25,7 @@ const CONSULTING_DATA = [
     date: 'December 1, 2022',
     like: 1724,
     tags: ['rerum', 'omnis', 'quae'],
+    solved: false,
   },
   {
     id: 3,
@@ -37,6 +39,7 @@ const CONSULTING_DATA = [
     date: 'December 1, 2022',
     like: 459,
     tags: ['possimus', 'voluptatem', 'cupiditate'],
+    solved: true,
   },
   {
     id: 4,
@@ -50,6 +53,7 @@ const CONSULTING_DATA = [
     date: 'December 4, 2022',
     like: 284,
     tags: ['dicta', 'rerum', 'omnis', 'blanditils'],
+    solved: false,
   },
   {
     id: 5,
@@ -63,6 +67,7 @@ const CONSULTING_DATA = [
     date: 'December 5, 2022',
     like: 278,
     tags: ['dolores', 'aut', 'consectetur', 'ullam'],
+    solved: true,
   },
   {
     id: 6,
@@ -76,6 +81,7 @@ const CONSULTING_DATA = [
     date: 'December 5, 2022',
     like: 178,
     tags: ['welcome', 'implementations', 'introduction', 'codebaseShow'],
+    solved: false,
   },
   {
     id: 7,
@@ -89,6 +95,7 @@ const CONSULTING_DATA = [
     date: 'December 29, 2022',
     like: 1178,
     tags: ['qui', 'et', 'cupiditate', 'quia'],
+    solved: true,
   },
   {
     id: 8,
@@ -102,6 +109,7 @@ const CONSULTING_DATA = [
     date: 'December 20, 2022',
     like: 1178,
     tags: ['qui', 'quia', 'deserunt'],
+    solved: false,
   },
   {
     id: 9,
@@ -115,6 +123,7 @@ const CONSULTING_DATA = [
     date: 'December 18, 2022',
     like: 1178,
     tags: ['qui', 'quia', 'deserunt', 'ipsum'],
+    solved: true,
   },
   {
     id: 10,
@@ -128,6 +137,7 @@ const CONSULTING_DATA = [
     date: 'December 14, 2022',
     like: 1178,
     tags: ['qui', 'quia', 'deserunt', 'ipsum', 'welcome'],
+    solved: false,
   },
   {
     id: 11,
@@ -141,6 +151,7 @@ const CONSULTING_DATA = [
     date: 'December 12, 2022',
     like: 1178,
     tags: ['qui', 'quia', 'deserunt', 'ipsum', 'introduction'],
+    solved: true,
   },
   {
     id: 12,
@@ -154,6 +165,7 @@ const CONSULTING_DATA = [
     date: 'December 9, 2022',
     like: 1178,
     tags: ['qui', 'quia', 'deserunt', 'ipsum', 'welcome'],
+    solved: false,
   },
 ];
 

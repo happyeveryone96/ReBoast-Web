@@ -190,7 +190,7 @@ const Register = () => {
         return date.isValid();
       }),
     gender: Yup.string().required('성별을 선택해주세요.'),
-    address: Yup.string().required('주소를 입력해주세요.'),
+    address: Yup.string().required('사는 곳을 입력해주세요.'),
     detailAddress: Yup.string().required('상세 주소를 입력해주세요.'),
   });
 
@@ -325,22 +325,37 @@ const Register = () => {
         {({ values, errors, touched }) => (
           <Form values={values}>
             <div className="register-box">
-              <div className="col-md-6 offset-md-3 col-xs-12">
-                <h2 className="text-xs-left">회원정보 입력</h2>
-                <FormField
-                  label="이메일"
-                  placeholder="이메일을 입력해주세요."
-                  name="email"
-                  type="text"
-                  errors={errors}
-                  touched={touched}
+              <h2 className="text-xs-left">
+                <img
+                  src="/images/back.png"
+                  alt="뒤로 가기"
+                  className="register-back"
                 />
-                <button
-                  className={`btn ${!isAvailableEmail && 'invalid'}`}
-                  onClick={() => checkEmail(values.email, errors, values)}
-                >
-                  중복확인
-                </button>
+                REBOAST 회원가입
+              </h2>
+
+              <div>
+                <div className="user-info-box">
+                  <img src="/images/person.png" alt="회원 정보" />
+                  회원정보
+                </div>
+                <div className="input-box">
+                  <FormField
+                    label="이메일"
+                    placeholder="이메일을 입력해주세요."
+                    name="email"
+                    type="text"
+                    errors={errors}
+                    touched={touched}
+                  />
+                  <button
+                    className={`btn check`}
+                    // ${!isAvailableEmail && 'invalid'}
+                    onClick={() => checkEmail(values.email, errors, values)}
+                  >
+                    중복확인
+                  </button>
+                </div>
                 <FormField
                   label="비밀번호"
                   placeholder="문자, 숫자, 특수문자를 모두 포함시켜주세요."
@@ -359,31 +374,39 @@ const Register = () => {
                   touched={touched}
                 />
                 <div className="individual-info-box">
-                  <h2 className="text-xs-left">개인정보 입력</h2>
-                  <FormField
-                    label="닉네임"
-                    placeholder="닉네임을 입력해주세요."
-                    name="nickname"
-                    type="text"
-                    errors={errors}
-                    touched={touched}
-                  />
-                  <button
-                    className={`btn ${!isAvailableNickname && 'invalid'}`}
-                    onClick={() =>
-                      checkNickName(values.nickname, errors, values)
-                    }
-                  >
-                    중복확인
-                  </button>
-                  <FormField
-                    label="휴대폰 번호"
-                    placeholder="‘-’ 없이 입력해주세요"
-                    name="phoneNumber"
-                    type="text"
-                    errors={errors}
-                    touched={touched}
-                  />
+                  <div className="individual-box">
+                    <img src="/images/verified.png" alt="개인 정보" />
+                    개인 정보
+                  </div>
+                  <div className="input-box">
+                    <FormField
+                      label="이름"
+                      placeholder="이름을 입력해주세요."
+                      name="nickname"
+                      type="text"
+                      errors={errors}
+                      touched={touched}
+                    />
+                    {/* <button
+                      className={`btn check`}
+                      onClick={() =>
+                        checkNickName(values.nickname, errors, values)
+                      }
+                    >
+                      중복확인
+                    </button> */}
+                  </div>
+                  <div className="input-box">
+                    <FormField
+                      label="핸드폰번호"
+                      placeholder="‘-’ 없이 입력해주세요"
+                      name="phoneNumber"
+                      type="text"
+                      errors={errors}
+                      touched={touched}
+                    />
+                    <button className={`btn check`}>인증하기</button>
+                  </div>
                   <FormField
                     label="생년월일"
                     placeholder="YYYYMMDD"
@@ -397,9 +420,10 @@ const Register = () => {
                     role="group"
                     aria-labelledby="my-radio-group"
                   >
-                    성별
-                    <br />
                     <div className="gender-box">
+                      <label>
+                        성별 <span className="essential">(필수)</span>
+                      </label>
                       <div className="gender-select">
                         <Field
                           type="radio"
@@ -435,24 +459,24 @@ const Register = () => {
                     className="invalid-gender"
                   />
                   <FormField
-                    label="주소"
-                    placeholder="주소를 입력해주세요."
+                    label="사는 곳"
+                    placeholder="사는 곳을 입력해주세요."
                     name="address"
                     type="text"
                     errors={errors}
                     touched={touched}
-                    value={address}
-                    disabled
+                    // value={address}
+                    // disabled
                   />
-                  <FormField
+                  {/* <FormField
                     label={null}
                     placeholder="상세 주소를 입력해주세요."
                     name="detailAddress"
                     type="text"
                     errors={errors}
                     touched={touched}
-                  />
-                  {visible ? (
+                  /> */}
+                  {/* {visible ? (
                     <div>
                       <button className="btn" onClick={handleButtonClick}>
                         닫기
@@ -466,16 +490,23 @@ const Register = () => {
                     <button className="btn" onClick={handleButtonClick}>
                       주소 검색
                     </button>
-                  )}
+                  )} */}
                 </div>
 
-                <div className="form-group">
+                <div className="btn-group">
                   <button
                     type="button"
                     onClick={() => handleRegister(values, errors)}
-                    className="btn btn-lg btn-primary pull-xs-right"
+                    className="btn btn-lg btn-primary pull-xs-right complete"
                   >
-                    <span>회원가입</span>
+                    <span>회원가입 완료하기</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => navigate('/')}
+                    className="btn btn-lg btn-primary pull-xs-right cancel-btn"
+                  >
+                    <span>취소하기</span>
                   </button>
                 </div>
               </div>
