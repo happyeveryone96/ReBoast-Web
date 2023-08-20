@@ -49,6 +49,8 @@ input[type='checkbox']:checked + .checked {
   letter-spacing: -0.333px;
   margin: 15px 0;
   margin-left: 43px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .modal-contents .agree-box input {
@@ -56,8 +58,8 @@ input[type='checkbox']:checked + .checked {
 }
 
 .register-modal .modal-contents .register-agree {
-  width: 136px;
-  height: 58px;
+  width: 223px;
+  height: 29px;
   color: #4a4a4a;
   font-family: Noto Sans KR;
   font-size: 24px;
@@ -70,6 +72,28 @@ input[type='checkbox']:checked + .checked {
   margin-left: 43px;
 }
 
+.see-more {
+  display: flex;
+  width: 110px;
+  height: 33px;
+  flex-shrink: 0;
+  border: 1px solid #979797;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 45px;
+  cursor: pointer;
+}
+
+.see-more img {
+  margin-left: 4px;
+}
+
+.back {
+  margin-right: 13px;
+  cursor: pointer;
+}
+
 .agree {
   color: #4a4a4a;
   font-family: Noto Sans KR;
@@ -78,6 +102,32 @@ input[type='checkbox']:checked + .checked {
   font-weight: 300;
   line-height: 28px;
   letter-spacing: -0.333px;
+}
+
+.agreement {
+  margin: 40px 50px;
+}
+
+.agree-text {
+  width: 475px;
+  color: #4a4a4a;
+  font-family: Noto Sans KR;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 24px; /* 109.091% */
+  letter-spacing: -1.333px;
+  margin-left: 10px;
+}
+
+.agree-text-box {
+  width: 475px;
+  height: 296px;
+  border-radius: 8px;
+  border: 1px solid #d2d2d2;
+  background: #ebebeb;
+  margin: 40px auto;
+  padding: 10px;
 }
 
 .modal-contents .agree-form {
@@ -132,7 +182,7 @@ input[type='checkbox']:checked + .checked {
 .btn-box {
   display: flex;
   color: white;
-  margin-top: 100px;
+  margin-top: 59px;
 }
 
 @media (max-width: 1024px) {

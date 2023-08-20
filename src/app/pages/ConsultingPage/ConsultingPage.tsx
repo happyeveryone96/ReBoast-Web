@@ -14,6 +14,7 @@ interface ConsultingData {
   date: string;
   like: number;
   tags: string[];
+  solved: boolean;
 }
 
 const ConsultingPage = () => {
@@ -40,8 +41,18 @@ const ConsultingPage = () => {
             <div className="feed-toggle">
               <ul className="nav nav-pills outline-active">
                 <li className="nav-item">
-                  <a href="#/" target="" className="active nav-link">
-                    Global Feed
+                  <a href="" target="" className="active nav-link">
+                    전체
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="" target="" className="nav-link">
+                    해결
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="" target="" className="nav-link">
+                    미해결
                   </a>
                 </li>
               </ul>
@@ -160,7 +171,7 @@ const ConsultingPage = () => {
 
           <div className="col-md-3">
             <div className="sidebar">
-              <p>Popular Tags</p>
+              <p>인기 태그</p>
               <div className="tag-list">
                 <a className="tag-pill tag-default" href="#/tag/welcome">
                   welcome

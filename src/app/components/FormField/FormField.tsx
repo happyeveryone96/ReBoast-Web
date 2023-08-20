@@ -79,14 +79,57 @@ const FormField = (props: FormFieldType) => {
     }
   };
 
+  const isLogin = place === 'login';
+  const isEmail = name === 'email';
+  const isNickname = name === 'nickname';
+  const isDetailAddress = name === 'detailAddress';
+  const isPhoneNumber = name === 'phoneNumber';
+  const isAddress = name === 'address';
+  const isPWCheck = name === 'passwordCheck';
+
   return (
     <>
-      <div className="form-container">
-        <label htmlFor={name} className="label">
-          {label}
-        </label>
+      <div
+        className={`form-container ${
+          isLogin ? 'login-form-container' : 'register-form-container'
+        } ${isEmail ? 'email' : ''} ${isNickname ? 'nickname' : ''} ${
+          isPhoneNumber ? 'phone-number' : ''
+        } ${isAddress ? 'address' : ''} ${isPWCheck ? 'password-check' : ''}`}
+      >
+        {isLogin ? null : (
+          <label htmlFor={name} className="label">
+            {label}
+            {!isDetailAddress ? (
+              <span className="essential"> (필수)</span>
+            ) : null}
+          </label>
+        )}
+
         {hasValue === undefined ? (
           <>
+            {isAddress ? (
+              <Field
+                name={'country'}
+                as={'select'}
+                onKeyPress={handleKeyUp}
+                className={'form-group form-control form-control-lg country'}
+              >
+                <option value="대한민국">대한민국</option>
+                <option value="가나">가나</option>
+                <option value="미국">미국</option>
+                <option value="프랑스">프랑스</option>
+                <option value="스페인">스페인</option>
+              </Field>
+            ) : null}
+            {isAddress ? (
+              <Field
+                placeholder={'우편 번호를 입력해주세요'}
+                name={'zip-code'}
+                onKeyPress={handleKeyUp}
+                className={'form-group form-control form-control-lg zip-code'}
+              />
+            ) : null}
+
             <Field
               placeholder={placeholder}
               name={name}
@@ -96,9 +139,25 @@ const FormField = (props: FormFieldType) => {
               onKeyPress={handleKeyUp}
               className={
                 'form-group form-control form-control-lg' +
-                (isInvalid ? ' is-invalid' : '')
+                (isInvalid ? ' is-invalid' : '') +
+                (!isLogin && isEmail ? ' email-input' : '') +
+                (isNickname ? ' nickname-input' : '') +
+                (isPhoneNumber ? ' phone-number-input' : '') +
+                (isAddress ? ' address-input' : '')
               }
             />
+
+            {isAddress ? (
+              <Field
+                placeholder={'상세 주소를 입력해주세요'}
+                name={'detailAddress'}
+                onKeyPress={handleKeyUp}
+                className={
+                  'form-group form-control form-control-lg detail-address-input'
+                }
+              />
+            ) : null}
+
             {name === 'password' && (
               <img
                 src={
@@ -123,32 +182,31 @@ const FormField = (props: FormFieldType) => {
             )}
           </>
         ) : (
-          <>
-            <Field
-              placeholder={placeholder}
-              name={name}
-              type={type}
-              disabled={disabled}
-              as={as}
-              onKeyPress={handleKeyUp}
-              value={value}
-              className={
-                'form-group form-control form-control-lg' +
-                (!hasValue && isInvalid ? ' is-invalid' : '')
-              }
-            />
-          </>
+          <Field
+            placeholder={placeholder}
+            name={name}
+            type={type}
+            disabled={disabled}
+            as={as}
+            onKeyPress={handleKeyUp}
+            value={value}
+            className={
+              'form-group form-control form-control-lg' +
+              (!hasValue && isInvalid ? ' is-invalid' : '')
+            }
+          />
         )}
-
         {!hasValue && (
           <ErrorMessage
             name={name}
             component="div"
-            className="invalid-feedback danger"
+            className={`${
+              isLogin ? 'login-invalid-feedback' : 'register-invalid-feedback'
+            }`}
           />
         )}
       </div>
-      {name === 'password' && place !== 'login' && (
+      {/* {name === 'password' && place !== 'login' && (
         <ul className="password-check">
           <li
             className={
@@ -173,7 +231,7 @@ const FormField = (props: FormFieldType) => {
             특수 문자 포함
           </li>
         </ul>
-      )}
+      )} */}
     </>
   );
 };

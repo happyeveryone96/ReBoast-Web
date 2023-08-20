@@ -187,6 +187,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                         touched={touched}
                         savedEmail={savedEmail}
                         setFieldValue={setFieldValue}
+                        place="login"
                       />
                       <FormField
                         placeholder="비밀번호"

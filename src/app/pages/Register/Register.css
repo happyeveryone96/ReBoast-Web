@@ -14,15 +14,69 @@
   margin: 0 auto 500px;
 }
 
-.register-box h2 {
-  font-size: 30px;
-  border-top: 3px solid;
-  margin-top: 30px;
-  padding-top: 30px;
+.user-info-box {
+  margin-top: 34px;
+  padding-bottom: 34px;
+  display: flex;
+  color: #4a4a4a;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.333px;
+  border-bottom: 1px solid #e2e2e2;
 }
 
-.register-box .text-xs-left {
-  margin-bottom: 30px;
+.individual-box {
+  margin-top: 34px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  display: flex;
+  color: #4a4a4a;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px; /* 140% */
+  letter-spacing: -0.333px;
+  border-top: 1px solid;
+}
+
+.user-info-box img,
+.individual-box img {
+  width: 27px;
+  height: 26px;
+  margin-right: 11px;
+}
+
+.register-box h2 {
+  font-size: 30px;
+  border-bottom: 1px solid;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+
+.register-back {
+  cursor: pointer;
+  margin-right: 29px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e2e2;
+  padding-top: 27px;
+}
+
+.check {
+  display: flex;
+  width: 141px;
+  height: 45px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 2px;
+  background: #41a24b;
 }
 
 .register-box .text-xs-left a {
@@ -35,7 +89,7 @@
   border-color: #5cb85c;
   color: white;
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 35px;
 }
 
 .register-box .invalid {
@@ -64,9 +118,6 @@
   margin-bottom: 10px;
   margin-top: 10px;
 }
-.btn {
-  margin: 10px 0;
-}
 
 .invalid-gender {
   color: #dc3545;
@@ -76,14 +127,71 @@
 
 .gender-box {
   display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 50px;
+}
+
+.gender-box label {
+  width: 190px;
+}
+
+.essential {
+  color: #41a24b;
+  font-weight: 500;
+  letter-spacing: -0.333px;
 }
 
 .gender-select {
   margin: 0 10px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
   .register-box {
     margin: 0 20px;
   }
+  .input-box {
+    display: block;
+  }
+  .address {
+    display: block;
+  }
+  .address-input,
+  .detail-address-input {
+    margin: 10px 0;
+  }
+}
+
+.btn-group {
+  width: 100%;
+  margin-top: 113px;
+}
+
+.complete {
+  width: 50%;
+  background: #41a24b !important;
+  display: flex;
+  width: 483px;
+  height: 60px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 10px;
+  border-radius: 0;
+}
+
+.cancel-btn {
+  width: 50%;
+  background: #626262 !important;
+  display: flex;
+  width: 483px;
+  height: 60px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 0;
 }
