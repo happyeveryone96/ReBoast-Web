@@ -258,7 +258,7 @@ const Register = () => {
         navigate('/');
         window.scrollTo(0, 0);
       })
-      .catch((err) => alert(err.response.data.message));
+      .catch((err) => alert(err?.response?.data?.message));
     // }
   };
 
