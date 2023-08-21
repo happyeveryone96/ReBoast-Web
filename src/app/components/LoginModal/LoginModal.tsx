@@ -130,7 +130,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
           navigate('/');
           close();
         })
-        .catch((err: any) => alert(err.response.data.message));
+        .catch((err: any) => alert(err?.response?.data?.message));
     }
   };
 
