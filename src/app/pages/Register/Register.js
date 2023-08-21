@@ -191,7 +191,7 @@ const Register = () => {
       }),
     gender: Yup.string().required('성별을 선택해주세요.'),
     address: Yup.string().required('사는 곳을 입력해주세요.'),
-    detailAddress: Yup.string().required('상세 주소를 입력해주세요.'),
+    // detailAddress: Yup.string().required('상세 주소를 입력해주세요.'),
   });
 
   const isObjectEmpty = (obj) => {
@@ -208,61 +208,58 @@ const Register = () => {
   };
 
   const handleRegister = (values, errors) => {
+    // console.log(1);
     const { nickname, email, password } = values;
-    if (hasEmptyString(values)) {
-      alert('모든 회원 정보를 입력해주세요.');
-      return;
-    }
-    if (isAvailableEmail === false) {
-      alert('이메일 중복 확인이 필요합니다.');
-      return;
-    }
-    if (isAvailableNickname === false) {
-      alert('닉네임 중복 확인이 필요합니다.');
-      return;
-    }
-    if (!isObjectEmpty(errors)) {
-      const errList = Object.keys(errors).map((err) => {
-        if (err === 'email') {
-          return '이메일';
-        } else if (err === 'nickname') {
-          return '닉네임';
-        } else if (err === 'password') {
-          return '패스워드';
-        } else if (err === 'passwordCheck') {
-          return '비밀번호 확인';
-        } else if (err === 'phoneNumber') {
-          return '휴대폰 번호';
-        } else if (err === 'birthDate') {
-          return '생년월일';
-        } else if (err === 'gender') {
-          return '성별';
-        } else if (err === 'address') {
-          return '주소';
-        } else if (err === 'detailAddress') {
-          return '상세 주소';
-        }
-      });
-      alert('입력된 회원 정보를 확인해주세요.\n' + errList);
-    }
-    if (
-      isAvailableEmail &&
-      isAvailableEmail &&
-      isObjectEmpty(errors) &&
-      !hasEmptyString(values)
-    ) {
-      alert('회원가입이 완료되었습니다.');
-      navigate('/');
-      window.scrollTo(0, 0);
-      // dispatch(register({ nickname, email, password }))
-      //   .unwrap()
-      //   .then(() => {
-      //     alert('회원가입이 완료되었습니다.');
-      //     navigate('/');
-      //     window.scrollTo(0, 0);
-      //   })
-      //   .catch((err) => alert(err.response.data.message));
-    }
+    // if (hasEmptyString(values)) {
+    //   alert('모든 회원 정보를 입력해주세요.');
+    //   return;
+    // }
+    // if (isAvailableEmail === false) {
+    //   alert('이메일 중복 확인이 필요합니다.');
+    //   return;
+    // }
+    // if (isAvailableNickname === false) {
+    //   alert('이름 중복 확인이 필요합니다.');
+    //   return;
+    // }
+    // if (!isObjectEmpty(errors)) {
+    //   const errList = Object.keys(errors).map((err) => {
+    //     if (err === 'email') {
+    //       return '이메일';
+    //     } else if (err === 'nickname') {
+    //       return '이름';
+    //     } else if (err === 'password') {
+    //       return '패스워드';
+    //     } else if (err === 'passwordCheck') {
+    //       return '비밀번호 확인';
+    //     } else if (err === 'phoneNumber') {
+    //       return '휴대폰 번호';
+    //     } else if (err === 'birthDate') {
+    //       return '생년월일';
+    //     } else if (err === 'gender') {
+    //       return '성별';
+    //     } else if (err === 'address') {
+    //       return '주소';
+    //     }
+    //     // else if (err === 'detailAddress') {
+    //     //   return '상세 주소';
+    //     // }
+    //   });
+    //   alert('입력된 회원 정보를 확인해주세요.\n' + errList);
+    // }
+    // if (isAvailableEmail && isObjectEmpty(errors) && !hasEmptyString(values)) {
+    // alert('회원가입이 완료되었습니다.');
+    // navigate('/');
+    // window.scrollTo(0, 0);
+    dispatch(register({ nickname, email, password }))
+      .unwrap()
+      .then(() => {
+        alert('회원가입이 완료되었습니다.');
+        navigate('/');
+        window.scrollTo(0, 0);
+      })
+      .catch((err) => alert(err.response.data.message));
+    // }
   };
 
   const handleButtonClick = () => {
@@ -323,7 +320,7 @@ const Register = () => {
         onSubmit={handleRegister}
       >
         {({ values, errors, touched }) => (
-          <Form values={values}>
+          <Form values={values} method="post">
             <div className="register-box">
               <h2 className="text-xs-left">
                 <img

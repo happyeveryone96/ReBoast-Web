@@ -122,15 +122,15 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
     if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
       setEmail(email);
-      setIsDummyLoggedIn(true);
-      close();
-      // dispatch(login({ email, password }))
-      //   .unwrap()
-      //   .then(() => {
-      //     navigate('/');
-      //     close();
-      //   })
-      //   .catch((err: any) => alert(err.response.data.message));
+      // setIsDummyLoggedIn(true);
+      // close();
+      dispatch(login({ email, password }))
+        .unwrap()
+        .then(() => {
+          navigate('/');
+          close();
+        })
+        .catch((err: any) => alert(err.response.data.message));
     }
   };
 
@@ -168,7 +168,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                 onSubmit={handleLogin}
               >
                 {({ values, errors, touched, setFieldValue }) => (
-                  <Form>
+                  <Form method="post">
                     <div className="login-container">
                       <div className="login-header">
                         <h1>로그인하기</h1>
