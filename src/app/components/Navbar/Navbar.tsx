@@ -128,16 +128,15 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-top-right">
-          {/* {isLoggedIn ? ( */}
-          {isDummyLoggedIn ? (
-            // <Link to="" className="nav-link" onClick={logOut}>
+          {isLoggedIn ? (
+            // {/* {isDummyLoggedIn ? ( */}
             <>
               <div>{nickname}</div>
               <Link
                 to=""
                 className="nav-link"
-                onClick={() => setIsDummyLoggedIn(false)}
-                // onClick={logOut}
+                // onClick={() => setIsDummyLoggedIn(false)}
+                onClick={logOut}
               >
                 로그아웃
               </Link>
