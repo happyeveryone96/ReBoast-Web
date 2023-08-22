@@ -13,82 +13,51 @@ const CategoryToggle = (props: CategoryToggleType) => {
 
   const { width } = useWindowSize();
   const isTabletMobile = width < 1024;
+  const isFoundation = category === '창업';
 
   return (
     <>
-      {isTabletMobile ? (
+      <div
+        className={css.category}
+        onClick={() => setIsToggleOpened(!isToggleOpened)}
+      >
+        {category}
+        {isToggleOpened ? (
+          <img className={css.toggle} src="/images/up.png" alt="토글" />
+        ) : (
+          <img
+            className={css.toggle}
+            src={isTabletMobile ? '/images/down.png' : '/images/right.png'}
+            alt="토글"
+          />
+        )}
+      </div>
+      {isToggleOpened && (
         <>
-          <div
-            className={css.category}
-            onClick={() => setIsToggleOpened(!isToggleOpened)}
-          >
-            {category}
-            {isToggleOpened ? (
-              <img className={css.toggle} src="/images/down.png" alt="토글" />
-            ) : (
-              <img className={css.toggle} src="/images/down.png" alt="토글" />
-            )}
-          </div>
-          {isToggleOpened && (
-            <>
-              <div className={css['all-category']}>ALL</div>
-              {subCategory.map((category) => (
-                <div key={category} className={css['sub-category']}>
-                  {category}
-                </div>
-              ))}
-            </>
+          {isFoundation && (
+            <div
+              className={css['all-category']}
+              onClick={(e) =>
+                console.log(category, e.currentTarget.textContent)
+              }
+            >
+              ALL
+            </div>
           )}
-        </>
-      ) : (
-        <>
-          <div
-            className={css.category}
-            onClick={() => setIsToggleOpened(!isToggleOpened)}
-          >
-            {category}
-            {isToggleOpened ? (
-              <img className={css.toggle} src="/images/down.png" alt="토글" />
-            ) : (
-              <img className={css.toggle} src="/images/right.png" alt="토글" />
-            )}
-          </div>
-          {isToggleOpened && (
-            <>
-              <div className={css['all-category']}>ALL</div>
-              {subCategory.map((category) => (
-                <div key={category} className={css['sub-category']}>
-                  {category}
-                </div>
-              ))}
-            </>
-          )}
+          {subCategory.map((category) => (
+            <div
+              key={category}
+              className={css['sub-category']}
+              onClick={(e) =>
+                console.log(props.category, e.currentTarget.textContent)
+              }
+            >
+              {category}
+            </div>
+          ))}
         </>
       )}
     </>
-    // <>
-    //   <div
-    //     className={css.category}
-    //     onClick={() => setIsToggleOpened(!isToggleOpened)}
-    //   >
-    //     {category}
-    //     {isToggleOpened ? (
-    //       <img className={css.toggle} src="/images/down.png" alt="토글" />
-    //     ) : (
-    //       <img className={css.toggle} src="/images/down.png" alt="토글" />
-    //     )}
-    //   </div>
-    //   {isToggleOpened && (
-    //     <>
-    //       <div className={css['all-category']}>ALL</div>
-    //       {subCategory.map((category) => (
-    //         <div key={category} className={css['sub-category']}>
-    //           {category}
-    //         </div>
-    //       ))}
-    //     </>
-    //   )}
-    // </>
   );
 };
 

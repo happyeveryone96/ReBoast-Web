@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+.preview-link {
+  cursor: pointer;
+}
+
 .card-body {
   width: 249px;
   margin: 20px 0 14px;
@@ -112,7 +116,6 @@
 
 .tags {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .lecture-tag {

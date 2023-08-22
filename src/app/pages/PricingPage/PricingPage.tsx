@@ -36,7 +36,7 @@ const Pricing = () => {
 
             <div className="col-lg-3 col-md-6 mt-4 mt-md-0">
               <div className="box featured">
-                <h3>학생(초중고)</h3>
+                <h3>학생(초·중·고)</h3>
                 <h4>
                   <sup>$</sup>1<span> / month</span>
                 </h4>
