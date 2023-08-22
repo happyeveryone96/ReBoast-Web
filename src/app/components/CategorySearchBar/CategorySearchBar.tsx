@@ -8,7 +8,13 @@ interface CategoryTagType {
   categoryTag: string;
 }
 
-const CategorySearchBar = () => {
+interface CategorySearchBarType {
+  category: string;
+  subCategory: string;
+}
+
+const CategorySearchBar = (props: CategorySearchBarType) => {
+  const { category, subCategory } = props;
   const [data, setData] = useState<CategoryTagType[]>([]);
 
   useEffect(() => {
@@ -18,9 +24,9 @@ const CategorySearchBar = () => {
   return (
     <div className={css['menubar-container']}>
       <div className={css.header}>
-        <span className={css.all}>창업</span>
+        <span className={css.all}>{category}</span>
         <span className={css.divider}>/</span>
-        <span className={css.category}>ALL</span>
+        <span className={css.category}>{subCategory}</span>
       </div>
       <div className={css['top-menu-bar']}>
         <div className={css.step}>창업단계</div>
