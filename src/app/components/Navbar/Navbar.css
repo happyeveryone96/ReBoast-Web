@@ -147,7 +147,10 @@
 
 .nav-top-right {
   display: flex;
-  align-items: center;
+}
+
+.nickname {
+  cursor: pointer;
 }
 
 .login,

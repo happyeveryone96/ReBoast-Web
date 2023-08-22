@@ -10,7 +10,7 @@ import './LoginModal.css';
 import { clearMessage } from 'app/slices/message';
 import FormField from '../FormField/FormField';
 import { Form, Formik } from 'formik';
-import { login, socialLogin } from 'app/slices/auth';
+import { login, socialLogin, dummyLogin } from 'app/slices/auth';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import qs from 'qs';
@@ -44,19 +44,19 @@ const LoginModal: React.FC<LoginModalProps> = ({
 
   useEffect(() => {
     dispatch(clearMessage());
-    if (query.accessToken) {
-      localStorage.setItem('accessToken', accessTokenFromSocialLogin as string);
-      localStorage.setItem(
-        'refreshToken',
-        refreshTokenFromSocialLogin as string,
-      );
-      dispatch(socialLogin(query.accessToken));
-    }
+    // if (query.accessToken) {
+    //   localStorage.setItem('accessToken', accessTokenFromSocialLogin as string);
+    //   localStorage.setItem(
+    //     'refreshToken',
+    //     refreshTokenFromSocialLogin as string,
+    //   );
+    //   dispatch(socialLogin(query.accessToken));
+    // }
   }, [
     dispatch,
-    accessTokenFromSocialLogin,
-    refreshTokenFromSocialLogin,
-    query.accessToken,
+    // accessTokenFromSocialLogin,
+    // refreshTokenFromSocialLogin,
+    // query.accessToken,
   ]);
 
   const initialValues = {
@@ -121,16 +121,17 @@ const LoginModal: React.FC<LoginModalProps> = ({
     else localStorage.removeItem('savedEmail');
 
     if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
+      // dispatch(dummyLogin());
       setEmail(email);
-      // setIsDummyLoggedIn(true);
-      // close();
-      dispatch(login({ email, password }))
-        .unwrap()
-        .then(() => {
-          navigate('/');
-          close();
-        })
-        .catch((err: any) => alert(err?.response?.data?.message));
+      setIsDummyLoggedIn(true);
+      close();
+      // dispatch(login({ email, password }))
+      //   .unwrap()
+      //   .then(() => {
+      //     navigate('/');
+      //     close();
+      //   })
+      //   .catch((err: any) => alert(err?.response?.data?.message));
     }
   };
 

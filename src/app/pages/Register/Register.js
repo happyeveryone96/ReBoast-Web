@@ -200,66 +200,62 @@ const Register = () => {
   };
 
   const hasEmptyString = (obj) => {
-    if (address === '') return true;
-    delete obj.address;
+    // if (address === '') return true;
+    // delete obj.address;
     return Object.values(obj).some((value) => {
       return value === '';
     });
   };
 
   const handleRegister = (values, errors) => {
-    // console.log(1);
     const { nickname, email, password } = values;
-    // if (hasEmptyString(values)) {
-    //   alert('모든 회원 정보를 입력해주세요.');
-    //   return;
-    // }
-    // if (isAvailableEmail === false) {
-    //   alert('이메일 중복 확인이 필요합니다.');
-    //   return;
-    // }
+    if (hasEmptyString(values)) {
+      alert('모든 회원 정보를 입력해주세요.');
+      return;
+    }
+    if (isAvailableEmail === false) {
+      alert('이메일 중복 확인이 필요합니다.');
+      return;
+    }
     // if (isAvailableNickname === false) {
     //   alert('이름 중복 확인이 필요합니다.');
     //   return;
     // }
-    // if (!isObjectEmpty(errors)) {
-    //   const errList = Object.keys(errors).map((err) => {
-    //     if (err === 'email') {
-    //       return '이메일';
-    //     } else if (err === 'nickname') {
-    //       return '이름';
-    //     } else if (err === 'password') {
-    //       return '패스워드';
-    //     } else if (err === 'passwordCheck') {
-    //       return '비밀번호 확인';
-    //     } else if (err === 'phoneNumber') {
-    //       return '휴대폰 번호';
-    //     } else if (err === 'birthDate') {
-    //       return '생년월일';
-    //     } else if (err === 'gender') {
-    //       return '성별';
-    //     } else if (err === 'address') {
-    //       return '주소';
-    //     }
-    //     // else if (err === 'detailAddress') {
-    //     //   return '상세 주소';
-    //     // }
-    //   });
-    //   alert('입력된 회원 정보를 확인해주세요.\n' + errList);
-    // }
-    // if (isAvailableEmail && isObjectEmpty(errors) && !hasEmptyString(values)) {
-    // alert('회원가입이 완료되었습니다.');
-    // navigate('/');
-    // window.scrollTo(0, 0);
-    dispatch(register({ nickname, email, password }))
-      .unwrap()
-      .then(() => {
-        alert('회원가입이 완료되었습니다.');
-        navigate('/');
-        window.scrollTo(0, 0);
-      })
-      .catch((err) => alert(err?.response?.data?.message));
-    // }
+    if (!isObjectEmpty(errors)) {
+      const errList = Object.keys(errors).map((err) => {
+        if (err === 'email') {
+          return '이메일';
+        } else if (err === 'nickname') {
+          return '이름';
+        } else if (err === 'password') {
+          return '패스워드';
+        } else if (err === 'passwordCheck') {
+          return '비밀번호 확인';
+        } else if (err === 'phoneNumber') {
+          return '휴대폰 번호';
+        } else if (err === 'birthDate') {
+          return '생년월일';
+        } else if (err === 'gender') {
+          return '성별';
+        } else if (err === 'address') {
+          return '주소';
+        }
+      });
+      alert('입력된 회원 정보를 확인해주세요.\n' + errList);
+    }
+    if (isAvailableEmail && isObjectEmpty(errors) && !hasEmptyString(values)) {
+      alert('회원가입이 완료되었습니다.');
+      navigate('/');
+      window.scrollTo(0, 0);
+      // dispatch(register({ nickname, email, password }))
+      //   .unwrap()
+      //   .then(() => {
+      //     alert('회원가입이 완료되었습니다.');
+      //     navigate('/');
+      //     window.scrollTo(0, 0);
+      //   })
+      //   .catch((err) => alert(err?.response?.data?.message));
+    }
   };
 
   const handleButtonClick = () => {
