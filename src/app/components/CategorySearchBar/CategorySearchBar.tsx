@@ -18,9 +18,9 @@ const CategorySearchBar = () => {
   return (
     <div className={css['menubar-container']}>
       <div className={css.header}>
-        <span className={css.all}>전체 강의</span>
+        <span className={css.all}>창업</span>
         <span className={css.divider}>/</span>
-        <span className={css.category}>창업</span>
+        <span className={css.category}>ALL</span>
       </div>
       <div className={css['top-menu-bar']}>
         <div className={css.step}>창업단계</div>

@@ -8,6 +8,7 @@ import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
 import 'app/pages/LecturePage/LecturePage.css';
 import CategorySearchBar from 'app/components/CategorySearchBar/CategorySearchBar.tsx';
 import CategorySideBar from 'app/components/CategorySideBar/CategorySideBar.tsx';
+import CATEGORY_DATA from 'app/data/categoryData.ts';
 
 const LecturePage = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -19,6 +20,8 @@ const LecturePage = () => {
   useEffect(() => {
     setData(LECTURE_CARD_DATA);
   }, []);
+
+  console.log(CATEGORY_DATA);
 
   useEffect(() => {
     if (accessToken && isLoggedIn) {
