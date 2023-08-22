@@ -11,15 +11,12 @@ const CategorySideBar = () => {
     <div className={isTabletMobile ? css.container : css['desktop-container']}>
       <div className={css.all}>전체 강의</div>
       <CategoryToggle category={'창업'} subCategory={['코파운더', '파운더']} />
-      <CategoryToggle category={'취업'} subCategory={['서비스업', '금융업']} />
+      <CategoryToggle category={'취업'} subCategory={['개발자']} />
       <CategoryToggle
         category={'취미'}
         subCategory={['음악', '미술', '체육']}
       />
-      <CategoryToggle
-        category={'학습'}
-        subCategory={['국어', '영어', '수학']}
-      />
+      <CategoryToggle category={'학습'} subCategory={['초·중·고', '대학']} />
     </div>
   );
 };

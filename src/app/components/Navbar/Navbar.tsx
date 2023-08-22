@@ -191,14 +191,15 @@ const Navbar = () => {
               >
                 강의
               </Link>
-              <Link
+
+              {/* <Link
                 to="/consulting"
-                className={`nav-link`}
+                className={`nav-link ${isConsultingPage && 'selected'}`}
                 // onClick={() => alert('준비중입니다.')}
               >
-                {/* ${isConsultingPage && 'selected'} */}
                 상담
-              </Link>
+              </Link> */}
+
               <Link
                 to="/trainer"
                 className={'nav-link'}

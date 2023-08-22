@@ -147,6 +147,7 @@
 
 .nav-top-right {
   display: flex;
+  align-items: center;
 }
 
 .nickname {
@@ -155,14 +156,14 @@
 
 .login,
 .registerBtn {
-  color: #9f9f9f;
+  color: #666;
   font-family: NanumGothic;
   font-size: 14px;
   cursor: pointer;
 }
 
 .divider {
-  color: #9f9f9f;
+  color: #666;
   font-family: NanumGothic;
   font-size: 14px;
   margin: 0 12px;

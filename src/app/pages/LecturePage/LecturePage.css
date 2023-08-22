@@ -32,6 +32,9 @@
     width: 70vw;
     margin-left: 300px;
   }
+  .filter {
+    margin: 30px 30px 0;
+  }
 }
 
 @media (max-width: 1300px) {
