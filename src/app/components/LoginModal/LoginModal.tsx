@@ -245,7 +245,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                       </div>
                     </div>
 
-                    <div className="socialBox">
+                    {/* <div className="socialBox">
                       <div className="socialHeader">
                         <div className="line"></div>
                         <div className="socialText">간편 SNS 로그인하기</div>
@@ -267,7 +267,7 @@ const LoginModal: React.FC<LoginModalProps> = ({
                         />
                         <div className="googleText">Sign in with Google</div>
                       </div>
-                    </div>
+                    </div> */}
                   </Form>
                 )}
               </Formik>
