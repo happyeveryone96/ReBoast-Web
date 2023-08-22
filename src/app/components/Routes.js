@@ -16,6 +16,7 @@ import Sitemap from 'app/pages/Sitemap/Sitemap.tsx';
 import TrainerPage from 'app/pages/TrainerPage/TrainerPage.tsx';
 import PricingPage from 'app/pages/PricingPage/PricingPage.tsx';
 import EventPage from 'app/pages/EventPage/EventPage.tsx';
+import MyPage from 'app/pages/MyPage/MyPage.tsx';
 
 const MainRouter = () => {
   return (
@@ -35,6 +36,7 @@ const MainRouter = () => {
       <Route path="/findId" element={<FindId />} />
       <Route path="/findPw" element={<FindPassword />} />
       <Route path="/sitemap" element={<Sitemap />} />
+      <Route path="/mypage" element={<MyPage />} />
     </Routes>
   );
 };

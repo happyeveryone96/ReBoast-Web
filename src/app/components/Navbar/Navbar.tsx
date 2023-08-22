@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { reset } from 'app/slices/auth';
 import { logout } from 'app/slices/auth';
 import { useLocation } from 'react-router-dom';
@@ -19,6 +19,8 @@ interface AuthState {
 const Navbar = () => {
   const refreshToken = localStorage.getItem('refreshToken');
   const accessToken = localStorage.getItem('accessToken');
+
+  const navigate = useNavigate();
 
   const location = useLocation();
   const { pathname } = location;
@@ -52,7 +54,8 @@ const Navbar = () => {
     setIsMouseOver(true);
   };
 
-  const nickname = localStorage.getItem('email')?.split('@')[0];
+  // const nickname = localStorage.getItem('email')?.split('@')[0];
+  const nickname = email?.split('@')[0];
 
   const leaveLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const navContainerCenter = document.querySelector('.nav-container-center');
@@ -107,6 +110,10 @@ const Navbar = () => {
     setIsAgreeModalOpen(false);
   };
 
+  const moveToMyPage = () => {
+    navigate('mypage');
+  };
+
   return (
     <>
       <LoginModal
@@ -128,15 +135,17 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-top-right">
-          {isLoggedIn ? (
-            // {/* {isDummyLoggedIn ? ( */}
+          {isDummyLoggedIn ? (
+            // isLoggedIn
             <>
-              <div>{nickname}</div>
+              <div className="nickname" onClick={moveToMyPage}>
+                {nickname}
+              </div>
               <Link
                 to=""
                 className="nav-link"
-                // onClick={() => setIsDummyLoggedIn(false)}
-                onClick={logOut}
+                onClick={() => setIsDummyLoggedIn(false)}
+                // onClick={logOut}
               >
                 로그아웃
               </Link>
