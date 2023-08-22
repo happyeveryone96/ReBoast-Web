@@ -189,6 +189,23 @@ export const reset = createAsyncThunk('auth/reset', async (_, thunkAPI) => {
   return { isLoggedIn: false, user: null };
 });
 
+export const dummyLogin = createAsyncThunk(
+  'auth/dummyLogin',
+  async (_, thunkAPI) => {
+    thunkAPI.dispatch(dummyLoginFulfilled());
+    console.log(123);
+    return { isLoggedIn: true, user: null };
+  },
+);
+
+export const dummyLogout = createAsyncThunk(
+  'auth/dummyLogout',
+  async (_, thunkAPI) => {
+    thunkAPI.dispatch(dummyLogoutFulfilled(user));
+    return { isLoggedIn: false };
+  },
+);
+
 interface AuthState {
   isLoggedIn: boolean;
   user: any[] | null;
@@ -236,9 +253,12 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.user = null;
     },
-    dummyLoginFulfilled: (state, action) => {
+    dummyLoginFulfilled: (state) => {
+      state.isLoggedIn = true;
+      state.user = null;
+    },
+    dummyLogoutFulfilled: (state) => {
       state.isLoggedIn = false;
-      // state.user = 'User1';
     },
   },
 });
@@ -253,6 +273,8 @@ const {
   logoutFulfilled,
   logoutRejected,
   resetFulfilled,
+  dummyLoginFulfilled,
+  dummyLogoutFulfilled,
 } = authSlice.actions;
 const { reducer } = authSlice;
 export default reducer;

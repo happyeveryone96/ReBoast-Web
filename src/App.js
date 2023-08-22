@@ -8,7 +8,6 @@ import Routes from 'app/components/Routes';
 import Footer from 'app/components/Footer/Footer.tsx';
 
 const App = () => {
-  console.log(process.env.REACT_APP_BASE_URL);
   return (
     <Router>
       <Navbar />

@@ -32,9 +32,9 @@
 }
 
 .login-invalid-feedback {
-  position: relative;
-  bottom: 10px;
-  margin-bottom: 10px;
+  position: absolute;
+  left: 0;
+  top: 45px;
   padding: 10px 0;
   color: #f44040;
   font-size: 14px;
