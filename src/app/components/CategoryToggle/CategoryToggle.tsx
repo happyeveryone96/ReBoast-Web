@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, Dispatch, SetStateAction } from 'react';
 import css from 'app/components/CategoryToggle/CategoryToggle.module.css';
 import useWindowSize from 'app/hooks/useWindowSize';
 
 interface CategoryToggleType {
   category: string;
   subCategory: string[];
+  setCategory: Dispatch<SetStateAction<string | null>>;
+  setSubCategory: Dispatch<SetStateAction<string | null>>;
 }
 
 const CategoryToggle = (props: CategoryToggleType) => {
-  const { category, subCategory } = props;
+  const { category, subCategory, setCategory, setSubCategory } = props;
   const [isToggleOpened, setIsToggleOpened] = useState(false);
 
   const { width } = useWindowSize();
@@ -37,9 +39,10 @@ const CategoryToggle = (props: CategoryToggleType) => {
           {isFoundation && (
             <div
               className={css['all-category']}
-              onClick={(e) =>
-                console.log(category, e.currentTarget.textContent)
-              }
+              onClick={(e) => {
+                setCategory(category);
+                setSubCategory(e?.currentTarget?.textContent);
+              }}
             >
               ALL
             </div>
@@ -48,9 +51,10 @@ const CategoryToggle = (props: CategoryToggleType) => {
             <div
               key={category}
               className={css['sub-category']}
-              onClick={(e) =>
-                console.log(props.category, e.currentTarget.textContent)
-              }
+              onClick={(e) => {
+                setCategory(props?.category);
+                setSubCategory(e?.currentTarget?.textContent);
+              }}
             >
               {category}
             </div>

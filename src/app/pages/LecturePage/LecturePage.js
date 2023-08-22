@@ -14,14 +14,15 @@ const LecturePage = () => {
   const accessToken = localStorage.getItem('accessToken');
   const userName = localStorage.getItem('username');
 
+  const [category, setCategory] = useState('창업');
+  const [subCategory, setSubCategory] = useState('ALL');
+
   const { isLoggedIn } = useSelector((state) => state.auth);
 
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(LECTURE_CARD_DATA);
   }, []);
-
-  console.log(CATEGORY_DATA);
 
   useEffect(() => {
     if (accessToken && isLoggedIn) {
@@ -72,8 +73,11 @@ const LecturePage = () => {
 
   return (
     <div className="home-page lecture-home-page">
-      <CategorySideBar />
-      <CategorySearchBar />
+      <CategorySideBar
+        setCategory={setCategory}
+        setSubCategory={setSubCategory}
+      />
+      <CategorySearchBar category={category} subCategory={subCategory} />
       <div className="filter">
         <div
           className={`by-popularity ${isByPopularity && 'selected'}`}
