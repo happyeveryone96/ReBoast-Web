@@ -1,12 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import css from 'app/components/CategorySearchBar/CategorySearchBar.module.css';
-import CategoryTag from 'app/components/CategoryTag/CategoryTag';
-import CATEGORY_TAG_DATA from 'app/data/categoryTagData';
-
-interface CategoryTagType {
-  id: number;
-  categoryTag: string;
-}
+import CATEGORY_DATA from 'app/data/categoryData';
 
 interface CategorySearchBarType {
   category: string;
@@ -15,11 +9,26 @@ interface CategorySearchBarType {
 
 const CategorySearchBar = (props: CategorySearchBarType) => {
   const { category, subCategory } = props;
-  const [data, setData] = useState<CategoryTagType[]>([]);
+
+  const filterData = () => {
+    if (
+      subCategory === 'ALL' ||
+      subCategory === '코파운더' ||
+      subCategory === '파운더'
+    ) {
+      return CATEGORY_DATA.filter((data) => data.category === 'foundation');
+    } else if (subCategory === '개발자') {
+      return CATEGORY_DATA.filter((data) => data.category === 'developer');
+    }
+    return [];
+  };
 
   useEffect(() => {
-    setData(CATEGORY_TAG_DATA);
-  }, []);
+    filterData();
+  }, [subCategory]);
+
+  const filteredSmallCategory = filterData()[0]?.smallCategory;
+  const filteredSubCategory = filterData()[0]?.subCategory;
 
   return (
     <div className={css['menubar-container']}>
@@ -32,32 +41,20 @@ const CategorySearchBar = (props: CategorySearchBarType) => {
         <div className={css.step}>창업단계</div>
         <select className={css['step-select']}>
           <option value="select">선택해주세요</option>
-          <option value="spare">예비</option>
-          <option value="founded">창업</option>
-          <option value="growth">성장</option>
-          <option value="all">All</option>
+          {filteredSubCategory?.map((sub) => (
+            <option key={sub} value={sub}>
+              {sub}
+            </option>
+          ))}
         </select>
         <div className={css.interests}>관심분야</div>
         <select className={css['interests-select']}>
           <option value="select">선택해주세요</option>
-          <option value="commercialization">사업화</option>
-          <option value="technology-development">기술개발 (R&D)</option>
-          <option value="facility-space-childcare">시설 · 공간 · 보육</option>
-          <option
-            value="
-mentoring-consulting"
-          >
-            멘토링 · 컨설팅
-          </option>
-          <option value="global">글로벌</option>
-          <option value="manpower">인력</option>
-          <option value="loan">융자</option>
-          <option
-            value="
-event-network"
-          >
-            행사 · 네트워크
-          </option>
+          {filteredSmallCategory?.map((small) => (
+            <option key={small} value={small}>
+              {small}
+            </option>
+          ))}
         </select>
         <button className={css.search}>검색하기</button>
       </div>
