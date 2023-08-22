@@ -114,6 +114,11 @@ const Navbar = () => {
     navigate('mypage');
   };
 
+  const [isUserBoxOpen, setIsUserBoxOpen] = useState(false);
+  const toggleBox = () => {
+    setIsUserBoxOpen(!isUserBoxOpen);
+  };
+
   return (
     <>
       <LoginModal
@@ -138,17 +143,27 @@ const Navbar = () => {
           {isDummyLoggedIn ? (
             // isLoggedIn
             <>
-              <div className="nickname" onClick={moveToMyPage}>
-                {nickname}
+              <div className="nickname" onClick={toggleBox}>
+                <img src="/images/user.png" alt="유저 프로필 이미지" />
+                <span className="nickname-text">{nickname}</span>
+                <img src="/images/user-down.png" alt="아래 화살표" />
+                {isUserBoxOpen && (
+                  <div className="user-box">
+                    <Link to="/mypage" className="nav-link mypage">
+                      마이페이지
+                    </Link>
+                    <Link
+                      to=""
+                      className="nav-link logout"
+                      onClick={() => setIsDummyLoggedIn(false)}
+                      // onClick={logOut}
+                    >
+                      로그아웃
+                    </Link>
+                  </div>
+                )}
               </div>
-              <Link
-                to=""
-                className="nav-link"
-                onClick={() => setIsDummyLoggedIn(false)}
-                // onClick={logOut}
-              >
-                로그아웃
-              </Link>
+              {/* onClick={moveToMyPage} */}
             </>
           ) : (
             <>
