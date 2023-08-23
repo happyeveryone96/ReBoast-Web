@@ -35,11 +35,11 @@ const Settings = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (isLoggedIn && !accessToken) {
-      dispatch(reset());
-    }
-  }, [dispatch, isLoggedIn, accessToken]);
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     dispatch(reset());
+  //   }
+  // }, [dispatch, accessToken]);
 
   useEffect(() => {
     dispatch(clearMessage());

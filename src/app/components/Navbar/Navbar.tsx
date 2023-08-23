@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { reset } from 'app/slices/auth';
-import { logout } from 'app/slices/auth';
+import { logout, dummyLogout } from 'app/slices/auth';
 import { useLocation } from 'react-router-dom';
 import LoginModal from 'app/components/LoginModal/LoginModal';
 import 'app/components/Navbar/Navbar.css';
@@ -12,7 +12,7 @@ import SignUpAgreeModal from 'app/components/SignUpAgreeModal/SignUpAgreeModal';
 interface AuthState {
   auth: {
     isLoggedIn: boolean;
-    user: any[] | null;
+    user: any | null;
   };
 }
 
@@ -29,7 +29,8 @@ const Navbar = () => {
   const isConsultingPage = pathname === '/consulting';
   const isMentorPage = pathname === '/mentor';
 
-  const { isLoggedIn } = useSelector((state: AuthState) => state.auth);
+  const { isLoggedIn, user } = useSelector((state: AuthState) => state.auth);
+  const name = user?.split('@')[0];
 
   const [isDummyLoggedIn, setIsDummyLoggedIn] = useState(false);
   const [email, setEmail] = useState('');
@@ -41,11 +42,11 @@ const Navbar = () => {
     dispatch(logout({ refreshToken, accessToken }));
   }, [dispatch, refreshToken, accessToken]);
 
-  useEffect(() => {
-    if (isLoggedIn && !accessToken) {
-      dispatch(reset());
-    }
-  }, [dispatch, isLoggedIn, accessToken]);
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     dispatch(reset());
+  //   }
+  // }, [dispatch, accessToken]);
 
   const [isMouseOver, setIsMouseOver] = useState(false);
   const [prevMouseY, setPrevMouseY] = useState(0);
@@ -110,10 +111,6 @@ const Navbar = () => {
     setIsAgreeModalOpen(false);
   };
 
-  const moveToMyPage = () => {
-    navigate('mypage');
-  };
-
   const [isUserBoxOpen, setIsUserBoxOpen] = useState(false);
   const toggleBox = () => {
     setIsUserBoxOpen(!isUserBoxOpen);
@@ -140,12 +137,11 @@ const Navbar = () => {
           </div>
         </div>
         <div className="nav-top-right">
-          {isDummyLoggedIn ? (
-            // isLoggedIn
+          {isLoggedIn ? (
             <>
               <div className="nickname" onClick={toggleBox}>
                 <img src="/images/user.png" alt="유저 프로필 이미지" />
-                <span className="nickname-text">{nickname}</span>
+                <span className="nickname-text">{name}</span>
                 <img src="/images/user-down.png" alt="아래 화살표" />
                 {isUserBoxOpen && (
                   <div className="user-box">
@@ -155,7 +151,7 @@ const Navbar = () => {
                     <Link
                       to=""
                       className="nav-link logout"
-                      onClick={() => setIsDummyLoggedIn(false)}
+                      onClick={() => dispatch(dummyLogout())}
                       // onClick={logOut}
                     >
                       로그아웃
@@ -254,12 +250,12 @@ const Navbar = () => {
                 이용자 가이드
               </span>
             </div> */}
-            <div className="schedule" onClick={() => alert('준비중입니다.')}>
+            {/* <div className="schedule" onClick={() => alert('준비중입니다.')}>
               <span className="star">
                 <img src="/images/star.png" alt="내강의 일정" />
                 내강의 일정
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </nav>
