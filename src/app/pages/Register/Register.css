@@ -60,6 +60,7 @@
 }
 
 .input-box {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,6 +69,8 @@
 }
 
 .check {
+  position: absolute;
+  right: 0;
   display: flex;
   width: 141px;
   height: 45px;
@@ -144,6 +147,12 @@
 
 .gender-select {
   margin: 0 10px;
+}
+
+@media (max-width: 1240px) and (min-width: 840px) {
+  .register-box {
+    margin: 0 20px;
+  }
 }
 
 @media (max-width: 840px) {

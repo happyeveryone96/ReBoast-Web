@@ -165,7 +165,7 @@ const FormField = (props: FormFieldType) => {
                 }
                 alt="비밀번호 보기"
                 onClick={toggleShowPW}
-                className="show-pw"
+                className={isLogin ? 'show-pw' : 'register-show-pw'}
               />
             )}
             {name === 'passwordCheck' && (
@@ -177,7 +177,7 @@ const FormField = (props: FormFieldType) => {
                 }
                 alt="비밀번호 보기"
                 onClick={toggleShowPW}
-                className="show-pw"
+                className={isLogin ? 'show-pw' : 'register-show-pw'}
               />
             )}
           </>

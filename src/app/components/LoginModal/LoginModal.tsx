@@ -25,12 +25,7 @@ interface LoginModalProps {
   close: () => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({
-  isOpen,
-  close,
-  setIsDummyLoggedIn,
-  setEmail,
-}) => {
+const LoginModal: React.FC<LoginModalProps> = ({ isOpen, close, setEmail }) => {
   const navigate = useNavigate();
 
   const searchParams = useLocation().search;
@@ -121,9 +116,8 @@ const LoginModal: React.FC<LoginModalProps> = ({
     else localStorage.removeItem('savedEmail');
 
     if (isObjectEmpty(errors) && !hasEmptyString(formValue)) {
-      // dispatch(dummyLogin());
+      dispatch(dummyLogin(email));
       setEmail(email);
-      setIsDummyLoggedIn(true);
       close();
       // dispatch(login({ email, password }))
       //   .unwrap()

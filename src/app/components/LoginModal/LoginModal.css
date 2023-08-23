@@ -98,7 +98,7 @@ input[type='checkbox']:checked + .checked {
 
 .modal .loginModal {
   width: 522px;
-  height: 90vh;
+  height: 60vh;
   background-color: white;
   position: relative;
   box-sizing: border-box;
@@ -333,7 +333,7 @@ input[type='checkbox']:checked + .checked {
   }
 }
 
-@media (max-width: 1024px) and (min-width: 600px) {
+@media (max-width: 1024px) and (max-height: 600px) {
   .modal .loginModal {
     height: 100vh;
   }
@@ -359,7 +359,7 @@ input[type='checkbox']:checked + .checked {
     margin-bottom: 20px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 767px) and (max-height: 600px) {
   .modal .loginModal {
     width: 100vw;
   }
@@ -386,12 +386,13 @@ input[type='checkbox']:checked + .checked {
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 540px) and (max-height: 600px) {
   .modal .loginModal .modalContents form {
     height: 70vh;
   }
   .modal .loginModal {
     height: 90vh;
+    width: 100vw;
   }
   .modal .loginModal .modalContents {
     height: 70vh;
@@ -412,7 +413,7 @@ input[type='checkbox']:checked + .checked {
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 375px) and (max-height: 600px) {
   .modal .loginModal .modalContents form {
     height: 80vh;
   }
