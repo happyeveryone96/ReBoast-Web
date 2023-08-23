@@ -20,6 +20,8 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { underFourteen } = useSelector((state) => state.auth);
+
   const handleComplete = (data) => {
     let fullAddress = data.address;
     let extraAddress = '';
@@ -324,7 +326,10 @@ const Register = () => {
                   alt="뒤로 가기"
                   className="register-back"
                 />
-                REBOAST 회원가입
+                REBOAST 회원가입{' '}
+                {underFourteen && (
+                  <span className="under-fourteen">(14세 미만)</span>
+                )}
               </h2>
 
               <div>

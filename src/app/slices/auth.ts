@@ -236,14 +236,34 @@ export const dummyLogout = createAsyncThunk(
   },
 );
 
+export const underFourteenCheck = createAsyncThunk<any, boolean>(
+  'auth/underFourteenCheck',
+  async (isUnderFourteen, thunkAPI) => {
+    try {
+      thunkAPI.dispatch(underFourteenFulfilled(isUnderFourteen));
+      return { underFourteen: isUnderFourteen };
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      thunkAPI.dispatch(setMessage(message));
+      return thunkAPI.rejectWithValue(error);
+    }
+  },
+);
+
 interface AuthState {
   isLoggedIn: boolean;
   user: any[] | null;
+  underFourteen: boolean;
 }
 
 const initialState: AuthState = user
-  ? { isLoggedIn: true, user }
-  : { isLoggedIn: false, user: null };
+  ? { isLoggedIn: true, user, underFourteen: false }
+  : { isLoggedIn: false, user: null, underFourteen: false };
 
 const authSlice = createSlice({
   name: 'auth',
@@ -291,6 +311,9 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
       state.user = null;
     },
+    underFourteenFulfilled: (state, action) => {
+      state.underFourteen = action.payload;
+    },
   },
 });
 
@@ -306,6 +329,7 @@ const {
   resetFulfilled,
   dummyLoginFulfilled,
   dummyLogoutFulfilled,
+  underFourteenFulfilled,
 } = authSlice.actions;
 const { reducer } = authSlice;
 export default reducer;

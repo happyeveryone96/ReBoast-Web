@@ -59,6 +59,10 @@
   margin-right: 29px;
 }
 
+.under-fourteen {
+  font-size: 14px;
+}
+
 .input-box {
   position: relative;
   display: flex;
