@@ -1,7 +1,9 @@
 import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import css from 'app/components/SignUpAgreeModal/SignUpAgreeModal.module.css';
 import { useNavigate } from 'react-router-dom';
-import { set } from 'immer/dist/internal';
+import { underFourteenCheck } from 'app/slices/auth';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from 'app/store';
 
 interface SignUpModalProps {
   isOpen: boolean;
@@ -10,6 +12,7 @@ interface SignUpModalProps {
 
 const SignUpAgreeModal: React.FC<SignUpModalProps> = ({ isOpen, close }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
 
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
   const [isCheckedAll, setIsCheckedAll] = useState(false);
@@ -89,12 +92,17 @@ const SignUpAgreeModal: React.FC<SignUpModalProps> = ({ isOpen, close }) => {
   const resetAgreeOption = () => {
     setIsCheckedAll(false);
     setSelectedOptions([]);
+    setIsFirstOptionChecked(false);
+    setIsSecondOptionChecked(false);
+    setIsThirdOptionChecked(false);
+    setIsFourthOptionChecked(false);
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (isFirstOptionChecked && isSecondOptionChecked && isThirdOptionChecked) {
+    if (isSecondOptionChecked && isThirdOptionChecked) {
+      dispatch(underFourteenCheck(isFirstOptionChecked));
       close();
       resetAgreeOption();
       navigate('/register');
