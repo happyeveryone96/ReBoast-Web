@@ -41,6 +41,7 @@ const FormField = (props: FormFieldType) => {
   } = props;
   const isInvalid = errors[name] && touched[name];
   const hasValue = value && value.trim().length > 0;
+  console.log(values);
 
   const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -138,7 +139,7 @@ const FormField = (props: FormFieldType) => {
             {isCountry ? (
               <Field
                 as="select"
-                name="color"
+                name="country"
                 className={
                   'form-group form-control form-control-lg' +
                   (isInvalid ? ' is-invalid' : '') +
