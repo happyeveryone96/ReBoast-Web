@@ -190,24 +190,24 @@
   letter-spacing: -0.24px;
 }
 
-.new-lecture {
+.hot-lecture {
   margin-top: 40px;
 }
 
 .new,
 .hot {
-  color: #f83e3e;
+  color: #1f1f1f;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.33px;
 }
 
 .new-lecture-text,
 .hot-lecture-text,
 .mentoring-text {
-  color: #1f1f1f;
-  font-family: Noto Sans KR;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.33px;
-  margin: 7px 0;
+  margin-top: 8px;
+  font-weight: 350;
+  letter-spacing: -0.24px;
 }
 
 .new-lecture-box,
@@ -219,8 +219,9 @@
 
 .arrow-right {
   position: absolute;
-  left: 220px;
-  bottom: 20px;
+  left: 210px;
+  width: 10px;
+  bottom: 27px;
   cursor: pointer;
 }
 
@@ -245,7 +246,7 @@
   background: #eaeaea;
 }
 
-.hot-lecture,
+.new-lecture,
 .mentoring-board {
   margin-top: 97px;
 }
@@ -287,10 +288,13 @@
   padding-right: 3px;
 }
 
-@media (max-width: 1234px) and (min-width: 1025px) {
+@media (max-width: 1234px) {
   .new-lecture,
   .hot-lecture {
     margin: 0 120px;
+  }
+  .new-lecture {
+    margin: 120px 120px;
   }
   .statistics {
     margin: 30px;
@@ -337,7 +341,7 @@
 
   .new-lecture,
   .hot-lecture {
-    margin: 50px 50px;
+    margin: 120px 50px;
   }
 }
 
@@ -356,6 +360,12 @@
   }
   .statistics {
     width: 100vw;
+  }
+}
+
+@media (max-width: 563px) {
+  .arrow-right {
+    bottom: 45px;
   }
 }
 

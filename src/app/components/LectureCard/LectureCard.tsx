@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import 'app/components/DummyCard/DummyCard.css';
+import 'app/components/LectureCard/LectureCard.css';
 
 interface CardType {
   card: {
@@ -64,7 +64,7 @@ const DummyCard = (props: CardType) => {
           <div className="more-tag-container">
             <div
               className="more-tag-btn"
-              onClick={() => setShowAllTags(!showAllTags)}
+              // onClick={() => setShowAllTags(!showAllTags)}
             >
               {!showAllTags && '+' + moreTagsNum}
             </div>
