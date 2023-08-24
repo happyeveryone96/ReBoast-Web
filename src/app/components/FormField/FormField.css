@@ -33,6 +33,7 @@
   width: 30%;
   height: 55px;
   flex-shrink: 0;
+  border-radius: 0;
 }
 
 .zip-code {
@@ -202,8 +203,9 @@ ul {
   .register-form-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px; /* Add spacing between label and input */
+    gap: 10px;
     border: 0;
+    min-width: auto;
   }
   .register-form-control {
     width: 90vw;
@@ -212,6 +214,7 @@ ul {
   .countries {
     position: relative;
     bottom: 15px;
+    width: 90vw;
   }
 }
 
@@ -226,17 +229,6 @@ ul {
   .invalid-feedback {
     margin: 0;
     padding: 0;
-  }
-
-  .login-form-container {
-    /* height: 80px; */
-  }
-}
-
-@media (max-width: 375px) {
-  .login-form-container {
-    /* height: 90px; */
-    /* margin-top: 20px; */
   }
 }
 
