@@ -189,6 +189,19 @@
     left: 0;
     margin-top: 20px;
   }
+  .gender-box {
+    display: block;
+    height: 100px;
+  }
+  .radio-box {
+    margin: 30px 0 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .gender-select {
+    width: 30%;
+  }
 }
 
 .btn-group {
@@ -223,4 +236,22 @@
   gap: 10px;
   flex-shrink: 0;
   border-radius: 0;
+}
+
+@media (max-width: 280px) {
+  .btn-group {
+    display: block;
+    margin-bottom: 500px;
+  }
+  .complete,
+  .cancel-btn {
+    width: 85vw;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .invalid-gender {
+    left: 0;
+  }
 }
