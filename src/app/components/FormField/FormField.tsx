@@ -86,6 +86,9 @@ const FormField = (props: FormFieldType) => {
   const isPhoneNumber = name === 'phoneNumber';
   const isAddress = name === 'address';
   const isPWCheck = name === 'passwordCheck';
+  const isZipCode = name === 'zipCode';
+  const isCountry = name === 'country';
+  const isAddressForm = isAddress || isZipCode || isCountry || isDetailAddress;
 
   return (
     <>
@@ -94,12 +97,14 @@ const FormField = (props: FormFieldType) => {
           isLogin ? 'login-form-container' : 'register-form-container'
         } ${isEmail ? 'email' : ''} ${isNickname ? 'nickname' : ''} ${
           isPhoneNumber ? 'phone-number' : ''
-        } ${isAddress ? 'address' : ''} ${isPWCheck ? 'password-check' : ''}`}
+        } ${isPWCheck ? 'password-check' : ''} ${
+          isAddressForm ? 'address-form' : ''
+        }`}
       >
         {isLogin ? null : (
           <label htmlFor={name} className="label">
             {label}
-            {!isDetailAddress ? (
+            {!isDetailAddress && !isAddress && !isZipCode ? (
               <span className="essential"> (필수)</span>
             ) : null}
           </label>
@@ -107,7 +112,7 @@ const FormField = (props: FormFieldType) => {
 
         {hasValue === undefined ? (
           <>
-            {isAddress ? (
+            {/* {isAddress ? (
               <Field
                 name={'country'}
                 as={'select'}
@@ -120,34 +125,54 @@ const FormField = (props: FormFieldType) => {
                 <option value="프랑스">프랑스</option>
                 <option value="스페인">스페인</option>
               </Field>
-            ) : null}
-            {isAddress ? (
+            ) : null} */}
+            {/* {isAddress ? (
               <Field
                 placeholder={'우편 번호를 입력해주세요'}
                 name={'zip-code'}
                 onKeyPress={handleKeyUp}
                 className={'form-group form-control form-control-lg zip-code'}
               />
-            ) : null}
+            ) : null} */}
 
-            <Field
-              placeholder={placeholder}
-              name={name}
-              type={isShowPassword || isShowPasswordCheck ? 'text' : type}
-              disabled={disabled}
-              as={as}
-              onKeyPress={handleKeyUp}
-              className={
-                'form-group form-control form-control-lg' +
-                (isInvalid ? ' is-invalid' : '') +
-                (!isLogin && isEmail ? ' email-input' : '') +
-                (isNickname ? ' nickname-input' : '') +
-                (isPhoneNumber ? ' phone-number-input' : '') +
-                (isAddress ? ' address-input' : '')
-              }
-            />
+            {isCountry ? (
+              <Field
+                as="select"
+                name="color"
+                className={
+                  'form-group form-control form-control-lg' +
+                  (isInvalid ? ' is-invalid' : '') +
+                  (!isLogin && isEmail ? ' email-input' : '') +
+                  (isNickname ? ' nickname-input' : '') +
+                  (isPhoneNumber ? ' phone-number-input' : '') +
+                  (isCountry ? ' countries' : '')
+                }
+              >
+                <option value="">국적을 선택해주세요</option>
+                <option value="korea">한국</option>
+                <option value="japan">일본</option>
+                <option value="china">중국</option>
+              </Field>
+            ) : (
+              <Field
+                placeholder={placeholder}
+                name={name}
+                type={isShowPassword || isShowPasswordCheck ? 'text' : type}
+                disabled={disabled}
+                as={as}
+                onKeyPress={handleKeyUp}
+                className={
+                  'form-group form-control form-control-lg' +
+                  (isInvalid ? ' is-invalid' : '') +
+                  (!isLogin && isEmail ? ' email-input' : '') +
+                  (isNickname ? ' nickname-input' : '') +
+                  (isZipCode ? ' zip-code' : '') +
+                  (isPhoneNumber ? ' phone-number-input' : '')
+                }
+              />
+            )}
 
-            {isAddress ? (
+            {/* {isAddress ? (
               <Field
                 placeholder={'상세 주소를 입력해주세요'}
                 name={'detailAddress'}
@@ -156,7 +181,7 @@ const FormField = (props: FormFieldType) => {
                   'form-group form-control form-control-lg detail-address-input'
                 }
               />
-            ) : null}
+            ) : null} */}
 
             {name === 'password' && (
               <img
@@ -201,7 +226,13 @@ const FormField = (props: FormFieldType) => {
             name={name}
             component="div"
             className={`${
-              isLogin ? 'login-invalid-feedback' : 'register-invalid-feedback'
+              isLogin
+                ? 'login-invalid-feedback'
+                : `${
+                    isAddressForm
+                      ? 'address-invalid-feedback'
+                      : 'register-invalid-feedback'
+                  }`
             }`}
           />
         )}
