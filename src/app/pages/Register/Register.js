@@ -428,40 +428,43 @@ const Register = () => {
                       <label>
                         성별 <span className="essential">(필수)</span>
                       </label>
-                      <div className="gender-select">
-                        <Field
-                          type="radio"
-                          name="gender"
-                          value="male"
-                          onKeyPress={handleKeyUp}
-                        />
-                        남성
+                      <div className="radio-box">
+                        <div className="gender-select">
+                          <Field
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            onKeyPress={handleKeyUp}
+                          />
+                          남성
+                        </div>
+                        <div className="gender-select">
+                          <Field
+                            type="radio"
+                            name="gender"
+                            value="female"
+                            onKeyPress={handleKeyUp}
+                          />
+                          여성
+                        </div>
+                        <div className="gender-select">
+                          <Field
+                            type="radio"
+                            name="gender"
+                            value="none"
+                            onKeyPress={handleKeyUp}
+                          />
+                          논바이너리
+                        </div>
                       </div>
-                      <div className="gender-select">
-                        <Field
-                          type="radio"
-                          name="gender"
-                          value="female"
-                          onKeyPress={handleKeyUp}
-                        />
-                        여성
-                      </div>
-                      <div className="gender-select">
-                        <Field
-                          type="radio"
-                          name="gender"
-                          value="none"
-                          onKeyPress={handleKeyUp}
-                        />
-                        논바이너리
-                      </div>
+                      <ErrorMessage
+                        name="gender"
+                        component="div"
+                        className="invalid-gender"
+                      />
                     </div>
                   </div>
-                  <ErrorMessage
-                    name="gender"
-                    component="div"
-                    className="invalid-gender"
-                  />
+
                   <FormField
                     label="사는 곳"
                     name="country"
