@@ -130,17 +130,26 @@
   color: #dc3545;
   font-size: 14px;
   margin-bottom: 10px;
+  position: absolute;
+  left: 260px;
+  top: 30px;
 }
 
 .gender-box {
+  position: relative;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #e2e2e2;
   padding-bottom: 50px;
 }
 
+.radio-box {
+  display: flex;
+  width: calc(100% - 260px);
+}
+
 .gender-box label {
-  width: 190px;
+  width: 240px;
 }
 
 .essential {
@@ -153,18 +162,20 @@
   margin: 0 10px;
 }
 
-@media (max-width: 1240px) and (min-width: 840px) {
+@media (max-width: 1240px) and (min-width: 768px) {
   .register-box {
     margin: 0 20px;
   }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 768px) {
   .register-box {
     margin: 0 20px;
   }
   .input-box {
     display: block;
+    border: 0;
+    padding: 30px 0;
   }
   .address {
     display: block;
@@ -172,6 +183,11 @@
   .address-input,
   .detail-address-input {
     margin: 10px 0;
+  }
+  .input-box .check {
+    position: absolute;
+    left: 0;
+    margin-top: 20px;
   }
 }
 
