@@ -59,9 +59,9 @@ const Register = () => {
 
   const validationSchema = Yup.object().shape({
     nickname: Yup.string()
-      .required('닉네임을 입력해주세요.')
-      .min(2, '닉네임은 최소 2자 이상 입력해주세요.')
-      .max(20, '닉네임은 최대 20자까지 입력 가능합니다.'),
+      .required('이름을 입력해주세요.')
+      .min(2, '이름은 최소 2자 이상 입력해주세요.')
+      .max(20, '이름은 최대 20자까지 입력 가능합니다.'),
     email: Yup.string()
       .email('이메일 형식에 맞지 않습니다.')
       .test('includes-dot', '이메일 형식에 맞지 않습니다.', function (value) {
@@ -327,11 +327,11 @@ const Register = () => {
           <Form values={values} method="post">
             <div className="register-box">
               <h2 className="text-xs-left">
-                <img
+                {/* <img
                   src="/images/back.png"
                   alt="뒤로 가기"
                   className="register-back"
-                />
+                /> */}
                 REBOAST 회원가입{' '}
                 {underFourteen && (
                   <span className="under-fourteen">(14세 미만)</span>

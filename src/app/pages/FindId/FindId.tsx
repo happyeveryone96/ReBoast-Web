@@ -68,7 +68,7 @@ const FindId = () => {
         {({ errors, touched }) => (
           <Form>
             <div className="find-id-container">
-              <div className="col-md-6 offset-md-3 col-xs-12">
+              <div className="col-md-12 offset-md-12 col-xs-12">
                 <h2 className="text-xs-left">휴대폰 번호로 아이디 찾기</h2>
                 <FormField
                   label="휴대폰 번호"
@@ -87,7 +87,10 @@ const FindId = () => {
                   touched={touched}
                 />
                 <div className="form-group">
-                  <button className="btn btn-lg btn-primary pull-xs-right">
+                  <button
+                    className="btn btn-lg btn-primary pull-xs-right"
+                    onClick={() => alert('준비중입니다.')}
+                  >
                     <span>아이디 찾기</span>
                   </button>
                 </div>
