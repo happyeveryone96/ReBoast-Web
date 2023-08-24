@@ -52,7 +52,7 @@ const Footer = () => {
       <div className="footerWrap">
         <div className="footer_inner">
           <div className="footer_left">
-            <div className="footer_topTxt">
+            {/* <div className="footer_topTxt">
               <Link to="" className="txt_blue" onClick={showAlert}>
                 개인정보처리방침
               </Link>
@@ -63,7 +63,7 @@ const Footer = () => {
               <Link to="" onClick={showAlert}>
                 뷰어모음 다운로드
               </Link>
-            </div>
+            </div> */}
             <div className="footer_botTxt">
               <p className="footer-address">
                 14786 경기 부천시 양지로 229 골든IT타워 332호 데이터스
