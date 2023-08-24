@@ -229,14 +229,14 @@ ul {
   }
 
   .login-form-container {
-    height: 80px;
+    /* height: 80px; */
   }
 }
 
 @media (max-width: 375px) {
   .login-form-container {
-    height: 90px;
-    margin-top: 20px;
+    /* height: 90px; */
+    /* margin-top: 20px; */
   }
 }
 
