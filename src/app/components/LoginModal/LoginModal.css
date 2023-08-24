@@ -17,6 +17,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 30px;
 }
 
 .image-checkbox {
@@ -126,6 +127,7 @@ input[type='checkbox']:checked + .checked {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  height: 100%;
 }
 
 .modal .loginModal .modalContents .signinIcon {
@@ -325,18 +327,9 @@ input[type='checkbox']:checked + .checked {
     height: 0;
     margin-top: 10px;
   }
-  .modal .loginModal .modalContents form {
-    height: 90vh;
-  }
-  .modal .loginModal {
-    height: 90vh;
-  }
 }
 
 @media (max-width: 1024px) and (max-height: 600px) {
-  .modal .loginModal {
-    height: 100vh;
-  }
   .modal .loginModal .modalContents .socialBox .socialHeader {
     height: 60px;
     margin: 0;
@@ -413,19 +406,32 @@ input[type='checkbox']:checked + .checked {
   }
 }
 
-@media (max-width: 540px) and (min-height: 600px) {
-  .modal .loginModal {
-    height: 70vh;
-    padding-top: 70px;
+@media (max-width: 414px) and (max-height: 915px) {
+  .modal .loginModal .modalContents {
+    width: 80vw;
   }
-}
+  .login-header {
+    width: 80vw;
+  }
+  .login-container {
+    width: 80vw;
+  }
 
-@media (max-width: 375px) and (max-height: 740px) {
-  .modal .loginModal .modalContents form {
-    height: 70vh;
+  .loginMid {
+    width: 95vw;
+  }
+  .modal .loginModal .modalContents .loginMid .saveId {
+    left: 0;
+  }
+  .loginMid .find {
+    padding-left: 0;
+  }
+
+  .modal .loginModal .modalContents .loginBtn {
+    width: 80vw;
   }
   .modal .loginModal {
-    height: 70vh;
+    height: 60vh;
   }
   .close {
     position: absolute;
@@ -443,9 +449,53 @@ input[type='checkbox']:checked + .checked {
     height: 60px;
     margin: 0;
   }
+}
+
+@media (max-width: 375px) and (max-height: 740px) {
+  .modal .loginModal .modalContents form {
+    height: 70vh;
+  }
+  .modal .loginModal .modalContents {
+    width: 80vw;
+  }
+  .login-header {
+    width: 80vw;
+  }
+  .login-container {
+    width: 80vw;
+  }
+
+  .loginMid {
+    width: 95vw;
+  }
+  .modal .loginModal .modalContents .loginMid .saveId {
+    left: 0;
+  }
   .loginMid .find {
-    padding-left: 50px;
-    margin: 0 auto;
+    padding-left: 0;
+  }
+
+  .modal .loginModal .modalContents .loginBtn {
+    width: 80vw;
+  }
+  .modal .loginModal {
+    height: 80vh;
+  }
+  .close {
+    position: absolute;
+    z-index: 10;
+  }
+
+  .invalid-feedback {
+    height: 0px;
+    margin: 0;
+  }
+  .loginRegisterBox {
+    margin-top: 0px;
+  }
+  .modal .loginModal .modalContents .socialBox .socialHeader {
+    height: 60px;
+    margin: 0;
   }
 }
 
@@ -453,11 +503,18 @@ input[type='checkbox']:checked + .checked {
   .loginMid .find {
     padding-left: 30px;
   }
+  .modal .loginModal .modalContents .loginMid {
+    padding: 0;
+  }
 }
 
 @media (max-width: 320px) {
   .modal .loginModal .modalContents .socialBox .socialHeader {
     display: none;
+  }
+
+  .modal .loginModal .modalContents {
+    height: 90vh;
   }
   .register a {
     margin-bottom: 30px;
