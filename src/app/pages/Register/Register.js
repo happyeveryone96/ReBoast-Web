@@ -53,6 +53,8 @@ const Register = () => {
     birthDate: '',
     gender: '',
     address: '',
+    detailAddress: '',
+    country: '',
   };
 
   const validationSchema = Yup.object().shape({
@@ -193,7 +195,11 @@ const Register = () => {
       }),
     gender: Yup.string().required('성별을 선택해주세요.'),
     address: Yup.string().required('사는 곳을 입력해주세요.'),
-    // detailAddress: Yup.string().required('상세 주소를 입력해주세요.'),
+    detailAddress: Yup.string().required('상세 주소를 입력해주세요.'),
+    country: Yup.string().required('국적을 선택해주세요.'),
+    zipCode: Yup.string()
+      .required('우편번호를 입력해주세요.')
+      .matches(/\d{5}/, '유효하지 않은 우편번호입니다.'),
   });
 
   const isObjectEmpty = (obj) => {
@@ -458,6 +464,18 @@ const Register = () => {
                   />
                   <FormField
                     label="사는 곳"
+                    name="country"
+                    as="select"
+                    errors={errors}
+                    touched={touched}
+                  />
+                  <FormField
+                    name="zipCode"
+                    placeholder="우편 번호를 입력해주세요"
+                    errors={errors}
+                    touched={touched}
+                  />
+                  <FormField
                     placeholder="사는 곳을 입력해주세요."
                     name="address"
                     type="text"
@@ -465,6 +483,14 @@ const Register = () => {
                     touched={touched}
                     // value={address}
                     // disabled
+                  />
+                  <FormField
+                    // label=null
+                    placeholder="상세 주소를 입력해주세요."
+                    name="detailAddress"
+                    type="text"
+                    errors={errors}
+                    touched={touched}
                   />
                   {/* <FormField
                     label={null}

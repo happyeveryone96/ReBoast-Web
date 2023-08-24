@@ -17,9 +17,7 @@
 }
 
 .address {
-  flex-wrap: wrap;
   border: 0;
-  height: 200px;
 }
 
 .email,
@@ -29,6 +27,18 @@
   border: 0;
   display: flex;
   align-items: center;
+}
+
+.countries {
+  width: 30%;
+  position: absolute;
+  left: 190px;
+}
+
+.zip-code {
+  width: 30%;
+  position: absolute;
+  left: 190px;
 }
 
 .login-invalid-feedback {
@@ -45,6 +55,16 @@
   position: absolute;
   left: 190px;
   top: 58px;
+  padding: 10px 0;
+  color: #f44040;
+  font-size: 14px;
+  letter-spacing: -0.333px;
+}
+
+.address-invalid-feedback {
+  position: absolute;
+  left: 190px;
+  top: 20px;
   padding: 10px 0;
   color: #f44040;
   font-size: 14px;
@@ -77,7 +97,12 @@
 
 .address-input,
 .detail-address-input {
-  margin-left: 240px;
+  /* margin-left: 240px; */
+}
+
+.address-form {
+  border: 0;
+  height: 30px;
 }
 
 .form-control {
