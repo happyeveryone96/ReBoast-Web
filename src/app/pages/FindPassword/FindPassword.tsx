@@ -39,6 +39,10 @@ const FindPassword = () => {
       .required('이메일을 입력해주세요.'),
   });
 
+  const readyAlert = () => {
+    alert('준비중입니다.');
+  };
+
   return (
     <div>
       <Formik
@@ -50,7 +54,7 @@ const FindPassword = () => {
         {({ errors, touched }) => (
           <Form>
             <div className="find-pw-container">
-              <div className="col-md-6 offset-md-3 col-xs-12">
+              <div>
                 <h2 className="text-xs-left">휴대폰 번호로 비밀번호 찾기</h2>
                 <FormField
                   label="휴대폰 번호"
@@ -61,7 +65,10 @@ const FindPassword = () => {
                   touched={touched}
                 />
                 <div className="form-group">
-                  <button className="btn btn-lg btn-primary pull-xs-right">
+                  <button
+                    className="btn btn-lg btn-primary pull-xs-right"
+                    onClick={readyAlert}
+                  >
                     <span>비밀번호 찾기</span>
                   </button>
                 </div>
@@ -80,7 +87,7 @@ const FindPassword = () => {
         {({ errors, touched }) => (
           <Form>
             <div className="find-pw-container second">
-              <div className="col-md-6 offset-md-3 col-xs-12">
+              <div>
                 <h2 className="text-xs-left">이메일로 비밀번호 찾기</h2>
                 <FormField
                   label="이메일"
@@ -91,7 +98,10 @@ const FindPassword = () => {
                   touched={touched}
                 />
                 <div className="form-group">
-                  <button className="btn btn-lg btn-primary pull-xs-right">
+                  <button
+                    className="btn btn-lg btn-primary pull-xs-right"
+                    onClick={readyAlert}
+                  >
                     <span>비밀번호 찾기</span>
                   </button>
                 </div>
