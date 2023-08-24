@@ -133,6 +133,19 @@
   line-height: normal;
 }
 
+.brand-left {
+  color: #41a24b;
+  font-family: Gmarket Sans;
+  font-size: 24px;
+}
+
+.brand-right {
+  color: #324a34;
+  font-family: Gmarket Sans;
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .search-icon {
   display: flex;
   padding: 11px 14px;

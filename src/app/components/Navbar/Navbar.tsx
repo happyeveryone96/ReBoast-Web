@@ -129,7 +129,8 @@ const Navbar = () => {
       <div className="nav-top">
         <div className="nav-top-left">
           <Link to={'/'} className="navbar-brand">
-            REBOAST
+            <span className="brand-left">Re</span>
+            <span className="brand-right">BoAST</span>
           </Link>
           <input type="text" className="search-input" />
           <div className="search-icon">

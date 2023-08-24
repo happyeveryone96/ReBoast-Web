@@ -4,7 +4,7 @@ import Lecture from 'app/components/Lecture/Lecture';
 import LECTURE_CARD_DATA from 'app/data/lectureCardData';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
+import LectureCard from 'app/components/LectureCard/LectureCard.tsx';
 import 'app/pages/LecturePage/LecturePage.css';
 import CategorySearchBar from 'app/components/CategorySearchBar/CategorySearchBar.tsx';
 import CategorySideBar from 'app/components/CategorySideBar/CategorySideBar.tsx';
@@ -103,15 +103,15 @@ const LecturePage = () => {
         {isByPopularity &&
           [...data]
             .sort((a, b) => b.rate - a.rate)
-            .map((card) => <DummyCard key={card.id} card={card} />)}
+            .map((card) => <LectureCard key={card.id} card={card} />)}
         {isNewest &&
           [...data]
             .sort((a, b) => convertToDate(b.date) - convertToDate(a.date))
-            .map((card) => <DummyCard key={card.id} card={card} />)}
+            .map((card) => <LectureCard key={card.id} card={card} />)}
         {isByView &&
           [...data]
             .sort((a, b) => b.viewCount - a.viewCount)
-            .map((card) => <DummyCard key={card.id} card={card} />)}
+            .map((card) => <LectureCard key={card.id} card={card} />)}
       </div>
       {/* <Carousel
           nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}

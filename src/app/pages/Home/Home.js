@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import SlideBanner from 'app/components/SlideBanner/SlideBanner';
 import { Link } from 'react-router-dom';
-import DummyCard from 'app/components/DummyCard/DummyCard.tsx';
+import LectureCard from 'app/components/LectureCard/LectureCard.tsx';
 import LectureCardData from 'app/data/lectureCardData.ts';
 import SignUpAgreeModal from 'app/components/SignUpAgreeModal/SignUpAgreeModal';
 
@@ -172,9 +172,50 @@ const Home = () => {
 
       {/* <Tags /> */}
 
+      {/* <div className="apply-tutor">
+        <div className="apply-tutor-text">
+          선생님이 되면
+          <br /> <b>다양한 혜택</b>들이 기다리고 있어요
+        </div>
+        <div className="apply">선생님 신청하기</div>
+      </div> */}
+
+      <div className="hot-lecture">
+        <div className="hot">오늘의 Hot 한 강의 🔥</div>
+        <div className="hot-lecture-text">
+          매일 오전 12시마다 Learning Friends 조회수가 많은 강의들로 갱신됩니다
+        </div>
+        <div className="hot-lecture-box">
+          {/* <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div> */}
+          <Link to={'/lecture'} state={{ filter: 'hot' }}>
+            <img
+              className="arrow-right"
+              src="/images/arrowRight.png"
+              alt="강의 리스트 페이지로 이동하는 버튼"
+            />
+          </Link>
+
+          {/* <div className="lecture-num">1/5</div> */}
+        </div>
+        <div className="card-deck">
+          {[...LectureCardData]
+            .sort((a, b) => b.rate - a.rate)
+            .slice(0, 4)
+            .map((card) => (
+              <LectureCard key={card.id} card={card} />
+            ))}
+          {/* <DummyCard />
+          <DummyCard />
+          <DummyCard />
+          <DummyCard /> */}
+        </div>
+      </div>
+
       <div className="new-lecture">
-        <div className="new">NEW</div>
-        <div className="new-lecture-text">신규 런칭 강의</div>
+        <div className="new">새롭게 준비된 강의 🎁</div>
+        <div className="new-lecture-text">
+          6시간 마다 새롭게 준비된 강의를 추천해 드립니다
+        </div>
         <div className="new-lecture-box">
           {/* <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div> */}
           <Link to={'/lecture'} state={{ filter: 'new' }}>
@@ -199,7 +240,7 @@ const Home = () => {
             .sort((a, b) => convertToDate(b.date) - convertToDate(a.date))
             .slice(0, 4)
             .map((card) => (
-              <DummyCard key={card.id} card={card} />
+              <LectureCard key={card.id} card={card} />
             ))}
         </div>
 
@@ -230,43 +271,6 @@ const Home = () => {
           </Carousel.Item>
         ))} */}
         {/* </Carousel> */}
-      </div>
-
-      {/* <div className="apply-tutor">
-        <div className="apply-tutor-text">
-          선생님이 되면
-          <br /> <b>다양한 혜택</b>들이 기다리고 있어요
-        </div>
-        <div className="apply">선생님 신청하기</div>
-      </div> */}
-
-      <div className="hot-lecture">
-        <div className="hot">Hot</div>
-        <div className="hot-lecture-text">인기 급상승 강의</div>
-        <div className="hot-lecture-box">
-          {/* <div className="last-week-best">최근 일주일 동안 많이 찾은 강의</div> */}
-          <Link to={'/lecture'} state={{ filter: 'hot' }}>
-            <img
-              className="arrow-right"
-              src="/images/arrowRight.png"
-              alt="강의 리스트 페이지로 이동하는 버튼"
-            />
-          </Link>
-
-          {/* <div className="lecture-num">1/5</div> */}
-        </div>
-        <div className="card-deck">
-          {[...LectureCardData]
-            .sort((a, b) => b.rate - a.rate)
-            .slice(0, 4)
-            .map((card) => (
-              <DummyCard key={card.id} card={card} />
-            ))}
-          {/* <DummyCard />
-          <DummyCard />
-          <DummyCard />
-          <DummyCard /> */}
-        </div>
       </div>
 
       {/* <div className="mentoring-board">
