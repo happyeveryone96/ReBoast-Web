@@ -167,6 +167,7 @@ const FormField = (props: FormFieldType) => {
                   (!isLogin && isEmail ? ' email-input' : '') +
                   (isNickname ? ' nickname-input' : '') +
                   (isZipCode ? ' zip-code' : '') +
+                  (!isLogin ? ' register-form-control' : '') +
                   (isPhoneNumber ? ' phone-number-input' : '')
                 }
               />
