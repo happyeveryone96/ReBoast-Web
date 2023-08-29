@@ -41,7 +41,6 @@ const FormField = (props: FormFieldType) => {
   } = props;
   const isInvalid = errors[name] && touched[name];
   const hasValue = value && value.trim().length > 0;
-  console.log(values);
 
   const handleKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
