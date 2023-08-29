@@ -316,6 +316,10 @@ const Register = () => {
       }
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="register-container">
       <Formik
@@ -327,11 +331,12 @@ const Register = () => {
           <Form values={values} method="post">
             <div className="register-box">
               <h2 className="text-xs-left">
-                {/* <img
+                <img
                   src="/images/back.png"
                   alt="뒤로 가기"
                   className="register-back"
-                /> */}
+                  onClick={goBack}
+                />
                 REBOAST 회원가입{' '}
                 {underFourteen && (
                   <span className="under-fourteen">(14세 미만)</span>
