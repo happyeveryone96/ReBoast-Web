@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import LectureCard from 'app/components/LectureCard/LectureCard.tsx';
 import LectureCardData from 'app/data/lectureCardData.ts';
 import SignUpAgreeModal from 'app/components/SignUpAgreeModal/SignUpAgreeModal';
+import TestSlide from 'app/components/TestSlide/TestSlide.tsx';
 
 const Home = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -107,6 +108,7 @@ const Home = () => {
   return (
     <div className="home">
       <SlideBanner />
+      {/* <TestSlide /> */}
       <SignUpAgreeModal />
       <div className="statistics">
         <div className="left-box">
