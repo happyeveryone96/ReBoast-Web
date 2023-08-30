@@ -1,6 +1,7 @@
 .slider-container {
   margin: 0 auto;
   padding: 0;
+  position: relative;
 }
 
 .slick-slide img {
@@ -23,12 +24,28 @@
 }
 
 .banner-box {
+  position: relative;
   color: #fff;
   font-family: Inter;
   font-size: 36px;
   font-weight: 700;
   line-height: 47.5px;
   letter-spacing: -1.96px;
+}
+
+.banner-category {
+  width: 160px;
+  border-radius: 73px;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 34px; /* 242.857% */
+  letter-spacing: -0.96px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 13px;
 }
 
 .sub-nav {
@@ -68,17 +85,19 @@
 @media (max-width: 1024px) {
   .banner-box {
     height: 200px;
-    font-size: 4vw;
     letter-spacing: normal;
+    line-height: auto;
+    font-size: 16px;
+    position: relative;
   }
 
-  .banner-box img {
+  .banner-box .banner-image {
     width: 20vw;
   }
 
   .banner {
     margin: 0;
-    height: 200px;
+    height: 250px;
   }
 
   .container {
@@ -90,9 +109,105 @@
   }
 }
 
+.prev-button,
+.next-button,
+.pause-button {
+  background-color: transparent;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.custom-dot-container {
+  position: relative;
+  top: 47%;
+  bottom: 140px;
+  left: 8vw;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-dot {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.custom-dot.active {
+  background-color: #fff;
+}
+
+.slick-dots {
+  display: none;
+}
+
+@media (max-width: 1700px) {
+  .custom-dot-container {
+    left: 7vw;
+  }
+}
+
+@media (max-width: 1524px) {
+  .custom-dot-container {
+    left: 6vw;
+  }
+}
+
+@media (max-width: 1400px) {
+  .custom-dot-container {
+    left: 5vw;
+  }
+}
+
+@media (max-width: 1300px) {
+  .custom-dot-container {
+    left: 3vw;
+  }
+}
+
+@media (max-width: 1070px) {
+  .custom-dot-container {
+    left: 2vw;
+  }
+}
+
+@media (max-width: 1024px) {
+  .custom-dot-container {
+    left: 8vw;
+    top: 60%;
+  }
+}
+
+@media (max-width: 840px) {
+  .custom-dot-container {
+    left: 7vw;
+    top: 60%;
+  }
+}
+
 @media (max-width: 768px) {
-  .banner-box img {
+  .banner-box .banner-image {
     width: 30vw;
+  }
+
+  .custom-dot-container {
+    left: 4vw;
+    top: 60%;
+  }
+}
+
+@media (max-width: 500px) {
+  .custom-dot-container {
+    display: none;
   }
 }
 
