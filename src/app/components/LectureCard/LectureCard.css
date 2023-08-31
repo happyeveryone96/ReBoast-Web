@@ -153,6 +153,7 @@
 @media (max-width: 820px) {
   .card-img-top {
     height: 250px;
+    width: 80%;
   }
   .preview-link,
   .card-body,
