@@ -82,6 +82,10 @@
   background-color: #ffa800;
 }
 
+.carousel {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .banner-box {
     height: 200px;

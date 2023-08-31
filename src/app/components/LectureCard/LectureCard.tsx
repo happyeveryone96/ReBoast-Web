@@ -16,7 +16,7 @@ interface CardType {
   };
 }
 
-const DummyCard = (props: CardType) => {
+const LectureCard = (props: CardType) => {
   const [showAllTags, setShowAllTags] = useState(false);
   const { id, category, author, rateCount, image, title, content, rate, tags } =
     props.card;
@@ -75,4 +75,4 @@ const DummyCard = (props: CardType) => {
   );
 };
 
-export default DummyCard;
+export default LectureCard;

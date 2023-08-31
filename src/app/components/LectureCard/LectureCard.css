@@ -150,23 +150,32 @@
   backdrop-filter: blur(3px);
 }
 
-@media (max-width: 705px) {
+@media (max-width: 820px) {
   .card-img-top {
     height: 250px;
   }
-}
-
-@media (max-width: 665px) {
-  .preview-link {
-    width: 80vw;
-  }
+  .preview-link,
   .card-body,
-  .card-title,
   .rate-box,
-  .card-text {
-    width: 80vw;
-  }
+  .card-text,
   .tags {
     width: 80vw;
+  }
+
+  .card-title {
+    width: 65vw;
+  }
+}
+
+@media (max-width: 320px) {
+  .preview-link,
+  .card-body,
+  .rate-box,
+  .card-text,
+  .tags {
+    width: 100vw;
+  }
+  .card-title {
+    width: 90vw;
   }
 }
