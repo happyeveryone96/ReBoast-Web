@@ -65,24 +65,42 @@ const Navbar = () => {
       const isMouseOverParentDiv = navContainerCenter.contains(
         document.activeElement,
       );
+      console.log(isMouseOverParentDiv);
+
       setIsMouseOver(isMouseOverParentDiv);
     }
 
     setIsMouseOver(false);
+    // const currentMouseY = e.clientY;
+    console.log(currentMouseY, prevMouseY);
+
+    // if (currentMouseY > prevMouseY) {
+    //   setIsMouseOver(false);
+    // } else {
+    //   setIsMouseOver(true);
+    // }
   };
 
-  const enterDiv = (e: React.MouseEvent<HTMLDivElement>) => {
+  const enterDiv = (e: React.MouseEvent<HTMLDivElement> | null) => {
     setIsMouseOver(true);
-    checkMouseDirection(e);
+    if (e !== null) {
+      checkMouseDirection(e);
+    }
   };
 
   const leaveDiv = (e: React.MouseEvent<HTMLDivElement>) => {
-    setIsMouseOver(false);
+    const currentMouseY = e.clientY;
+    if (currentMouseY > prevMouseY) {
+      setIsMouseOver(true);
+    } else {
+      setIsMouseOver(false);
+    }
     checkMouseDirection(e);
   };
 
   const checkMouseDirection = (e: React.MouseEvent) => {
     const currentMouseY = e.clientY;
+    console.log(currentMouseY, prevMouseY);
     if (currentMouseY > prevMouseY) {
       setIsMouseOver(true);
     } else {
@@ -114,6 +132,33 @@ const Navbar = () => {
   const [isUserBoxOpen, setIsUserBoxOpen] = useState(false);
   const toggleBox = () => {
     setIsUserBoxOpen(!isUserBoxOpen);
+  };
+
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+
+  const handleSubMenuEnter = () => {
+    setIsSubMenuOpen(true);
+  };
+
+  const handleSubMenuLeave = (e: React.MouseEvent) => {
+    console.log(e);
+    setIsSubMenuOpen(false);
+  };
+
+  const [isMouseMovingDown, setIsMouseMovingDown] = useState(false);
+  const handleMouseMove = (e: React.MouseEvent) => {
+    // 현재 마우스 위치의 y 좌표
+    const currentMouseY = e.clientY;
+    // 이전 마우스 위치의 y 좌표
+    // const prevMouseY = isMouseMovingDown ? currentMouseY : null;
+
+    // 이동 방향 판단
+    if (prevMouseY !== null && currentMouseY > prevMouseY) {
+      // setIsMouseMovingDown(true);
+    } else {
+      setIsSubMenuOpen(true);
+    }
+    setPrevMouseY(currentMouseY);
   };
 
   return (
@@ -190,13 +235,17 @@ const Navbar = () => {
             </div> */}
             <div
               className="nav-container-center"
-              onMouseEnter={(e) => enterDiv(e)}
-              onMouseLeave={(e) => leaveDiv(e)}
+              // onMouseEnter={(e) => enterDiv(e)}
+              // onMouseLeave={(e) => leaveDiv(e)}
             >
               <Link
                 to={'/lecture'}
-                onMouseEnter={enterLink}
-                onMouseLeave={(e) => leaveLink(e)}
+                // onMouseLeave={(e) => leaveLink(e)}
+                // onMouseEnter={() => enterLink()}
+                onMouseEnter={handleSubMenuEnter}
+                onMouseMove={handleMouseMove}
+                // onMouseLeave={handleSubMenuLeave}
+                onMouseLeave={() => setPrevMouseY(0)}
                 className={`nav-link lecture-link ${
                   isLecturePage && 'selected'
                 }`}
@@ -260,10 +309,12 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* {isMouseOver && (
+      {/* {isSubMenuOpen && (
         <div
           className="sub-lecture-container"
-          onMouseLeave={(e) => leaveDiv(e)}
+          // onMouseEnter={handleSubMenuEnter}
+          onMouseLeave={handleSubMenuLeave}
+          // onMouseLeave={(e) => leaveDiv(e)}
         >
           <div className="lecture">
             <img src="/images/lecture.png" alt="강의" className="lecture-img" />
