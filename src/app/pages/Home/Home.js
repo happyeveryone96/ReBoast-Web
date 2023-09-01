@@ -74,7 +74,6 @@ const Home = () => {
 
   useEffect(() => {
     setCardData(LectureCardData);
-    cardNum();
     setHotCardData(hotSlides);
     setNewCardData(newSlides);
   }, [width]);
@@ -170,6 +169,7 @@ const Home = () => {
           </Link>
         </div>
         <Carousel
+          interval={null}
           nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}
           prevIcon={<img src="/images/chevronLeft.png" alt="이전 버튼" />}
         >
@@ -208,6 +208,7 @@ const Home = () => {
         </div>
 
         <Carousel
+          interval={null}
           nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}
           prevIcon={<img src="/images/chevronLeft.png" alt="이전 버튼" />}
         >
