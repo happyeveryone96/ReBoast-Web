@@ -6,6 +6,8 @@ interface CardType {
   card: {
     id: number;
     category: string;
+    subCategory: string;
+    field: string;
     author: string;
     rateCount: number;
     image: string;
@@ -18,8 +20,19 @@ interface CardType {
 
 const LectureCard = (props: CardType) => {
   const [showAllTags, setShowAllTags] = useState(false);
-  const { id, category, author, rateCount, image, title, content, rate, tags } =
-    props.card;
+  const {
+    id,
+    category,
+    author,
+    rateCount,
+    image,
+    title,
+    content,
+    rate,
+    tags,
+    field,
+    subCategory,
+  } = props.card;
   const isMoreThanTwo = tags.length > 3;
   const moreTagsNum = tags.length - 3;
 
@@ -28,10 +41,11 @@ const LectureCard = (props: CardType) => {
       <Link to={`/lecture/${id}`} className="preview-link">
         <img src={image} className="card-img-top" alt="강의 샘플 이미지" />
         <div className="card-body">
-          <h5 className="card-title">
-            <span className="category">[{category}]</span>
-            {title}
+          <h5 className="card-category">
+            <div className="category">{subCategory}</div>
+            <div className="field">{field}</div>
           </h5>
+          <div className="card-title">{title}</div>
           <div className="rate-box">
             <img src="/images/rate.png" alt="평점" className="rate-img" />
             <div className="rate-text">
@@ -49,7 +63,12 @@ const LectureCard = (props: CardType) => {
         </div>
       </Link>
       <div className="tags">
-        {showAllTags
+        {tags.map((tag) => (
+          <div key={tag} className="lecture-tag">
+            {tag}
+          </div>
+        ))}
+        {/* {showAllTags
           ? tags.map((tag) => (
               <div key={tag} className="lecture-tag">
                 {tag}
@@ -69,7 +88,7 @@ const LectureCard = (props: CardType) => {
               {!showAllTags && '+' + moreTagsNum}
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </div>
   );
