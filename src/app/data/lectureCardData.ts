@@ -2,12 +2,14 @@ const LECTURE_CARD_DATA = [
   {
     id: 1,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson1.png',
     title:
       '레슨 1_ 이해하기 쉬운 ChatGPT 활용법 – 강의 소개',
     content:
-      '안녕하세요! 이 강의에서는 ChatGPT를 활용해서 풀스택 웹 개발을 해볼거에요. 저희의 목표는 커넥트 4 게임을 만드는 것이고 만드는 과정을 통해서 백엔드와 프론트엔드의 흐름 그리고 아키텍처 구성방안 등을 배울거에요.',
+      '안녕하세요! 이 강의에서는 ChatGPT를 활용해서 풀스택 웹 개발을 해볼거에요. 저희의 목표는 커넥트 4 게임을 만드는 것이고 만드는 과정을 통해서 백엔드와 풀스택의 흐름 그리고 아키텍처 구성방안 등을 배울거에요.',
     rate: 4.0,
     rateCount: 49,
     tags: ['langchain', 'plusX', 'BX', 'Design', 'Brand'],
@@ -21,6 +23,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 2,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson1-1.png',
     title:
@@ -40,6 +44,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 3,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson2.png',
     title:
@@ -62,6 +68,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 4,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson2-1.png',
     title:
@@ -86,6 +94,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 5,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson3.png',
     title:
@@ -115,6 +125,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 6,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson3-1.png',
     title:
@@ -145,6 +157,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 7,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson4.png',
     title:
@@ -170,6 +184,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 8,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson5.png',
     title:
@@ -195,6 +211,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 9,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson5-1.png',
     title: '레슨 5-1_ 나만의 시스템 구축하기(내용정리)',
@@ -219,6 +237,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 10,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson6.png',
     title:
@@ -259,6 +279,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 11,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson6-1.png',
     title:
@@ -284,6 +306,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 12,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson6-2.png',
     title:
@@ -308,6 +332,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 13,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson7.png',
     title:
@@ -335,6 +361,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 14,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson7-1.png',
     title:
@@ -363,6 +391,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 15,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson8.png',
     title:
@@ -392,6 +422,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 16,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson9.png',
     title:
@@ -431,6 +463,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 17,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson10.png',
     title:
@@ -458,6 +492,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 18,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson10-1.png',
     title:
@@ -495,6 +531,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 19,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson10-2.png',
     title:
@@ -531,6 +569,8 @@ const LECTURE_CARD_DATA = [
   {
     id: 20,
     category: '취업',
+    subCategory: '개발',
+    field: '풀스택',
     author: 'Mason',
     image: '/images/lesson10-3.png',
     title:
