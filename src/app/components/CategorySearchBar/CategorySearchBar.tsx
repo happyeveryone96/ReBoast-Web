@@ -1,14 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
 import css from 'app/components/CategorySearchBar/CategorySearchBar.module.css';
 import CATEGORY_DATA from 'app/data/categoryData';
 
 interface CategorySearchBarType {
   category: string;
   subCategory: string;
+  searchKeyword: string;
+  setSearchKeyword: Dispatch<SetStateAction<string | null>>;
+  setSearch: Dispatch<SetStateAction<boolean>>;
 }
 
 const CategorySearchBar = (props: CategorySearchBarType) => {
-  const { category, subCategory } = props;
+  const { category, subCategory, searchKeyword, setSearchKeyword, setSearch } =
+    props;
 
   const filterData = () => {
     if (
@@ -21,6 +25,12 @@ const CategorySearchBar = (props: CategorySearchBarType) => {
       return CATEGORY_DATA.filter((data) => data.category === 'developer');
     }
     return [];
+  };
+
+  const handleSearchKeyword = (e: {
+    target: { value: React.SetStateAction<string | null> };
+  }) => {
+    setSearchKeyword(e.target.value);
   };
 
   useEffect(() => {
@@ -58,7 +68,20 @@ const CategorySearchBar = (props: CategorySearchBarType) => {
         </select>
         <button className={css.search}>검색하기</button>
       </div>
-      <input className={css['search-input']} />
+      <div className={css['search-wrapper']}>
+        <input
+          value={searchKeyword}
+          onChange={handleSearchKeyword}
+          className={css['search-input']}
+          placeholder="검색어를 입력하세요."
+        />
+        <img
+          onClick={() => setSearch(true)}
+          className={css['search-icon']}
+          src="/images/search-green.png"
+          alt="검색"
+        />
+      </div>
 
       {/* <div className={css['category-tags']}>
         {data.map((tag) => (
