@@ -19,10 +19,45 @@ const LecturePage = () => {
 
   const { isLoggedIn } = useSelector((state) => state.auth);
 
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [search, setSearch] = useState(false);
+
   const [data, setData] = useState([]);
+
   useEffect(() => {
-    setData(LECTURE_CARD_DATA);
+    if (search === false) {
+      setData(LECTURE_CARD_DATA);
+    }
   }, []);
+
+  useEffect(() => {
+    if (search === true && searchKeyword !== '') {
+      setData(
+        LECTURE_CARD_DATA.filter((lecture) => {
+          const { title, tags, category, subCategory, field, author } = lecture;
+          const isTitleIncludeKeyword = title
+            .normalize()
+            .includes(searchKeyword);
+          const isTagsIncludeKeyword = tags.some(
+            (tag) => tag === searchKeyword,
+          );
+          const isCategoryIncludeKeyword = category === searchKeyword;
+          const isSubCategoryIncludeKeyword = subCategory === searchKeyword;
+          const isFieldIncludeKeyword = field === searchKeyword;
+          const isAuthorIncludeKeyword = author === searchKeyword;
+          return (
+            isTitleIncludeKeyword ||
+            isTagsIncludeKeyword ||
+            isCategoryIncludeKeyword ||
+            isSubCategoryIncludeKeyword ||
+            isFieldIncludeKeyword ||
+            isAuthorIncludeKeyword
+          );
+        }),
+      );
+    }
+    setSearch(false);
+  }, [search]);
 
   useEffect(() => {
     if (accessToken && isLoggedIn) {
@@ -77,7 +112,13 @@ const LecturePage = () => {
         setCategory={setCategory}
         setSubCategory={setSubCategory}
       />
-      <CategorySearchBar category={category} subCategory={subCategory} />
+      <CategorySearchBar
+        category={category}
+        subCategory={subCategory}
+        searchKeyword={searchKeyword}
+        setSearch={setSearch}
+        setSearchKeyword={setSearchKeyword}
+      />
       <div className="filter">
         <div
           className={`by-popularity ${isByPopularity && 'selected'}`}
