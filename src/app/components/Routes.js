@@ -14,7 +14,7 @@ import FindPassword from 'app/pages/FindPassword/FindPassword';
 import LecturePage from 'app/pages/LecturePage/LecturePage';
 import Sitemap from 'app/pages/Sitemap/Sitemap.tsx';
 import TrainerPage from 'app/pages/TrainerPage/TrainerPage.tsx';
-import PricingPage from 'app/pages/PricingPage/PricingPage.tsx';
+import MembershipPage from 'app/pages/MembershipPage/MembershipPage.tsx';
 import EventPage from 'app/pages/EventPage/EventPage.tsx';
 import MyPage from 'app/pages/MyPage/MyPage.tsx';
 
@@ -26,7 +26,7 @@ const MainRouter = () => {
       {/* <Route path="/consulting" element={<ConsultingPage />} /> */}
       <Route path="/mentor" element={<MentorPage />} />
       <Route path="/trainer" element={<TrainerPage />} />
-      <Route path="/pricing" element={<PricingPage />} />
+      <Route path="/membership" element={<MembershipPage />} />
       <Route path="/event" element={<EventPage />} />
       <Route path="/mentor/:id" element={<MentorDetail />} />
       <Route path="/consulting/:id" element={<ConsultingDetail />} />
