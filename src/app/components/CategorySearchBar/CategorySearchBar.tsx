@@ -47,7 +47,7 @@ const CategorySearchBar = (props: CategorySearchBarType) => {
         <span className={css.divider}>/</span>
         <span className={css.category}>{subCategory}</span>
       </div>
-      <div className={css['top-menu-bar']}>
+      {/* <div className={css['top-menu-bar']}>
         <div className={css.step}>창업단계</div>
         <select className={css['step-select']}>
           <option value="select">선택해주세요</option>
@@ -67,7 +67,7 @@ const CategorySearchBar = (props: CategorySearchBarType) => {
           ))}
         </select>
         <button className={css.search}>검색하기</button>
-      </div>
+      </div> */}
       <div className={css['search-wrapper']}>
         <input
           value={searchKeyword}

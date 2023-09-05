@@ -538,18 +538,11 @@ section {
 }
 
 .breadcrumbs {
-  /* margin-top: 73px; */
   margin-bottom: 73px;
   text-align: center;
   background: #5fcf80;
   padding: 30px 0;
   color: #fff;
-}
-
-@media (max-width: 992px) {
-  .breadcrumbs {
-    margin-top: 63px;
-  }
 }
 
 .breadcrumbs h2 {
@@ -812,18 +805,16 @@ section {
 --------------------------------------------------------------*/
 
 .trainers {
-  margin-bottom: 300px;
+  max-width: 1300px;
+  margin: 0 auto;
 }
+
 .trainers .member {
   text-align: center;
   margin-top: 230px;
   margin-bottom: 130px;
   background: #fff;
   border: 1px solid #eef0ef;
-}
-
-.trainers .member img {
-  /* margin: -1px -1px 30px -1px; */
 }
 
 .trainers .member .member-content {
@@ -1093,48 +1084,55 @@ section {
 /*--------------------------------------------------------------
 # Events
 --------------------------------------------------------------*/
-.events .card {
+.events {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.events .event-card {
   border: 0;
   padding: 0 30px;
+  margin: 0 30px;
   margin-bottom: 60px;
   position: relative;
 }
 
-.events .card-img {
-  width: calc(100% + 60px);
+.events .event-card-img {
+  height: auto;
   margin-left: -30px;
   overflow: hidden;
   z-index: 9;
   border-radius: 0;
 }
 
-.events .card-img img {
-  max-width: 100%;
+.events .event-card-img img {
+  width: 320px;
   transition: all 0.3s ease-in-out;
 }
 
-.events .card-body {
-  z-index: 10;
+.events .event-card-body {
+  width: 300px;
+  z-index: 100;
   background: #fff;
   border-top: 4px solid #fff;
   padding: 30px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  margin-top: -60px;
   transition: 0.3s;
 }
 
-.events .card-title {
+.events .event-card-title {
   font-weight: 700;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.events .card-title a {
+.events .event-card-title a {
   color: #37423b;
   transition: 0.3s;
 }
 
-.events .card-text {
+.events .event-card-text {
   color: #5e5e5e;
 }
 
@@ -1160,6 +1158,9 @@ section {
 
 .events .card:hover .card-body .card-title a {
   color: #5fcf80;
+}
+
+@media (max-width: 800px) {
 }
 
 /*--------------------------------------------------------------
@@ -1436,7 +1437,7 @@ section {
   margin-bottom: 30px;
 }
 
-#footer .footer-top .footer-contact h4 {
+#footer .footer-top .footer-contact h4 {5
   font-size: 22px;
   margin: 0 0 30px 0;
   padding: 2px 0 2px 0;

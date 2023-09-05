@@ -14,7 +14,7 @@
 }
 
 .lecture-link {
-  padding: 8px 16px 8px 0;
+  height: 70px;
 }
 
 .nav-container-center {
@@ -89,11 +89,12 @@
 }
 
 .nav-link:hover {
-  color: #5cb85c;
+  color: #41a24b;
 }
 
 .selected {
-  color: #5cb85c;
+  color: #41a24b;
+  border-bottom: 2px solid #41a24b;
 }
 
 .nav-top {

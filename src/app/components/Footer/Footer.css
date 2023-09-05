@@ -134,12 +134,13 @@ table {
   border-top: 2px solid #dedede;
   margin-bottom: 30px;
   padding-bottom: 30px;
+  position: relative;
+  bottom: -200px;
 }
 
 .footerWrap {
   max-width: 1200px;
   width: 100%;
-
   padding-top: 2rem;
   margin: 0 auto;
   background-color: white;
