@@ -27,7 +27,9 @@ const Navbar = () => {
   const isLecturePage = pathname === '/lecture';
   const isSettingPage = pathname === '/settings';
   const isConsultingPage = pathname === '/consulting';
-  const isMentorPage = pathname === '/mentor';
+  const isMentorPage = pathname === '/trainer';
+  const isMembershipPage = pathname === '/membership';
+  const isEventPage = pathname === '/event';
 
   const { isLoggedIn, user } = useSelector((state: AuthState) => state.auth);
   const name = user?.split('@')[0];
@@ -263,7 +265,7 @@ const Navbar = () => {
 
               <Link
                 to="/trainer"
-                className={'nav-link'}
+                className={`nav-link ${isMentorPage && 'selected'}`}
                 // onClick={() => alert('준비중입니다.')}
                 // ${isMentorPage && 'selected'}
               >
@@ -276,10 +278,16 @@ const Navbar = () => {
               >
                 커뮤니티
               </Link> */}
-              <Link to="/pricing" className="nav-link">
+              <Link
+                to="/membership"
+                className={`nav-link ${isMembershipPage && 'selected'}`}
+              >
                 멤버쉽
               </Link>
-              <Link to="/event" className="nav-link">
+              <Link
+                to="/event"
+                className={`nav-link ${isEventPage && 'selected'}`}
+              >
                 이벤트
               </Link>
               {/* 
