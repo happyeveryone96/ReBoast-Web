@@ -9,6 +9,7 @@ import 'app/pages/LecturePage/LecturePage.css';
 import CategorySearchBar from 'app/components/CategorySearchBar/CategorySearchBar.tsx';
 import CategorySideBar from 'app/components/CategorySideBar/CategorySideBar.tsx';
 import CATEGORY_DATA from 'app/data/categoryData.ts';
+import HotTag from 'app/components/HotTag/HotTag.tsx';
 
 const LecturePage = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -21,6 +22,7 @@ const LecturePage = () => {
 
   const [searchKeyword, setSearchKeyword] = useState('');
   const [search, setSearch] = useState(false);
+  const [checkSearch, setCheckSearch] = useState(false);
 
   const [data, setData] = useState([]);
 
@@ -32,29 +34,25 @@ const LecturePage = () => {
 
   useEffect(() => {
     if (search === true && searchKeyword !== '') {
-      setData(
-        LECTURE_CARD_DATA.filter((lecture) => {
-          const { title, tags, category, subCategory, field, author } = lecture;
-          const isTitleIncludeKeyword = title
-            .normalize()
-            .includes(searchKeyword);
-          const isTagsIncludeKeyword = tags.some(
-            (tag) => tag === searchKeyword,
-          );
-          const isCategoryIncludeKeyword = category === searchKeyword;
-          const isSubCategoryIncludeKeyword = subCategory === searchKeyword;
-          const isFieldIncludeKeyword = field === searchKeyword;
-          const isAuthorIncludeKeyword = author === searchKeyword;
-          return (
-            isTitleIncludeKeyword ||
-            isTagsIncludeKeyword ||
-            isCategoryIncludeKeyword ||
-            isSubCategoryIncludeKeyword ||
-            isFieldIncludeKeyword ||
-            isAuthorIncludeKeyword
-          );
-        }),
-      );
+      const searchData = LECTURE_CARD_DATA.filter((lecture) => {
+        const { title, tags, category, subCategory, field, author } = lecture;
+        const isTitleIncludeKeyword = title.normalize().includes(searchKeyword);
+        const isTagsIncludeKeyword = tags.some((tag) => tag === searchKeyword);
+        const isCategoryIncludeKeyword = category === searchKeyword;
+        const isSubCategoryIncludeKeyword = subCategory === searchKeyword;
+        const isFieldIncludeKeyword = field === searchKeyword;
+        const isAuthorIncludeKeyword = author === searchKeyword;
+        return (
+          isTitleIncludeKeyword ||
+          isTagsIncludeKeyword ||
+          isCategoryIncludeKeyword ||
+          isSubCategoryIncludeKeyword ||
+          isFieldIncludeKeyword ||
+          isAuthorIncludeKeyword
+        );
+      });
+      setCheckSearch(true);
+      setData(searchData);
     }
     setSearch(false);
   }, [search]);
@@ -120,27 +118,71 @@ const LecturePage = () => {
         setSearch={setSearch}
         setSearchKeyword={setSearchKeyword}
       />
-      <div className="filter">
-        <div
-          className={`by-popularity ${isByPopularity && 'selected'}`}
-          onClick={filterByPopularity}
-        >
-          인기순
-        </div>
-        <div
-          className={`newest ${isNewest && 'selected'}`}
-          onClick={filterByNewest}
-        >
-          최신순
-        </div>
-
-        <div
-          className={`by-view ${isByView && 'selected'}`}
-          onClick={filterByView}
-        >
-          조회순
+      <div className="hot-trend-box">
+        <div className="hot-trend">인기주제트렌드</div>
+        <div className="hot-trend-body">
+          <div className="hot-trend-desc">
+            <span className="highlight">[{category}]</span>에{' '}
+            <span className="highlight">[{subCategory}]</span> 중점으로 자주
+            검색된 기술 태그들을 보여드립니다
+          </div>
+          <div className="hot-tag-box">
+            <HotTag tag={'Metabolism syndrome'} />
+            <HotTag tag={'Fatty acid metabolism'} />
+            <HotTag tag={'인공지능'} />
+            <HotTag tag={'ESG'} />
+            <HotTag tag={'간호대학생'} />
+            <HotTag tag={'머신러닝'} />
+            <HotTag tag={'자율주행'} />
+            <HotTag tag={'메타버스'} />
+            <HotTag tag={'분산분석(ANOVA analysis)'} />
+            <HotTag tag={'ai'} />
+            <HotTag tag={'MBTI'} />
+            <HotTag tag={'Metabolic syndrome'} />
+            <HotTag tag={'마약'} />
+            <HotTag tag={'스마트팜'} />
+            <HotTag tag={'chat gpt'} />
+            <HotTag tag={'홍범도'} />
+          </div>
         </div>
       </div>
+
+      <div className="result-filter-box">
+        <div className="search-result">
+          {checkSearch && (
+            <>
+              {' '}
+              검색결과가
+              <span className="search-highlight">
+                &nbsp;{data?.length}건&nbsp;
+              </span>
+              나왔습니다
+            </>
+          )}
+        </div>
+        <div className="filter">
+          <div
+            className={`by-popularity ${isByPopularity && 'selected'}`}
+            onClick={filterByPopularity}
+          >
+            인기순
+          </div>
+          <div
+            className={`newest ${isNewest && 'selected'}`}
+            onClick={filterByNewest}
+          >
+            최신순
+          </div>
+
+          <div
+            className={`by-view ${isByView && 'selected'}`}
+            onClick={filterByView}
+          >
+            조회순
+          </div>
+        </div>
+      </div>
+
       <div className="card-deck lecture-card-deck">
         {isByPopularity &&
           [...data]
