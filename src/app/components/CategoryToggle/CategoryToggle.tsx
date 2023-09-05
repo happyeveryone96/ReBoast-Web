@@ -1,30 +1,38 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import css from 'app/components/CategoryToggle/CategoryToggle.module.css';
 import useWindowSize from 'app/hooks/useWindowSize';
 
 interface CategoryToggleType {
   category: string;
   subCategory: string[];
+  selectedCategory: string;
   setCategory: Dispatch<SetStateAction<string | null>>;
   setSubCategory: Dispatch<SetStateAction<string | null>>;
+  isOpen: boolean;
+  toggleCategory: () => void;
 }
 
 const CategoryToggle = (props: CategoryToggleType) => {
-  const { category, subCategory, setCategory, setSubCategory } = props;
-  const [isToggleOpened, setIsToggleOpened] = useState(false);
+  const {
+    category,
+    subCategory,
+    setCategory,
+    setSubCategory,
+    selectedCategory,
+    isOpen,
+    toggleCategory,
+  } = props;
 
   const { width } = useWindowSize();
   const isTabletMobile = width < 1024;
   const isFoundation = category === '창업';
+  const isAll = selectedCategory === 'ALL';
 
   return (
     <>
-      <div
-        className={css.category}
-        onClick={() => setIsToggleOpened(!isToggleOpened)}
-      >
+      <div className={css.category} onClick={() => toggleCategory()}>
         {category}
-        {isToggleOpened ? (
+        {isOpen ? (
           <img className={css.toggle} src="/images/up.png" alt="토글" />
         ) : (
           <img
@@ -34,11 +42,11 @@ const CategoryToggle = (props: CategoryToggleType) => {
           />
         )}
       </div>
-      {isToggleOpened && (
+      {isOpen && (
         <>
           {isFoundation && (
             <div
-              className={css['all-category']}
+              className={`${css['all-category']} ${isAll && css['selected']}`}
               onClick={(e) => {
                 setCategory(category);
                 setSubCategory(e?.currentTarget?.textContent);
@@ -47,18 +55,33 @@ const CategoryToggle = (props: CategoryToggleType) => {
               ALL
             </div>
           )}
-          {subCategory.map((category) => (
-            <div
-              key={category}
-              className={css['sub-category']}
-              onClick={(e) => {
-                setCategory(props?.category);
-                setSubCategory(e?.currentTarget?.textContent);
-              }}
-            >
-              {category}
-            </div>
-          ))}
+          {subCategory.map((category) => {
+            const isSelected = category === selectedCategory;
+
+            return (
+              <div
+                key={category}
+                className={`${css['sub-category']} ${
+                  isSelected && css['selected']
+                }`}
+                onClick={(e) => {
+                  setCategory(props?.category);
+                  setSubCategory(e?.currentTarget?.textContent);
+                }}
+              >
+                <img
+                  src={`${
+                    isSelected
+                      ? '/images/toggle-icon-white.png'
+                      : '/images/toggle-icon.png'
+                  }`}
+                  alt="카테고리 토글 아이콘"
+                  className={css['toggle-icon']}
+                />
+                {category}
+              </div>
+            );
+          })}
         </>
       )}
     </>
