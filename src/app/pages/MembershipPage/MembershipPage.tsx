@@ -1,16 +1,17 @@
 import React from 'react';
+import css from 'app/pages/MembershipPage/MembershipPage.module.css';
 
-const Pricing = () => {
+const MembershipPage = () => {
   return (
     <main id="main">
       <div className="breadcrumbs" data-aos="fade-in">
-        <div className="">
+        <div>
           <h2>Pricing</h2>
           <p>개인고객/파트너 </p>
         </div>
       </div>
 
-      <section id="pricing" className="pricing">
+      <section id="pricing" className={`pricing ${css['pricing-box']}`}>
         <div className="" data-aos="fade-up">
           <div className="row">
             <div className="col-lg-3 col-md-6">
@@ -35,7 +36,7 @@ const Pricing = () => {
             </div>
 
             <div className="col-lg-3 col-md-6 mt-4 mt-md-0">
-              <div className="box featured">
+              <div className="box">
                 <h3>학생(초·중·고)</h3>
                 <h4>
                   <sup>$</sup>1<span> / month</span>
@@ -104,4 +105,4 @@ const Pricing = () => {
   );
 };
 
-export default Pricing;
+export default MembershipPage;
