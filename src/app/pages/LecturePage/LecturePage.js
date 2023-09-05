@@ -110,6 +110,7 @@ const LecturePage = () => {
     <div className="home-page lecture-home-page">
       <CategorySideBar
         setCategory={setCategory}
+        subCategory={subCategory}
         setSubCategory={setSubCategory}
       />
       <CategorySearchBar

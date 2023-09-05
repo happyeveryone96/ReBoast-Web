@@ -250,7 +250,7 @@ const Navbar = () => {
                   isLecturePage && 'selected'
                 }`}
               >
-                강의
+                학습 자료
               </Link>
 
               {/* <Link
@@ -267,7 +267,7 @@ const Navbar = () => {
                 // onClick={() => alert('준비중입니다.')}
                 // ${isMentorPage && 'selected'}
               >
-                선생님 소개
+                멘토 소개
               </Link>
               {/* <Link
                 to="#"
@@ -277,7 +277,7 @@ const Navbar = () => {
                 커뮤니티
               </Link> */}
               <Link to="/pricing" className="nav-link">
-                구독
+                멤버쉽
               </Link>
               <Link to="/event" className="nav-link">
                 이벤트
