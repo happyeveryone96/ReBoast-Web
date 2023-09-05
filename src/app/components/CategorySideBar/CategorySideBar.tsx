@@ -114,7 +114,8 @@ const CategorySideBar = (props: CategorySideBarType) => {
 
       <div>
         <div className={css['filter-box-title']}>
-          업무분류<span>2</span>
+          업무분류
+          {/* <span>2</span> */}
         </div>
         <div className={css['detail-filter-box']}>
           <DetailFilterItem
@@ -142,7 +143,8 @@ const CategorySideBar = (props: CategorySideBarType) => {
 
       <div>
         <div className={css['filter-box-title']}>
-          직무분류<span>2</span>
+          직무분류
+          {/* <span>2</span> */}
         </div>
         <div className={css['detail-filter-box']}>
           <DetailFilterItem
@@ -165,7 +167,8 @@ const CategorySideBar = (props: CategorySideBarType) => {
 
       <div>
         <div className={css['filter-box-title']}>
-          관심분야<span>2</span>
+          관심분야
+          {/* <span>2</span> */}
         </div>
         <div className={css['detail-filter-box']}>
           <DetailFilterItem
