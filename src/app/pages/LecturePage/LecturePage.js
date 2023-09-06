@@ -77,30 +77,23 @@ const LecturePage = () => {
   const { state } = useLocation();
   const stateFilter = state?.filter;
 
-  const [filter, setFilter] = useState('popularity');
+  const selectList = ['인기순', '최신순', '조회순'];
+  const [selected, setSelected] = useState('인기순');
 
-  const filterByNewest = () => {
-    setFilter('newest');
+  const handleSelect = (e) => {
+    setSelected(e.target.value);
   };
 
-  const filterByPopularity = () => {
-    setFilter('popularity');
-  };
-
-  const filterByView = () => {
-    setFilter('view');
-  };
-
-  const isNewest = filter === 'newest';
-  const isByPopularity = filter === 'popularity';
-  const isByView = filter === 'view';
+  const isNewest = selected === '최신순';
+  const isByPopularity = selected === '인기순';
+  const isByView = selected === '조회순';
 
   const convertToDate = (dateString) => new Date(dateString);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     if (stateFilter === 'new') {
-      setFilter('newest');
+      setSelected('최신순');
     }
   }, []);
 
@@ -161,25 +154,17 @@ const LecturePage = () => {
           )}
         </div>
         <div className="filter">
-          <div
-            className={`by-popularity ${isByPopularity && 'selected'}`}
-            onClick={filterByPopularity}
+          <select
+            onChange={handleSelect}
+            value={selected}
+            className="filter-select"
           >
-            인기순
-          </div>
-          <div
-            className={`newest ${isNewest && 'selected'}`}
-            onClick={filterByNewest}
-          >
-            최신순
-          </div>
-
-          <div
-            className={`by-view ${isByView && 'selected'}`}
-            onClick={filterByView}
-          >
-            조회순
-          </div>
+            {selectList.map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
