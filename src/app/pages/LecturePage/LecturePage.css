@@ -60,6 +60,13 @@
 .filter {
   display: flex;
   align-items: center;
+  position: relative;
+}
+
+.filter-select {
+  position: absolute;
+  right: 10px;
+  border: 0;
 }
 
 .newest {
@@ -92,7 +99,9 @@
   .lecture-home-page {
     width: auto;
     margin: 0 30px;
-    /* margin-left: 0; */
+  }
+  .hot-trend-box {
+    width: 100%;
   }
 }
 
