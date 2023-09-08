@@ -12,6 +12,22 @@
   padding-bottom: 10px;
 }
 
+.guardian-form-container {
+  display: flex;
+  align-items: center;
+  min-width: 400px;
+}
+
+.guardian-form-container input {
+  width: 1200px;
+}
+
+.guardian-consent-phone-number-input-box input {
+  width: 1000px;
+  left: 0;
+  padding-left: 120px;
+}
+
 .password-check {
   border: 0;
 }
@@ -60,6 +76,16 @@
   letter-spacing: -0.333px;
 }
 
+.guardian-invalid-feedback {
+  position: absolute;
+  top: 70%;
+  left: 200px;
+  padding: 10px 0;
+  color: #f44040;
+  font-size: 14px;
+  letter-spacing: -0.333px;
+}
+
 .address-invalid-feedback {
   position: absolute;
   top: 70%;
@@ -89,20 +115,30 @@
 .email-input,
 .nickname-input,
 .phone-number-input {
-  width: 50vw;
-  position: relative;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.register-form-container .email-input,
+.register-form-container .phone-number-input {
+  width: 48vw;
+}
+
+.phone-number-input {
+  padding-left: 120px;
 }
 
 .address-form {
   border: 0;
   height: 30px;
+  margin-top: 50px;
 }
 
 .register-form-control {
   border-radius: 0;
   width: calc(100% - 260px);
-  display: inline-block;
-  vertical-align: top;
+  display: flex;
+  align-items: center;
 }
 
 .label {
@@ -110,6 +146,7 @@
   padding-top: 20px;
   text-align: left;
   width: 240px;
+  /* width: auto; */
   display: inline-block;
   vertical-align: top;
   margin-right: 20px;
@@ -157,6 +194,24 @@ ul {
   position: relative;
 }
 
+.select {
+  position: absolute;
+  left: 200px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 100px;
+  border: 0;
+}
+
+.phone-number-select {
+  position: absolute;
+  left: 270px;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 100px;
+  border: 0;
+}
+
 .show-pw {
   position: absolute;
   top: 16px;
@@ -186,10 +241,19 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .phone-number-select {
+    left: 0;
+    background-color: transparent;
+    top: 85%;
+  }
+  .select {
+    left: 0;
+    background-color: transparent;
+    top: 70%;
+  }
   .address {
     height: 300px;
   }
-
   .address-invalid-feedback {
     position: absolute;
     left: 0;
@@ -200,6 +264,13 @@ ul {
     left: 0;
     top: 100px;
   }
+
+  .guardian-invalid-feedback {
+    position: absolute;
+    left: 0;
+    top: 110px;
+  }
+
   .register-form-container {
     flex-direction: column;
     align-items: flex-start;
@@ -210,10 +281,26 @@ ul {
   .register-form-control {
     width: 90vw;
   }
+  .guardian-form-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border: 0;
+    min-width: auto;
+  }
+
+  .guardian-form-container .register-form-control {
+    width: 100%;
+  }
 
   .countries {
     position: relative;
     bottom: 15px;
+    width: 90vw;
+  }
+
+  .register-form-container .email-input,
+  .register-form-container .phone-number-input {
     width: 90vw;
   }
 }

@@ -23,7 +23,6 @@
   font-weight: 500;
   line-height: 28px; /* 140% */
   letter-spacing: -0.333px;
-  border-bottom: 1px solid #e2e2e2;
 }
 
 .individual-box {
@@ -59,6 +58,72 @@
   margin-right: 29px;
 }
 
+.register-dynamic-text {
+  color: #4a4a4a;
+  font-size: 28px;
+  font-weight: 350;
+  line-height: 28px; /* 100% */
+  letter-spacing: -0.333px;
+}
+
+.register-text {
+  color: #4a4a4a;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.333px;
+}
+
+.guardian-consent {
+  display: flex;
+  height: 33px;
+  align-items: center;
+  color: #000;
+  font-size: 20px;
+  line-height: 164.8%; /* 32.96px */
+  letter-spacing: -0.333px;
+  margin: 100px 0 53px;
+}
+
+.guardian-consent-img {
+  display: flex;
+  align-items: center;
+  margin-right: 11px;
+  margin-top: 4px;
+}
+
+.guardian-consent-input-box {
+  padding: 37px 53px;
+  border-radius: 11px;
+  background: #f3f3f3;
+}
+
+.guardian-consent-phone-number-input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 27px;
+}
+
+.guardian-consent-phone-number-input-box button {
+  margin-top: 16px;
+}
+
+.guardian-desc-box {
+  margin-top: 22px;
+  padding-bottom: 95px;
+  border-bottom: 1px solid black;
+}
+
+.guardian-desc {
+  color: #929292;
+  margin-left: 10px;
+  font-size: 14px;
+  line-height: 164.8%; /* 23.072px */
+  letter-spacing: -0.333px;
+}
+
 .under-fourteen {
   font-size: 14px;
 }
@@ -73,12 +138,11 @@
 }
 
 .check {
-  position: absolute;
-  right: 0;
   display: flex;
-  width: 141px;
+  margin-left: 16px;
+  /* width: 141px; */
+  width: auto;
   height: 45px;
-  padding: 10px;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
@@ -168,10 +232,31 @@
   }
 }
 
+@media (max-width: 850px) {
+  .guardian-consent-input-box {
+    display: block;
+    border: 0;
+    padding: 30px;
+  }
+  .guardian-consent-phone-number-input-box {
+    display: block;
+    height: 150px;
+  }
+  .guardian-consent-phone-number-input-box .check {
+    position: absolute;
+    left: 0;
+    margin-top: 20px;
+  }
+}
+
 @media (max-width: 768px) {
+  .guardian-consent-phone-number-input-box {
+    height: 240px;
+  }
   .register-box {
     margin: 0 20px;
   }
+
   .input-box {
     display: block;
     border: 0;
