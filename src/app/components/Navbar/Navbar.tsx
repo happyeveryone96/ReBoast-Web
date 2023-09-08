@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { reset } from 'app/slices/auth';
@@ -146,22 +146,58 @@ const Navbar = () => {
     console.log(e);
     setIsSubMenuOpen(false);
   };
+  // const [prevMouseY, setPrevMouseY] = useState<number | null>(null);
+  // const prevMouseYRef = useRef<number | null>(null);
 
   const [isMouseMovingDown, setIsMouseMovingDown] = useState(false);
   const handleMouseMove = (e: React.MouseEvent) => {
+    const navContainer = document.querySelector('.nav-container');
+    const navContainerBottom =
+      navContainer?.getBoundingClientRect()?.bottom || 0;
+
+    const navContainerTop = navContainer?.getBoundingClientRect()?.top || 0;
     // 현재 마우스 위치의 y 좌표
+    console.log(navContainerBottom, navContainerTop);
     const currentMouseY = e.clientY;
+    console.log(currentMouseY);
+
+    // const prevMouseY = prevMouseYRef.current;
     // 이전 마우스 위치의 y 좌표
     // const prevMouseY = isMouseMovingDown ? currentMouseY : null;
 
     // 이동 방향 판단
-    if (prevMouseY !== null && currentMouseY > prevMouseY) {
-      // setIsMouseMovingDown(true);
-    } else {
-      setIsSubMenuOpen(true);
+    if (prevMouseY !== null) {
+      if (currentMouseY < prevMouseY && currentMouseY < navContainerBottom) {
+        setIsSubMenuOpen(false);
+      } else if (currentMouseY < navContainerTop) {
+        setIsSubMenuOpen(false);
+      } else {
+        setIsSubMenuOpen(true);
+      }
     }
     setPrevMouseY(currentMouseY);
+    // prevMouseY.current = currentMouseY; // 이전 마우스 위치 업데이트
   };
+  console.log(isSubMenuOpen);
+
+  // if (currentMouseY < prevMouseY && currentMouseY < navContainerBottom) {
+  //   setIsSubMenuOpen(false);
+  // } else {
+  //   setIsSubMenuOpen(true);
+  // }
+
+  // const navContainer = document.querySelector('.nav-container');
+
+  // // 현재 마우스 커서의 y 좌표
+  // const mouseY = e.clientY;
+
+  // // `nav-container`의 아래쪽 좌표
+  // const navContainerBottom = navContainer.getBoundingClientRect().bottom;
+
+  // // 만약 마우스 커서가 `nav-container`의 위쪽 방향으로 벗어났다면
+  // if (mouseY < navContainerBottom) {
+  //   setIsSubMenuOpen(false); // isSubMenuOpen을 false로 변경
+  // }
 
   return (
     <>
@@ -317,7 +353,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* {isSubMenuOpen && (
+      {isSubMenuOpen && (
         <div
           className="sub-lecture-container"
           // onMouseEnter={handleSubMenuEnter}
@@ -376,7 +412,7 @@ const Navbar = () => {
             <li className="category-list">협업</li>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 };
