@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { reset } from 'app/slices/auth';
@@ -67,20 +67,10 @@ const Navbar = () => {
       const isMouseOverParentDiv = navContainerCenter.contains(
         document.activeElement,
       );
-      console.log(isMouseOverParentDiv);
-
       setIsMouseOver(isMouseOverParentDiv);
     }
 
     setIsMouseOver(false);
-    // const currentMouseY = e.clientY;
-    console.log(currentMouseY, prevMouseY);
-
-    // if (currentMouseY > prevMouseY) {
-    //   setIsMouseOver(false);
-    // } else {
-    //   setIsMouseOver(true);
-    // }
   };
 
   const enterDiv = (e: React.MouseEvent<HTMLDivElement> | null) => {
@@ -143,22 +133,25 @@ const Navbar = () => {
   };
 
   const handleSubMenuLeave = (e: React.MouseEvent) => {
-    console.log(e);
     setIsSubMenuOpen(false);
   };
 
-  const [isMouseMovingDown, setIsMouseMovingDown] = useState(false);
   const handleMouseMove = (e: React.MouseEvent) => {
-    // 현재 마우스 위치의 y 좌표
-    const currentMouseY = e.clientY;
-    // 이전 마우스 위치의 y 좌표
-    // const prevMouseY = isMouseMovingDown ? currentMouseY : null;
+    const navContainer = document.querySelector('.nav-container');
+    const navContainerBottom =
+      navContainer?.getBoundingClientRect()?.bottom || 0;
 
-    // 이동 방향 판단
-    if (prevMouseY !== null && currentMouseY > prevMouseY) {
-      // setIsMouseMovingDown(true);
-    } else {
-      setIsSubMenuOpen(true);
+    const navContainerTop = navContainer?.getBoundingClientRect()?.top || 0;
+    const currentMouseY = e.clientY;
+
+    if (prevMouseY !== null) {
+      if (currentMouseY < prevMouseY && currentMouseY < navContainerBottom) {
+        setIsSubMenuOpen(false);
+      } else if (currentMouseY < navContainerTop) {
+        setIsSubMenuOpen(false);
+      } else {
+        setIsSubMenuOpen(true);
+      }
     }
     setPrevMouseY(currentMouseY);
   };
@@ -317,7 +310,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* {isSubMenuOpen && (
+      {isSubMenuOpen && (
         <div
           className="sub-lecture-container"
           // onMouseEnter={handleSubMenuEnter}
@@ -376,7 +369,7 @@ const Navbar = () => {
             <li className="category-list">협업</li>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 };

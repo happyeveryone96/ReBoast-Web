@@ -259,11 +259,10 @@
 
 .sub-lecture-container {
   display: flex;
-  width: 100vw;
   height: 254px;
-  padding: 0 180px;
+  margin: 0 auto;
+  padding: 0 15vw;
   background-color: white;
-  position: absolute;
   justify-content: center;
   border-bottom: 1px solid #e0e0e0;
   z-index: 100;
@@ -275,10 +274,9 @@
 .hobby,
 .school-learning,
 .university {
-  width: 16.6%;
-  margin-right: 30px;
-  width: fit-content;
-  padding: 37px 43px 37px 20px;
+  width: 15%;
+  /* width: fit-content; */
+  padding: 37px 20px 0px 20px;
   border-right: 1px solid #e0e0e0;
 }
 
@@ -318,6 +316,13 @@
   .nav-top {
     margin: 36px auto 28px;
     padding: 0 30px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sub-lecture-container {
+    padding: 0;
+    min-width: 650px;
   }
 }
 
