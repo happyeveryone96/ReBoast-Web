@@ -58,6 +58,16 @@ const Register = () => {
   };
 
   const validationSchema = Yup.object().shape({
+    guardianName: Yup.string()
+      .required('보호자 이름을 입력해주세요.')
+      .min(2, '보호자 이름은 최소 2자 이상 입력해주세요.')
+      .max(20, '보호자 이름은 최대 20자까지 입력 가능합니다.'),
+    guardianPhoneNumber: Yup.string()
+      .required('휴대폰 번호를 입력해주세요.')
+      .matches(
+        /^(010)[0-9]{3,4}[0-9]{4}$/,
+        '유효하지 않은 휴대폰 번호 형식입니다.',
+      ),
     nickname: Yup.string()
       .required('이름을 입력해주세요.')
       .min(2, '이름은 최소 2자 이상 입력해주세요.')
@@ -337,11 +347,54 @@ const Register = () => {
                   className="register-back"
                   onClick={goBack}
                 />
-                REBOAST 회원가입{' '}
-                {underFourteen && (
-                  <span className="under-fourteen">(14세 미만)</span>
-                )}
+                <span className="register-dynamic-text">
+                  {underFourteen ? '14세 미만' : 'REBOAST'}
+                </span>
+                <span className="register-text"> 회원가입</span>
               </h2>
+
+              <div className="guardian-consent">
+                <div className="guardian-consent-img">
+                  <img src="/images/shield.png" alt="보호자 동의" />
+                </div>
+                <div>보호자(법정대리인) 본인인증 및 동의</div>
+              </div>
+              <div className="guardian-consent-input-box">
+                <FormField
+                  label="이름"
+                  placeholder="보호자 이름을 입력해주세요."
+                  name="guardianName"
+                  type="text"
+                  errors={errors}
+                  touched={touched}
+                  place="guardian"
+                />
+
+                <div className="guardian-consent-phone-number-input-box">
+                  <FormField
+                    label="핸드폰번호 "
+                    placeholder="'-' 없이 입력해주세요"
+                    name="guardianPhoneNumber"
+                    type="text"
+                    errors={errors}
+                    touched={touched}
+                    values={values}
+                    place="guardian"
+                  />
+                  <button className={`btn check`}>인증하기</button>
+                </div>
+              </div>
+
+              <div className="guardian-desc-box">
+                <li className="guardian-desc">
+                  만 14세 미만 회원의 가입 시 보호자(법정대리인)의 동의와 본인
+                  확인이 반드시 필요합니다.
+                </li>
+                <li className="guardian-desc">
+                  회원 가입자의 법정대리인이며 회원가입에 대해 동의하시는 경우,
+                  보호자 본인확인 절차를 진행하여 주시기 바랍니다.
+                </li>
+              </div>
 
               <div>
                 <div className="user-info-box">
@@ -387,16 +440,16 @@ const Register = () => {
                     <img src="/images/verified.png" alt="개인 정보" />
                     개인 정보
                   </div>
-                  <div className="input-box">
-                    <FormField
-                      label="이름"
-                      placeholder="이름을 입력해주세요."
-                      name="nickname"
-                      type="text"
-                      errors={errors}
-                      touched={touched}
-                    />
-                    {/* <button
+                  {/* <div className="input-box"> */}
+                  <FormField
+                    label="이름"
+                    placeholder="이름을 입력해주세요."
+                    name="nickname"
+                    type="text"
+                    errors={errors}
+                    touched={touched}
+                  />
+                  {/* <button
                       className={`btn check`}
                       onClick={() =>
                         checkNickName(values.nickname, errors, values)
@@ -404,7 +457,7 @@ const Register = () => {
                     >
                       중복확인
                     </button> */}
-                  </div>
+                  {/* </div> */}
                   <div className="input-box">
                     <FormField
                       label="핸드폰번호"
