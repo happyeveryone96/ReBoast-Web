@@ -84,21 +84,24 @@ const FormField = (props: FormFieldType) => {
   const isNickname = name === 'nickname';
   const isDetailAddress = name === 'detailAddress';
   const isPhoneNumber = name === 'phoneNumber';
+  const isGuardianPhoneNumber = name === 'guardianPhoneNumber';
   const isAddress = name === 'address';
   const isPWCheck = name === 'passwordCheck';
   const isZipCode = name === 'zipCode';
   const isCountry = name === 'country';
   const isAddressForm = isAddress || isZipCode || isCountry || isDetailAddress;
+  const isGuardian = place === 'guardian';
+  const isNormal = !isLogin && !isGuardian;
 
   return (
     <>
       <div
-        className={`form-container ${
-          isLogin ? 'login-form-container' : 'register-form-container'
-        } ${isEmail ? 'email' : ''} ${isNickname ? 'nickname' : ''} ${
-          isPhoneNumber ? 'phone-number' : ''
-        } ${isPWCheck ? 'password-check' : ''} ${
-          isAddressForm ? 'address-form' : ''
+        className={`form-container ${isLogin && 'login-form-container'} ${
+          isGuardian && 'guardian-form-container'
+        } ${isNormal && 'register-form-container'} ${isEmail ? 'email' : ''} ${
+          isNickname && 'nickname'
+        } ${isPhoneNumber && 'phone-number'} ${isPWCheck && 'password-check'} ${
+          isAddressForm && 'address-form'
         }`}
       >
         {isLogin ? null : (
@@ -112,6 +115,26 @@ const FormField = (props: FormFieldType) => {
 
         {hasValue === undefined ? (
           <>
+            {isPhoneNumber && (
+              <select
+                name="phoneCountryCode"
+                className={
+                  'form-group form-control form-control-lg phone-number-select'
+                }
+              >
+                <option value="82">+82</option>
+                <option value="1">+1</option>
+              </select>
+            )}
+            {isGuardianPhoneNumber && (
+              <select
+                name="phoneCountryCode"
+                className={'form-group form-control form-control-lg select'}
+              >
+                <option value="82">+82</option>
+                <option value="1">+1</option>
+              </select>
+            )}
             {/* {isAddress ? (
               <Field
                 name={'country'}
@@ -234,7 +257,7 @@ const FormField = (props: FormFieldType) => {
                       ? 'address-invalid-feedback'
                       : 'register-invalid-feedback'
                   }`
-            }`}
+            } ${isGuardian && 'guardian-invalid-feedback'}`}
           />
         )}
       </div>
