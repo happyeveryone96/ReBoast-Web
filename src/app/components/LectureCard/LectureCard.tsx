@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'app/components/LectureCard/LectureCard.css';
+import useWindowSize from 'app/hooks/useWindowSize';
 
 interface CardType {
   card: {
@@ -36,11 +37,14 @@ const LectureCard = (props: CardType) => {
   } = props.card;
   const { disableClick } = props;
 
+  const { width } = useWindowSize();
+  const isMobile = width <= 1024;
+
   const isMoreThanTwo = tags?.length > 3;
   const moreTagsNum = tags?.length - 3;
 
   return (
-    <div className="card" title={title}>
+    <div className={`${isMobile && 'mobile-card'} card`} title={title}>
       <Link
         to={`/lecture/${id}`}
         className="preview-link"
