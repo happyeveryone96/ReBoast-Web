@@ -81,12 +81,19 @@ const Home = () => {
     setNewCardData(newSlides);
   }, [width]);
 
+  const slideToShow = () => {
+    if (width >= 900) return 3.1;
+    if (width < 900 && width >= 700) return 2.6;
+    if (width < 700 && width >= 570) return 2.1;
+    if (width < 570) return 1.1;
+  };
+
   const [disableClick, setDisableClick] = useState(false);
 
   const settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: width < 821 ? 1.1 : 3.1,
+    slidesToShow: slideToShow(),
     slidesToScroll: 1,
     beforeChange: (currentSlide, nextSlide) => {
       setDisableClick(true);
@@ -94,6 +101,8 @@ const Home = () => {
     afterChange: (currentSlide, nextSlide) => {
       setDisableClick(false);
     },
+    prevArrow: null,
+    nextArrow: null,
   };
 
   return (
@@ -210,7 +219,7 @@ const Home = () => {
             ))}
           </Carousel>
         ) : (
-          <Slider {...settings} style={{ padding: '30px', left: '30px' }}>
+          <Slider {...settings}>
             {cardData
               .sort((a, b) => b.rate - a.rate)
               .slice(0, 8)
@@ -263,7 +272,7 @@ const Home = () => {
             ))}
           </Carousel>
         ) : (
-          <Slider {...settings} style={{ padding: '30px', left: '30px' }}>
+          <Slider {...settings}>
             {cardData
               .sort((a, b) => convertToDate(b.date) - convertToDate(a.date))
               .slice(0, 8)
