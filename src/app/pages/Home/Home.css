@@ -178,6 +178,15 @@
   letter-spacing: -0.96px;
 }
 
+.hot-card-wrap {
+  display: flex;
+  overflow-x: scroll;
+}
+
+/* .hot-card-wrap::-webkit-scrollbar {
+  display: none;
+} */
+
 .new-lecture,
 .hot-lecture,
 .mentoring-board {
@@ -373,7 +382,7 @@
 
   .new-lecture,
   .hot-lecture {
-    width: 66vw;
+    width: 95vw;
     margin: 120px auto;
   }
 }

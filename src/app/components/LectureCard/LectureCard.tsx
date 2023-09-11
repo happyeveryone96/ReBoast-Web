@@ -16,6 +16,7 @@ interface CardType {
     rate: number;
     tags: string[];
   };
+  disableClick?: boolean;
 }
 
 const LectureCard = (props: CardType) => {
@@ -33,12 +34,18 @@ const LectureCard = (props: CardType) => {
     field,
     subCategory,
   } = props.card;
-  const isMoreThanTwo = tags.length > 3;
-  const moreTagsNum = tags.length - 3;
+  const { disableClick } = props;
+
+  const isMoreThanTwo = tags?.length > 3;
+  const moreTagsNum = tags?.length - 3;
 
   return (
     <div className="card" title={title}>
-      <Link to={`/lecture/${id}`} className="preview-link">
+      <Link
+        to={`/lecture/${id}`}
+        className="preview-link"
+        onClick={(e) => disableClick && e.preventDefault()}
+      >
         <img src={image} className="card-img-top" alt="강의 샘플 이미지" />
         <div className="card-body">
           <h5 className="card-category">
@@ -49,7 +56,7 @@ const LectureCard = (props: CardType) => {
           <div className="rate-box">
             <img src="/images/rate.png" alt="평점" className="rate-img" />
             <div className="rate-text">
-              {rate.toFixed(1)}
+              {rate?.toFixed(1)}
               <span className="rate-count">({rateCount})</span>
             </div>
             <img
@@ -63,7 +70,7 @@ const LectureCard = (props: CardType) => {
         </div>
       </Link>
       <div className="tags">
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <div key={tag} className="lecture-tag">
             {tag}
           </div>
