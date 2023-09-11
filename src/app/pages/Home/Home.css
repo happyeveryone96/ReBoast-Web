@@ -383,7 +383,10 @@
   .new-lecture,
   .hot-lecture {
     width: 95vw;
-    margin: 120px auto;
+    margin: 120px 40px;
+  }
+  .slick-track {
+    transform: 0;
   }
 }
 
@@ -391,6 +394,10 @@
   .lecture-num {
     position: relative;
     top: 10px;
+  }
+  .slider {
+    width: 90%;
+    padding: 0 40px;
   }
 }
 
