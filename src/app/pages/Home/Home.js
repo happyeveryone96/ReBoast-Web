@@ -14,6 +14,9 @@ import LectureCard from 'app/components/LectureCard/LectureCard.tsx';
 import LectureCardData from 'app/data/lectureCardData.ts';
 import SignUpAgreeModal from 'app/components/SignUpAgreeModal/SignUpAgreeModal';
 import useWindowSize from 'app/hooks/useWindowSize';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -43,7 +46,7 @@ const Home = () => {
 
   const chunkArray = (arr, size) => {
     const chunkedArr = [];
-    for (let i = 0; i < arr.length; i += size) {
+    for (let i = 0; i < arr?.length; i += size) {
       chunkedArr.push(arr.slice(i, i + size));
     }
     return chunkedArr;
@@ -77,6 +80,21 @@ const Home = () => {
     setHotCardData(hotSlides);
     setNewCardData(newSlides);
   }, [width]);
+
+  const [disableClick, setDisableClick] = useState(false);
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: width < 821 ? 1.1 : 3.1,
+    slidesToScroll: 1,
+    beforeChange: (currentSlide, nextSlide) => {
+      setDisableClick(true);
+    },
+    afterChange: (currentSlide, nextSlide) => {
+      setDisableClick(false);
+    },
+  };
 
   return (
     <div className="home">
@@ -168,28 +186,43 @@ const Home = () => {
             />
           </Link>
         </div>
-        <Carousel
-          interval={null}
-          nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}
-          prevIcon={<img src="/images/chevronLeft.png" alt="이전 버튼" />}
-        >
-          {hotCardData.map((slide, index) => (
-            <Carousel.Item key={index} className="carousel-item">
-              <div className="lecture-num">
-                {index + 1}/{hotSlides.length}
-              </div>
 
-              <Row>
-                {slide.map((card) => (
-                  <Col key={card.id} className="col">
-                    <LectureCard key={card.id} card={card} />
-                  </Col>
-                ))}
-              </Row>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-        {/* </div> */}
+        {width >= 1024 ? (
+          <Carousel
+            interval={null}
+            nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}
+            prevIcon={<img src="/images/chevronLeft.png" alt="이전 버튼" />}
+          >
+            {hotCardData.map((slide, index) => (
+              <Carousel.Item key={index} className="carousel-item">
+                <div className="lecture-num">
+                  {index + 1}/{hotSlides?.length}
+                </div>
+
+                <Row>
+                  {slide.map((card) => (
+                    <Col key={card.id} className="col">
+                      <LectureCard key={card.id} card={card} />
+                    </Col>
+                  ))}
+                </Row>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <Slider {...settings} style={{ padding: '30px', left: '30px' }}>
+            {cardData
+              .sort((a, b) => b.rate - a.rate)
+              .slice(0, 8)
+              .map((card) => (
+                <LectureCard
+                  key={card.id}
+                  card={card}
+                  disableClick={disableClick}
+                />
+              ))}
+          </Slider>
+        )}
       </div>
 
       <div className="new-lecture">
@@ -207,27 +240,42 @@ const Home = () => {
           </Link>
         </div>
 
-        <Carousel
-          interval={null}
-          nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}
-          prevIcon={<img src="/images/chevronLeft.png" alt="이전 버튼" />}
-        >
-          {newCardData.map((slide, index) => (
-            <Carousel.Item key={index} className="carousel-item">
-              <div className="lecture-num">
-                {index + 1}/{newSlides.length}
-              </div>
+        {width >= 1024 ? (
+          <Carousel
+            interval={null}
+            nextIcon={<img src="/images/chevronRight.png" alt="다음 버튼" />}
+            prevIcon={<img src="/images/chevronLeft.png" alt="이전 버튼" />}
+          >
+            {newCardData.map((slide, index) => (
+              <Carousel.Item key={index} className="carousel-item">
+                <div className="lecture-num">
+                  {index + 1}/{newSlides?.length}
+                </div>
 
-              <Row>
-                {slide.map((card) => (
-                  <Col key={card.id} className="col">
-                    <LectureCard key={card.id} card={card} />
-                  </Col>
-                ))}
-              </Row>
-            </Carousel.Item>
-          ))}
-        </Carousel>
+                <Row>
+                  {slide.map((card) => (
+                    <Col key={card.id} className="col">
+                      <LectureCard key={card.id} card={card} />
+                    </Col>
+                  ))}
+                </Row>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <Slider {...settings} style={{ padding: '30px', left: '30px' }}>
+            {cardData
+              .sort((a, b) => convertToDate(b.date) - convertToDate(a.date))
+              .slice(0, 8)
+              .map((card) => (
+                <LectureCard
+                  key={card.id}
+                  card={card}
+                  disableClick={disableClick}
+                />
+              ))}
+          </Slider>
+        )}
       </div>
 
       {/* <div className="mentoring-board">
