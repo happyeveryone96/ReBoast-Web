@@ -222,6 +222,71 @@ const Navbar = () => {
         </div>
       </div>
       <nav className="navbar navbar-expand navbar-white">
+        {isSubMenuOpen && (
+          <div
+            className="sub-lecture-container"
+            // onMouseEnter={handleSubMenuEnter}
+            onMouseLeave={handleSubMenuLeave}
+            // onMouseLeave={(e) => leaveDiv(e)}
+          >
+            <div className="lecture">
+              <img
+                src="/images/lecture.png"
+                alt="강의"
+                className="lecture-img"
+              />
+              <span className="category-title">강의</span>
+              <div className="lecture-text">
+                온라인 교육 서비스를 <br />
+                제공합니다.
+              </div>
+            </div>
+            <div className="foundation">
+              <div>
+                <span className="category-title">창업</span>
+              </div>
+              <li className="category-list">코파운더</li>
+              <li className="category-list">파운더</li>
+            </div>
+            <div className="employment">
+              <div>
+                <span className="category-title">취업</span>
+              </div>
+              <li className="category-list">프론트엔드</li>
+              <li className="category-list">백엔드</li>
+              <li className="category-list">데이터 엔지니어</li>
+              <li className="category-list">인공지능</li>
+            </div>
+            <div className="hobby">
+              <div>
+                <span className="category-title">취미</span>
+              </div>
+              <li className="category-list">음악</li>
+              <li className="category-list">미술</li>
+              <li className="category-list">체육</li>
+            </div>
+            <div className="school-learning">
+              <div>
+                <span className="category-title">초/중/고 학습</span>
+              </div>
+              <li className="category-list">국어</li>
+              <li className="category-list">영어</li>
+              <li className="category-list">수학</li>
+              <li className="category-list">과학</li>
+              <li className="category-list">제 2 외국어</li>
+            </div>
+            <div className="university">
+              <div>
+                <span className="category-title">대학 교육</span>
+              </div>
+              <li className="category-list">논리적 사고</li>
+              <li className="category-list">글쓰기</li>
+              <li className="category-list">소통</li>
+              <li className="category-list">협업</li>
+            </div>
+          </div>
+        )}
+
         <div className="nav-container">
           <div className="nav-container-left">
             {/* <div className="menu">
@@ -310,66 +375,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {isSubMenuOpen && (
-        <div
-          className="sub-lecture-container"
-          // onMouseEnter={handleSubMenuEnter}
-          onMouseLeave={handleSubMenuLeave}
-          // onMouseLeave={(e) => leaveDiv(e)}
-        >
-          <div className="lecture">
-            <img src="/images/lecture.png" alt="강의" className="lecture-img" />
-            <span className="category-title">강의</span>
-            <div className="lecture-text">
-              온라인 교육 서비스를 <br />
-              제공합니다.
-            </div>
-          </div>
-          <div className="foundation">
-            <div>
-              <span className="category-title">창업</span>
-            </div>
-            <li className="category-list">코파운더</li>
-            <li className="category-list">파운더</li>
-          </div>
-          <div className="employment">
-            <div>
-              <span className="category-title">취업</span>
-            </div>
-            <li className="category-list">프론트엔드</li>
-            <li className="category-list">백엔드</li>
-            <li className="category-list">데이터 엔지니어</li>
-            <li className="category-list">인공지능</li>
-          </div>
-          <div className="hobby">
-            <div>
-              <span className="category-title">취미</span>
-            </div>
-            <li className="category-list">음악</li>
-            <li className="category-list">미술</li>
-            <li className="category-list">체육</li>
-          </div>
-          <div className="school-learning">
-            <div>
-              <span className="category-title">초/중/고 학습</span>
-            </div>
-            <li className="category-list">국어</li>
-            <li className="category-list">영어</li>
-            <li className="category-list">수학</li>
-            <li className="category-list">과학</li>
-            <li className="category-list">제 2 외국어</li>
-          </div>
-          <div className="university">
-            <div>
-              <span className="category-title">대학 교육</span>
-            </div>
-            <li className="category-list">논리적 사고</li>
-            <li className="category-list">글쓰기</li>
-            <li className="category-list">소통</li>
-            <li className="category-list">협업</li>
-          </div>
-        </div>
-      )}
     </>
   );
 };
