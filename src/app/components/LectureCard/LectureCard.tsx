@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import 'app/components/LectureCard/LectureCard.css';
 import useWindowSize from 'app/hooks/useWindowSize';
 
@@ -21,6 +21,9 @@ interface CardType {
 }
 
 const LectureCard = (props: CardType) => {
+  const { pathname } = useLocation();
+  const isLecturePage = pathname === '/lecture';
+
   const [showAllTags, setShowAllTags] = useState(false);
   const {
     id,
@@ -44,7 +47,12 @@ const LectureCard = (props: CardType) => {
   const moreTagsNum = tags?.length - 3;
 
   return (
-    <div className={`${isMobile && 'mobile-card'} card`} title={title}>
+    <div
+      className={`${isMobile && 'mobile-card'} ${
+        isLecturePage && 'lecture-page-card'
+      } card`}
+      title={title}
+    >
       <Link
         to={`/lecture/${id}`}
         className="preview-link"

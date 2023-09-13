@@ -258,6 +258,9 @@
 }
 
 .sub-lecture-container {
+  position: absolute;
+  width: 100%;
+  top: 71px;
   display: flex;
   height: 254px;
   margin: 0 auto;
