@@ -10,6 +10,7 @@ import CategorySearchBar from 'app/components/CategorySearchBar/CategorySearchBa
 import CategorySideBar from 'app/components/CategorySideBar/CategorySideBar.tsx';
 import CATEGORY_DATA from 'app/data/categoryData.ts';
 import HotTag from 'app/components/HotTag/HotTag.tsx';
+import ScrollToTopButton from 'app/components/ScrollToTopButton/ScrollToTopButton.tsx';
 
 const LecturePage = () => {
   const accessToken = localStorage.getItem('accessToken');
@@ -99,6 +100,7 @@ const LecturePage = () => {
 
   return (
     <div className="home-page lecture-home-page">
+      <ScrollToTopButton />
       <CategorySideBar
         setCategory={setCategory}
         subCategory={subCategory}
@@ -144,7 +146,6 @@ const LecturePage = () => {
         <div className="search-result">
           {checkSearch && (
             <>
-              {' '}
               검색결과가
               <span className="search-highlight">
                 &nbsp;{data?.length}건&nbsp;

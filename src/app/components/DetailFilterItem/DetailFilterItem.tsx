@@ -7,12 +7,9 @@ interface DetailFilterItemProps {
   setIsReset: Dispatch<SetStateAction<boolean>>;
 }
 
-const DetailFilterItem: React.FC<DetailFilterItemProps> = ({
-  label,
-  isReset,
-  setIsReset,
-}) => {
+const DetailFilterItem: React.FC<any> = (props) => {
   const [isChecked, setIsChecked] = useState(false);
+  const { isReset, label, setIsReset, onCheckChange } = props;
 
   useEffect(() => {
     if (isReset) {
@@ -21,19 +18,25 @@ const DetailFilterItem: React.FC<DetailFilterItemProps> = ({
     }
   }, [isReset]);
 
+  const handleCheckboxClick = () => {
+    const newCheckedState = !isChecked;
+    setIsChecked(newCheckedState);
+    onCheckChange(label, newCheckedState);
+  };
+
   return (
     <label className={css.field}>
       <img
         src="/images/unchecked.png"
         alt="Unchecked"
         className={`category-checkbox-image ${isChecked === true && 'none'}`}
-        onClick={() => setIsChecked(!isChecked)}
+        onClick={handleCheckboxClick}
       />
       <img
         src="/images/checked.png"
         alt="Checked"
         className={`category-checkbox-image ${isChecked === false && 'none'}`}
-        onClick={() => setIsChecked(!isChecked)}
+        onClick={handleCheckboxClick}
       />
       {label}
     </label>

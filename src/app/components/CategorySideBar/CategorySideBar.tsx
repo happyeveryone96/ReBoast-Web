@@ -1,8 +1,9 @@
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import React, { useState, Dispatch, SetStateAction, useEffect } from 'react';
 import css from 'app/components/CategorySideBar/CategorySideBar.module.css';
 import CategoryToggle from 'app/components/CategoryToggle/CategoryToggle';
 import useWindowSize from 'app/hooks/useWindowSize';
 import DetailFilterItem from 'app/components/DetailFilterItem/DetailFilterItem';
+import FilterBox from '../FilterBox/FilterBox';
 
 interface CategorySideBarType {
   setCategory: Dispatch<SetStateAction<string | null>>;
@@ -20,6 +21,7 @@ const CategorySideBar = (props: CategorySideBarType) => {
   const isTabletMobile = width < 1024;
 
   const [isReset, setIsReset] = useState(false);
+  const [resetCount, setResetCount] = useState(0);
 
   const [isOpen, setIsOpen] = useState<ToggleState>({
     창업: false,
@@ -48,6 +50,13 @@ const CategorySideBar = (props: CategorySideBarType) => {
       setCurrentOpenToggle(category);
     }
   };
+
+  useEffect(() => {
+    if (isReset) {
+      setResetCount((prevCount) => prevCount + 1);
+      setIsReset(false);
+    }
+  }, [isReset]);
 
   return (
     <div className={isTabletMobile ? css.container : css['desktop-container']}>
@@ -112,92 +121,74 @@ const CategorySideBar = (props: CategorySideBarType) => {
         </div>
       </div>
 
-      <div>
-        <div className={css['filter-box-title']}>
-          업무분류
-          {/* <span>2</span> */}
-        </div>
-        <div className={css['detail-filter-box']}>
-          <DetailFilterItem
-            label="프론트엔드"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="백엔드"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="서버 클라우드"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="블록체인"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-        </div>
-      </div>
+      <FilterBox category="업무분류">
+        <DetailFilterItem
+          label="프론트엔드"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="백엔드"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="서버 클라우드"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="블록체인"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+      </FilterBox>
 
-      <div>
-        <div className={css['filter-box-title']}>
-          직무분류
-          {/* <span>2</span> */}
-        </div>
-        <div className={css['detail-filter-box']}>
-          <DetailFilterItem
-            label="개발 실무·이론"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="커뮤니케이션"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="재도전"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-        </div>
-      </div>
+      <FilterBox category="직무분류">
+        <DetailFilterItem
+          label="개발 실무·이론"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="커뮤니케이션"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="재도전"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+      </FilterBox>
 
-      <div>
-        <div className={css['filter-box-title']}>
-          관심분야
-          {/* <span>2</span> */}
-        </div>
-        <div className={css['detail-filter-box']}>
-          <DetailFilterItem
-            label="사업화"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="기술개발(R&D)"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="시설·공간·보육"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="멘토링·컨설팅"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-          <DetailFilterItem
-            label="글로벌"
-            isReset={isReset}
-            setIsReset={setIsReset}
-          />
-        </div>
-      </div>
+      <FilterBox category="관심분야">
+        <DetailFilterItem
+          label="사업화"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="기술개발(R&D)"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="시설·공간·보육"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="멘토링·컨설팅"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+        <DetailFilterItem
+          label="글로벌"
+          isReset={isReset}
+          setIsReset={setIsReset}
+        />
+      </FilterBox>
 
       <button className={css['filter-btn']}>
         <img src="/images/filter-btn-icon.png" alt="필터 적용 버튼" />
