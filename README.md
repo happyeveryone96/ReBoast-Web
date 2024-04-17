@@ -1,35 +1,42 @@
-# GPTUs 프로토타입
+# ReBoast 프로토타입
 
 ## 개요
 
-- 로그인 모달 / 회원가입 페이지<br> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/66e1326e-95aa-4bca-957f-016bee43864a" alt="로그인" width="500"/> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/1ddcb867-6112-4939-ae32-54de4c80de5d" alt="회원가입" width="500"/>
+- 로그인 모달 / 회원가입 모달<br> <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/893eb80c-4b60-40e7-ace4-1f9c090d5d24" alt="로그인 모달" width="500"/> <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/69c87f55-3b3e-4998-9948-30d226838cbc" alt="회원가입 모달" width="500"/>
+
+<br>
+
+- 회원가입 페이지<br> <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/8e2b76b2-9242-4f7d-abd4-549ab67b26cb" alt="회원가입 페이지1" width="500"/><img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/766d2b9a-920c-429f-a310-0c223885fd46" alt="회원가입 페이지2" width="500"/><img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/d67fd357-c785-4732-a3c9-bcaeb284f15f" alt="회원가입 페이지3" width="500"/>
+
+<br>
 
 - 로그아웃
 
 <br>
 
-- 메인 페이지 <br> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/6afcfce7-cc77-40cc-804b-8d0eb2829400" alt="메인 페이지1" width="500"/> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/a00be6e2-44ee-461c-937b-eef53d5bc475" alt="메인 페이지2" width="500"/> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/a0a2768d-d39e-425f-89c3-26e4cbaba694" alt="메인 페이지3" width="500"/> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/a38d45cd-590e-4f0b-853e-8cdaae584f2b" alt="메인 페이지4" width="500"/>
+- 메인 페이지 <br> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/6afcfce7-cc77-40cc-804b-8d0eb2829400](https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/b61e4704-bf47-4d81-b5f6-0b87bbbd14e7" alt="메인 페이지1" width="500"/> <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/75c895b5-4316-4f91-b553-44130a82e554" alt="메인 페이지2" width="500"/>
 
 <br><br>
 
-- 강의 페이지<br> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/ef534f2f-6e97-42c3-aeea-b0098db58715" alt="강의 페이지" width="500"/>
+- 학습 자료 페이지<br> <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/8f3d3c8d-44fb-453b-aaf2-c0cd4028c237" alt="학습 자료 페이지" width="500"/>
 
 <br><br>
 
-- 강의 상세 페이지<br> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/cc465ecc-a16b-45e3-8efc-d07fb9b42d6c" alt="강의 상세 페이지" width="500"/>
+- 강의 상세 페이지<br> <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/b946b4d5-438c-4989-af48-6495f7d39648" alt="강의 상세 페이지1" width="500"/><img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/6a8ce9b5-d423-4144-9f27-ec89720cf76d" alt="강의 상세 페이지2" width="500"/>
+
 
 <br><br>
 
-- 상담 페이지<br> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/49e1bdf8-134f-4e9c-b03f-850164eaf986" alt="상담 페이지" width="500"/>
+- 멘토 소개 페이지<br> <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/824bb378-d010-4dc4-88f7-13588e82be48" alt="멘토 소개 페이지" width="500"/>
 
   <br><br>
 
-- 상담 상세 페이지<br> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/7e7d371a-27b5-4a67-bb37-98335ae55aa0" alt="상담 상세 페이지" width="500"/>
+- 멤버쉽 페이지<br> <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/4839dcb2-c9ae-4ab7-870c-62e21852af34" alt="멤버쉽 페이지" width="500"/>
 
   <br><br>
 
-- 설정 페이지<br>
-  - 사용자명, 비밀번호 수정 기능<br> <img src="https://github.com/happyeveryone96/gptus-prototype/assets/66675699/df334fa3-acff-4f5c-8916-7a43fbe12c74" alt="설정 페이지" width="500"/>
+- 이벤트 페이지<br>
+  <img src="https://github.com/happyeveryone96/ReBoast-Web/assets/66675699/7af5ad2e-416d-442e-b27b-34cca4073ea7" alt="이벤트 페이지" width="500"/>
 
 <br>
 
